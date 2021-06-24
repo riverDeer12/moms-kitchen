@@ -26,9 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserAnimationsModule,
-    RouterModule.forRoot(AppRoutes, {
-      useHash: true,
-    }),
+    RouterModule.forRoot(AppRoutes),
     SidebarModule,
     NavbarModule,
     ToastrModule.forRoot(),

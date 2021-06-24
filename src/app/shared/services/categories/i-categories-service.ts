@@ -1,4 +1,4 @@
-import { PostCategoryRequest } from './../../shared/dtos/categories/post-category-request';
+import { PostCategoryRequest } from '../../dtos/categories/post-category-request';
 import { Injectable } from '@angular/core';
 import { ApiResponse } from 'app/shared/common/api-response';
 import { Category } from 'app/shared/dtos/categories/category';

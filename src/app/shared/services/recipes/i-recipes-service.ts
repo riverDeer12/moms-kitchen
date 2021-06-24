@@ -1,5 +1,5 @@
-import { UpdateRecipeRequest } from './../../shared/dtos/recipes/update-recipe-request';
-import { PostRecipeRequest } from './../../shared/dtos/recipes/post-recipe-request';
+import { UpdateRecipeRequest } from '../../dtos/recipes/update-recipe-request';
+import { PostRecipeRequest } from '../../dtos/recipes/post-recipe-request';
 import { Injectable } from '@angular/core';
 import { ApiResponse } from 'app/shared/common/api-response';
 import { Recipe } from 'app/shared/dtos/recipes/recipe';

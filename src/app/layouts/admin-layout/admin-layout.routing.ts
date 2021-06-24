@@ -11,11 +11,29 @@ import { RecipesComponent } from 'app/pages/recipes/recipes.component';
 import { CategoriesComponent } from 'app/pages/categories/categories.component';
 import { CreateCategoryComponent } from 'app/pages/categories/create-category/create-category.component';
 import { CategoriesListComponent } from 'app/shared/components/categories/categories-list/categories-list.component';
+import { EditCategoryComponent } from 'app/pages/categories/edit-category/edit-category.component';
+import { CreateRecipeComponent } from 'app/pages/recipes/create-recipe/create-recipe.component';
+import { EditRecipeComponent } from 'app/pages/recipes/edit-recipe/edit-recipe.component';
+import { RecipesListComponent } from 'app/shared/components/recipes/recipes-list/recipes-list.component';
 
 export const AdminLayoutRoutes: Routes = [
   {
     path: 'recipes',
     component: RecipesComponent,
+    children: [
+      {
+        path: '',
+        component: RecipesListComponent
+      },
+      {
+        path: 'create',
+        component: CreateRecipeComponent,
+      },
+      {
+        path: 'edit/:id',
+        component: EditRecipeComponent,
+      },
+    ],
   },
   {
     path: 'categories',
@@ -28,6 +46,10 @@ export const AdminLayoutRoutes: Routes = [
       {
         path: 'create',
         component: CreateCategoryComponent,
+      },
+      {
+        path: 'edit/:id',
+        component: EditCategoryComponent,
       },
     ],
   },

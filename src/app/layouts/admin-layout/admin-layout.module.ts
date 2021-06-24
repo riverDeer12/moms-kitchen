@@ -1,3 +1,4 @@
+import { CreateRecipeComponent } from './../../pages/recipes/create-recipe/create-recipe.component';
 import { SharedModule } from './../../shared/shared.module';
 import { CreateCategoryFormComponent } from './../../shared/components/categories/create-category-form/create-category-form.component';
 import { NgModule } from '@angular/core';
@@ -18,6 +19,7 @@ import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateCategoryComponent } from 'app/pages/categories/create-category/create-category.component';
+import { EditCategoryComponent } from 'app/pages/categories/edit-category/edit-category.component';
 
 @NgModule({
   imports: [
@@ -36,7 +38,9 @@ import { CreateCategoryComponent } from 'app/pages/categories/create-category/cr
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    CreateCategoryComponent
+    CreateCategoryComponent,
+    EditCategoryComponent,
+    CreateRecipeComponent
   ],
 })
 export class AdminLayoutModule {}

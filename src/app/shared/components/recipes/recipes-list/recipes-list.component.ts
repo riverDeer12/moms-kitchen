@@ -1,22 +1,25 @@
+
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'app/shared/services/common/common.service';
 
 @Component({
-  selector: 'app-create-category',
-  templateUrl: './create-category.component.html',
-  styleUrls: ['./create-category.component.scss'],
+  selector: 'app-recipes-list',
+  templateUrl: './recipes-list.component.html',
+  styleUrls: ['./recipes-list.component.scss']
 })
-export class CreateCategoryComponent implements OnInit {
+export class RecipesListComponent implements OnInit {
+
   constructor(private commonService: CommonService) {
     this.setPageSettings();
-  }
+   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   setPageSettings(): void {
     this.commonService.pageSettings.next({
-      title: 'New Category',
-      subtitle: 'Please provide data for new category',
+      title: 'Recipes list',
+      subtitle: 'List of all registered recipes',
     });
   }
 }

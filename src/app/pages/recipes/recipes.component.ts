@@ -17,7 +17,7 @@ export class RecipesComponent implements OnInit {
   ngOnInit(): void {}
 
   getPageSettings(): void {
-    this.commonService.pageSettings.subscribe(data => {
+    this.commonService.getPageSettings().subscribe(data => {
       this.title = data.title;
       this.subtitle = data.subtitle;
     });

@@ -1,4 +1,4 @@
-import { CreateCategoryFormComponent } from './shared/components/categories/create-category-form/create-category-form.component';
+import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -16,13 +16,15 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { RecipesComponent } from './pages/recipes/recipes.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     RecipesComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -33,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     FooterModule,
     FixedPluginModule,
     HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

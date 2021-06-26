@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonService } from 'app/shared/services/common/common.service';
+import { ICommonService } from 'app/shared/services/common/i-common-service';
 
 @Component({
   selector: 'app-categories-list',
@@ -7,16 +7,16 @@ import { CommonService } from 'app/shared/services/common/common.service';
   styleUrls: ['./categories-list.component.scss'],
 })
 export class CategoriesListComponent implements OnInit {
-  constructor(private commonService: CommonService) {
+  constructor(private commonService: ICommonService) {
     this.setPageSettings();
   }
 
   ngOnInit() {}
 
   setPageSettings(): void {
-    this.commonService.pageSettings.next({
-      title: 'Categories list',
-      subtitle: 'List of all registered categories',
-    });
+    this.commonService.setPageSettings(
+      'Categories list',
+      'List of all registered categories'
+    );
   }
 }

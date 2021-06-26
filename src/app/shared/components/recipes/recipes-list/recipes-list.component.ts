@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { CommonService } from 'app/shared/services/common/common.service';
+import { ICommonService } from 'app/shared/services/common/i-common-service';
 
 @Component({
   selector: 'app-recipes-list',
@@ -9,7 +9,7 @@ import { CommonService } from 'app/shared/services/common/common.service';
 })
 export class RecipesListComponent implements OnInit {
 
-  constructor(private commonService: CommonService) {
+  constructor(private commonService: ICommonService) {
     this.setPageSettings();
    }
 
@@ -17,9 +17,9 @@ export class RecipesListComponent implements OnInit {
   }
 
   setPageSettings(): void {
-    this.commonService.pageSettings.next({
-      title: 'Recipes list',
-      subtitle: 'List of all registered recipes',
-    });
+    this.commonService.setPageSettings(
+      'Recipes list',
+      'List of all registered recipes'
+    );
   }
 }

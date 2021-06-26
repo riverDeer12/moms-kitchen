@@ -7,7 +7,6 @@ import { CommonService } from 'app/shared/services/common/common.service';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-
   title: string;
   subtitle: string;
 
@@ -18,7 +17,7 @@ export class CategoriesComponent implements OnInit {
   ngOnInit(): void {}
 
   getPageSettings(): void {
-    this.commonService.pageSettings.subscribe(data => {
+    this.commonService.getPageSettings().subscribe(data => {
       this.title = data.title;
       this.subtitle = data.subtitle;
     });

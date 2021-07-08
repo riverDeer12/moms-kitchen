@@ -1,9 +1,9 @@
-<form>
+<form *ngIf="!loadingData" [formGroup]="createForm" (submit)="submit()">
   <div class="row">
     <div class="col-md-6 pr-1">
       <div class="form-group">
         <label>Name</label>
-        <input type="text" class="form-control" placeholder="enter recipe name here...">
+        <input type="text" class="form-control" placeholder="enter recipe name here..." formControlName="name">
       </div>
     </div>
   </div>
@@ -11,7 +11,23 @@
     <div class="col-md-6 pr-1">
       <div class="form-group">
         <label>Description</label>
-        <input type="text" class="form-control" placeholder="enter recipe description here...">
+        <input type="text" class="form-control" placeholder="enter recipe description here..."
+          formControlName="description">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 pr-1">
+      <div class="form-group">
+        <div class="form-group">
+          <label for="complexityLevelSelector"></label>
+          <select class="form-control" id="complexityLevelSelector" formControlName="complexityLevelId">
+            <option *ngFor="let complexityLevel of complexityLevels" 
+              value="{{complexityLevel.id}}">
+              {{complexityLevel.name}}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
   </div>

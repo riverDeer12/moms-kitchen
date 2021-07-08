@@ -1,6 +1,7 @@
+import { EditComplexityLevelComponent } from './../../pages/complexity-levels/edit-complexity-level/edit-complexity-level.component';
+import { CreateComplexityLevelComponent } from './../../pages/complexity-levels/create-complexity-level/create-complexity-level.component';
 import { CreateRecipeComponent } from './../../pages/recipes/create-recipe/create-recipe.component';
 import { SharedModule } from './../../shared/shared.module';
-import { CreateCategoryFormComponent } from './../../shared/components/categories/create-category-form/create-category-form.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -20,6 +21,7 @@ import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateCategoryComponent } from 'app/pages/categories/create-category/create-category.component';
 import { EditCategoryComponent } from 'app/pages/categories/edit-category/edit-category.component';
+import { EditRecipeComponent } from 'app/pages/recipes/edit-recipe/edit-recipe.component';
 
 @NgModule({
   imports: [
@@ -40,7 +42,10 @@ import { EditCategoryComponent } from 'app/pages/categories/edit-category/edit-c
     NotificationsComponent,
     CreateCategoryComponent,
     EditCategoryComponent,
-    CreateRecipeComponent
-  ],
+    CreateRecipeComponent,
+    EditRecipeComponent,
+    CreateComplexityLevelComponent,
+    EditComplexityLevelComponent
+  ]
 })
 export class AdminLayoutModule {}

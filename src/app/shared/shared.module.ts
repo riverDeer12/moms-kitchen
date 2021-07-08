@@ -7,24 +7,27 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EditCategoryFormComponent } from './components/categories/edit-category-form/edit-category-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule],
   declarations: [
-    CreateCategoryFormComponent,
     CategoriesListComponent,
+    CreateCategoryFormComponent,
+    RecipesListComponent,
     EditCategoryFormComponent,
     CreateRecipeFormComponent,
     EditRecipeFormComponent,
     LoginFormComponent
   ],
   exports: [
-    CreateCategoryFormComponent,
     CategoriesListComponent,
+    CreateCategoryFormComponent,
     EditCategoryFormComponent,
     CreateRecipeFormComponent,
     EditRecipeFormComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    RecipesListComponent,
   ],
 })
 export class SharedModule {}

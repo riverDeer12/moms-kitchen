@@ -5,9 +5,7 @@ import { Category } from 'app/shared/dtos/categories/category';
 import { Observable } from 'rxjs';
 import { UpdateCategoryRequest } from 'app/shared/dtos/categories/update-category-request';
 
-@Injectable({
-    providedIn: 'root',
-  })
+@Injectable()
   export abstract class ICategoriesService {
     abstract getCategories(): Observable<ApiResponse<Category>>;
     abstract getCategory(categoryId: string): Observable<ApiResponse<Category>>;

@@ -1,3 +1,8 @@
+import { ComplexityLevelsComponent } from './pages/complexity-levels/complexity-levels.component';
+import { CommonService } from 'app/shared/services/common/common.service';
+import { CategoriesService } from './shared/services/categories/categories.service';
+import { RecipesService } from './shared/services/recipes/recipes.service';
+import { AuthService } from './shared/services/auth/auth.service';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -17,6 +22,8 @@ import { RecipesComponent } from './pages/recipes/recipes.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
+import { CreateComplexityLevelComponent } from './pages/complexity-levels/create-complexity-level/create-complexity-level.component';
+import { ComplexityLevelsService } from './shared/services/complexity-levels/complexity-levels.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +31,8 @@ import { LoginComponent } from './pages/login/login.component';
     AdminLayoutComponent,
     RecipesComponent,
     CategoriesComponent,
-    LoginComponent
+    LoginComponent,
+    ComplexityLevelsComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -35,9 +43,15 @@ import { LoginComponent } from './pages/login/login.component';
     FooterModule,
     FixedPluginModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    AuthService,
+    CommonService,
+    RecipesService,
+    CategoriesService,
+    ComplexityLevelsService
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

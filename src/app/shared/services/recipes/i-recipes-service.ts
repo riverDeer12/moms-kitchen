@@ -5,9 +5,7 @@ import { ApiResponse } from 'app/shared/common/api-response';
 import { Recipe } from 'app/shared/dtos/recipes/recipe';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export abstract class IRecipesService {
   abstract getRecipes(): Observable<ApiResponse<Recipe>>;
   abstract getRecipe(recipeId: string): Observable<ApiResponse<Recipe>>;

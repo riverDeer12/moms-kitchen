@@ -8,25 +8,23 @@ import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { IRecipesService } from './i-recipes-service';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class RecipesService implements IRecipesService {
+@Injectable()
+export class RecipesService {
 
   recipesUrl = environment.apiUrl + '/recipes';
 
   constructor(private http: HttpClient) {}
 
-  getRecipes(): Observable<ApiResponse<Recipe>> {
-    return this.http.get<ApiResponse<Recipe>>(this.recipesUrl);
+  getRecipes(): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(this.recipesUrl);
   }
 
   getRecipe(recipeId: string): Observable<ApiResponse<Recipe>> {
     return this.http.get<ApiResponse<Recipe>>(this.recipesUrl + '/' + recipeId);
   }
 
-  createRecipe(postRecipeRequest: PostRecipeRequest): Observable<ApiResponse<Recipe>> {
-    return this.http.post<ApiResponse<Recipe>>(this.recipesUrl, postRecipeRequest)
+  createRecipe(postRecipeRequest: PostRecipeRequest): Observable<Recipe> {
+    return this.http.post<Recipe>(this.recipesUrl, postRecipeRequest)
   }
 
   updateRecipe(recipeId: string, updateRecipeRequest: UpdateRecipeRequest): Observable<ApiResponse<Recipe>> {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICommonService } from 'app/shared/services/common/i-common-service';
+import { CommonService } from 'app/shared/services/common/common.service';
 
 @Component({
   selector: 'app-create-category',
@@ -7,7 +7,9 @@ import { ICommonService } from 'app/shared/services/common/i-common-service';
   styleUrls: ['./create-category.component.scss'],
 })
 export class CreateCategoryComponent implements OnInit {
-  constructor(private commonService: ICommonService) {
+  returnUrl = '/categories';
+
+  constructor(private commonService: CommonService) {
     this.setPageSettings();
   }
 

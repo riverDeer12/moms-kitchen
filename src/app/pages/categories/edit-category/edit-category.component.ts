@@ -3,7 +3,7 @@ import { ICategoriesService } from 'app/shared/services/categories/i-categories-
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'app/shared/dtos/categories/category';
-import { ICommonService } from 'app/shared/services/common/i-common-service';
+import { CommonService } from 'app/shared/services/common/common.service';
 
 @Component({
   selector: 'app-edit-category',
@@ -17,7 +17,7 @@ export class EditCategoryComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private commonService: ICommonService,
+    private commonService: CommonService,
     private categoriesService: ICategoriesService
   ) {
     this.loadingData = true;

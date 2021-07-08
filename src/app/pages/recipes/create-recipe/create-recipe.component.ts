@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICommonService } from 'app/shared/services/common/i-common-service';
+import { CommonService } from 'app/shared/services/common/common.service';
 
 @Component({
   selector: 'app-create-recipe',
@@ -7,7 +7,9 @@ import { ICommonService } from 'app/shared/services/common/i-common-service';
   styleUrls: ['./create-recipe.component.scss'],
 })
 export class CreateRecipeComponent implements OnInit {
-  constructor(private commonService: ICommonService) {
+  returnUrl = '/recipes';
+
+  constructor(private commonService: CommonService) {
     this.setPageSettings();
   }
 

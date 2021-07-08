@@ -3,9 +3,7 @@ import { ApiResponse } from 'app/shared/common/api-response';
 import { AuthUser } from 'app/shared/common/auth-user';
 import { IAuthService } from './i-auth-service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService implements IAuthService {
 
 constructor() { }

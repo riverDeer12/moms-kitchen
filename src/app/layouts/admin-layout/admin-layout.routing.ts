@@ -1,3 +1,7 @@
+import { EditComplexityLevelComponent } from './../../pages/complexity-levels/edit-complexity-level/edit-complexity-level.component';
+import { CreateComplexityLevelComponent } from './../../pages/complexity-levels/create-complexity-level/create-complexity-level.component';
+import { ComplexityLevelsListComponent } from './../../shared/components/complexity-levels/complexity-levels-list/complexity-levels-list.component';
+import { ComplexityLevelsComponent } from './../../pages/complexity-levels/complexity-levels.component';
 import { Routes } from '@angular/router';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { UserComponent } from '../../pages/user/user.component';
@@ -50,6 +54,24 @@ export const AdminLayoutRoutes: Routes = [
       {
         path: 'edit/:id',
         component: EditCategoryComponent,
+      },
+    ],
+  },
+  {
+    path: 'complexity-levels',
+    component: ComplexityLevelsComponent,
+    children: [
+      {
+        path: '',
+        component: ComplexityLevelsListComponent
+      },
+      {
+        path: 'create',
+        component: CreateComplexityLevelComponent,
+      },
+      {
+        path: 'edit/:id',
+        component: EditComplexityLevelComponent,
       },
     ],
   },

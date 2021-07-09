@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class ComplexityLevelsService {
 
-  complexityLevelsUrl = environment.apiUrl + '/categories';
+  complexityLevelsUrl = environment.apiUrl + '/complexityLevels';
 
   constructor(private http: HttpClient) {}
 

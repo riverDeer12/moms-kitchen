@@ -22,6 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateCategoryComponent } from 'app/pages/categories/create-category/create-category.component';
 import { EditCategoryComponent } from 'app/pages/categories/edit-category/edit-category.component';
 import { EditRecipeComponent } from 'app/pages/recipes/edit-recipe/edit-recipe.component';
+import { ComplexityLevelInfoComponent } from 'app/pages/complexity-levels/complexity-level-info/complexity-level-info.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,7 @@ import { EditRecipeComponent } from 'app/pages/recipes/edit-recipe/edit-recipe.c
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     NgbModule,
-    SharedModule,
+    SharedModule
   ],
   declarations: [
     DashboardComponent,
@@ -45,7 +46,8 @@ import { EditRecipeComponent } from 'app/pages/recipes/edit-recipe/edit-recipe.c
     CreateRecipeComponent,
     EditRecipeComponent,
     CreateComplexityLevelComponent,
-    EditComplexityLevelComponent
+    EditComplexityLevelComponent,
+    ComplexityLevelInfoComponent
   ]
 })
 export class AdminLayoutModule {}

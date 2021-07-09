@@ -1,3 +1,4 @@
+import { CommonService } from './../../../shared/services/common/common.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComplexityLevelComponent implements OnInit {
 
-  constructor() { }
+  returnUrl = '/complexity-levels';
+
+  constructor(private commonService: CommonService) {
+    this.setPageSettings();
+   }
 
   ngOnInit(): void {
+  }
+
+  setPageSettings(): void {
+    this.commonService.setPageSettings(
+      'New Complexity Level',
+      'Please provide data for new complexity level'
+    );
   }
 
 }

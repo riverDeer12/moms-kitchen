@@ -19,6 +19,7 @@ import { EditCategoryComponent } from 'app/pages/categories/edit-category/edit-c
 import { CreateRecipeComponent } from 'app/pages/recipes/create-recipe/create-recipe.component';
 import { EditRecipeComponent } from 'app/pages/recipes/edit-recipe/edit-recipe.component';
 import { RecipesListComponent } from 'app/shared/components/recipes/recipes-list/recipes-list.component';
+import { ComplexityLevelInfoComponent } from 'app/pages/complexity-levels/complexity-level-info/complexity-level-info.component';
 
 export const AdminLayoutRoutes: Routes = [
   {
@@ -68,6 +69,10 @@ export const AdminLayoutRoutes: Routes = [
       {
         path: 'create',
         component: CreateComplexityLevelComponent,
+      },
+      {
+        path: 'info/:id',
+        component: ComplexityLevelInfoComponent,
       },
       {
         path: 'edit/:id',

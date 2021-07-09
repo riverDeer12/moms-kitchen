@@ -1,3 +1,35 @@
-<p>
-  create-complexity-level-form works!
-</p>
+<form *ngIf="!loadingData" [formGroup]="createForm" (submit)="submit()">
+  <div class="row">
+    <div class="col-md-6 pr-1">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="enter complexity level name here..." formControlName="name">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 pr-1">
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" placeholder="enter complexity level description here..."
+          formControlName="description">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 pr-1">
+      <div class="form-group">
+        <div class="form-group">
+          <label>Complexity Weight</label>
+          <input type="number" min="0" class="form-control" placeholder="enter complexity level weight here..."
+          formControlName="complexityWeight">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <button type="submit" class="btn btn-primary btn-success">Save</button>
+    </div>
+  </div>
+</form>

@@ -22,7 +22,6 @@ import { RecipesComponent } from './pages/recipes/recipes.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
-import { CreateComplexityLevelComponent } from './pages/complexity-levels/create-complexity-level/create-complexity-level.component';
 import { ComplexityLevelsService } from './shared/services/complexity-levels/complexity-levels.service';
 
 @NgModule({
@@ -43,7 +42,7 @@ import { ComplexityLevelsService } from './shared/services/complexity-levels/com
     FooterModule,
     FixedPluginModule,
     HttpClientModule,
-    SharedModule,
+    SharedModule
   ],
   providers: [
     AuthService,

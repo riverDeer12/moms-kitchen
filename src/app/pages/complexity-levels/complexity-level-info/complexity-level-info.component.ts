@@ -8,13 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./complexity-level-info.component.scss'],
 })
 export class ComplexityLevelInfoComponent implements OnInit {
-  complexityLevelId: string;
+  id: string;
   returnUrl = '/complexity-levels';
+  loadingData: boolean;
+
   constructor(
     private commonService: CommonService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
+    this.loadingData = true;
     this.setPageSettings();
   }
 
@@ -23,7 +26,8 @@ export class ComplexityLevelInfoComponent implements OnInit {
   }
 
   getComplexityLevelId(): void {
-    this.complexityLevelId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.loadingData = false;
   }
 
   setPageSettings(): void {
@@ -38,10 +42,10 @@ export class ComplexityLevelInfoComponent implements OnInit {
   }
 
   goToEditPage(): void {
-    this.router.navigateByUrl('/complexity-levels/edit/' + this.complexityLevelId)
+    this.router.navigateByUrl('/complexity-levels/edit/' + this.id);
   }
 
   goToConfirmDeletePage(): void {
-    this.router.navigateByUrl('/complexity-levels/delete/' + this.complexityLevelId)
+    this.router.navigateByUrl('/complexity-levels/delete/' + this.id);
   }
 }

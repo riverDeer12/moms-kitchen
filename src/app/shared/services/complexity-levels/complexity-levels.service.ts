@@ -31,8 +31,8 @@ export class ComplexityLevelsService {
   }
 
   updateComplexityLevel(complexityLevelId: string, request: UpdateComplexityLevelRequest):
-            Observable<ApiResponse<ComplexityLevel>> {
-    return this.http.put<ApiResponse<ComplexityLevel>>(this.complexityLevelsUrl + '/' + complexityLevelId, request)
+            Observable<ComplexityLevel> {
+    return this.http.put<ComplexityLevel>(this.complexityLevelsUrl + '/' + complexityLevelId, request)
   }
 
   deleteComplexityLevel(complexityLevelId: string): Observable<ApiResponse<ComplexityLevel>> {

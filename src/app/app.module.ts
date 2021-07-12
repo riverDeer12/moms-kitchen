@@ -23,6 +23,7 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { ComplexityLevelsService } from './shared/services/complexity-levels/complexity-levels.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ComplexityLevelsService } from './shared/services/complexity-levels/com
   ],
   imports: [
     BrowserAnimationsModule,
+    NgbModule,
     RouterModule.forRoot(AppRoutes),
     SidebarModule,
     NavbarModule,

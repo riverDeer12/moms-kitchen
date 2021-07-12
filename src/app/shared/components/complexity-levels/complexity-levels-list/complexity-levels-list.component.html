@@ -1,35 +1,39 @@
 <a [href]="'/complexity-levels/create'" class="btn btn-info float-right">
-  Create new complexity level
+    Create new complexity level
 </a>
 
 <table class="table">
-  <thead>
-      <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Complexity Weight</th>
-          <th>Created At</th>
-          <th class="text-center"></th>
-      </tr>
-  </thead>
-  <tbody *ngIf="loadingData">Loading data...</tbody>
-  <tbody *ngIf="!loadingData">
-      <tr  *ngFor="let complexityLevel of complexityLevels">
-          <td>{{ complexityLevel.name }}</td>
-          <td>{{ complexityLevel.description }}</td>
-          <td>{{ complexityLevel.complexityWeight }}</td>
-          <td>{{ complexityLevel.createdAt | date:'short' }}</td>          
-          <td class="td-actions text-center">
-            <button (click)="goToInfoPage(complexityLevel.id)" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
-                <i class="fa fa-info"></i>
-            </button>
-            <button (click)="goToEditPage(complexityLevel.id)" type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
-                <i class="fa fa-edit"></i>
-            </button>
-            <button (click)="confirmDeletePage(complexityLevel.id)" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
-                <i class="fa fa-times"></i>
-            </button>
-          </td>
-      </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Complexity Weight</th>
+            <th>Created At</th>
+            <th class="text-center"></th>
+        </tr>
+    </thead>
+    <tbody *ngIf="loadingData">Loading data...</tbody>
+    <tbody *ngIf="!loadingData">
+        <tr [className]="complexityLevel.isActive ? 'active-record' : 'inactive-record'"  
+            *ngFor="let complexityLevel of complexityLevels">
+            <td>{{ complexityLevel.name }}</td>
+            <td>{{ complexityLevel.description }}</td>
+            <td>{{ complexityLevel.complexityWeight }}</td>
+            <td>{{ complexityLevel.createdAt | date:'dd.MM.yyyy HH:mm:ss' }}</td>
+            <td class="td-actions text-center">
+                <button (click)="goToInfoPage(complexityLevel.id)" type="button" rel="tooltip"
+                    class="btn btn-info btn-sm btn-round btn-icon">
+                    <i class="fa fa-info"></i>
+                </button>
+                <button (click)="goToEditPage(complexityLevel.id)" type="button" rel="tooltip"
+                    class="btn btn-success btn-sm btn-round btn-icon">
+                    <i class="fa fa-edit"></i>
+                </button>
+                <button (click)="confirmDelete(complexityLevel.id)" type="button" rel="tooltip"
+                    class="btn btn-danger btn-sm btn-round btn-icon">
+                    <i class="fa fa-times"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
 </table>

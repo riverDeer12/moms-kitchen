@@ -41,6 +41,7 @@ export class EditComplexityLevelFormComponent implements OnInit {
 
   setEditForm() {
     this.editForm = this.formBuilder.group({
+      isActive: new FormControl(this.complexityLevel.isActive, Validators.required),
       name: new FormControl(this.complexityLevel.name, Validators.required),
       description: new FormControl(this.complexityLevel.description, Validators.required),
       complexityWeight: new FormControl(this.complexityLevel.complexityWeight, [

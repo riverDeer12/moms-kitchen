@@ -31,7 +31,7 @@ export class CategoriesService {
     return this.http.put<ApiResponse<Category>>(this.categoriesUrl + '/' + categoryId, updateCategoryRequest)
   }
 
-  deleteCategory(categoryId: string): Observable<ApiResponse<Category>> {
-    return this.http.delete<ApiResponse<Category>>(this.categoriesUrl + '/' + categoryId);
+  deleteCategory(categoryId: string): Observable<Category> {
+    return this.http.delete<Category>(this.categoriesUrl + '/' + categoryId);
   }
 }

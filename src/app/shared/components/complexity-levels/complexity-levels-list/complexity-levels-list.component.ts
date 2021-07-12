@@ -3,21 +3,24 @@ import { CommonService } from './../../../services/common/common.service';
 import { ComplexityLevelsService } from './../../../services/complexity-levels/complexity-levels.service';
 import { Component, OnInit } from '@angular/core';
 import { ComplexityLevel } from 'app/shared/dtos/complexity-levels/complexity-level';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmDeleteComponent } from '../../common/confirm-delete/confirm-delete.component';
+import { EntityType } from 'app/shared/constants/entity-type';
 
 @Component({
   selector: 'app-complexity-levels-list',
   templateUrl: './complexity-levels-list.component.html',
-  styleUrls: ['./complexity-levels-list.component.scss']
+  styleUrls: ['./complexity-levels-list.component.scss'],
 })
 export class ComplexityLevelsListComponent implements OnInit {
-
   complexityLevels: ComplexityLevel[];
   loadingData: boolean;
 
   constructor(
     private complexityLevelsService: ComplexityLevelsService,
     private commonService: CommonService,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal
   ) {
     this.loadingData = true;
     this.setPageSettings();
@@ -44,6 +47,13 @@ export class ComplexityLevelsListComponent implements OnInit {
         console.log(console.error());
       }
     );
+  }
+
+  confirmDelete(complexityLevelId: string): void {
+    const modalRef = this.modalService.open(ConfirmDeleteComponent);
+    modalRef.componentInstance.entityId = complexityLevelId;
+    modalRef.componentInstance.entityType = EntityType.COMPLEXITY_LEVELS;
+    modalRef.componentInstance.returnUrl = '/complexity-levels';
   }
 
   goToInfoPage(id: string): void {

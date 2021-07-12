@@ -35,7 +35,7 @@ export class ComplexityLevelsService {
     return this.http.put<ComplexityLevel>(this.complexityLevelsUrl + '/' + complexityLevelId, request)
   }
 
-  deleteComplexityLevel(complexityLevelId: string): Observable<ApiResponse<ComplexityLevel>> {
-    return this.http.delete<ApiResponse<ComplexityLevel>>(this.complexityLevelsUrl + '/' + complexityLevelId);
+  deleteComplexityLevel(complexityLevelId: string): Observable<ComplexityLevel> {
+    return this.http.delete<ComplexityLevel>(this.complexityLevelsUrl + '/' + complexityLevelId);
   }
 }

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { CategoriesService } from 'app/shared/services/categories/categories.service';
+import { Category } from 'app/shared/dtos/categories/category';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-category-form',
@@ -7,9 +11,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditCategoryFormComponent implements OnInit {
 
-  constructor() { }
+  @Input() id: string;
+  @Input() returnUrl: string;
 
-  ngOnInit() {
+  loadingData: boolean;
+  editForm: FormGroup;
+  updateResponse: Category;
+  category: Category;
+
+  constructor(
+    private service: CategoriesService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
+    this.loadingData = true;
   }
 
+  ngOnInit() {
+    this.getComplexityLevel();
+  }
+
+  getComplexityLevel() {
+    this.service
+      .getCategory(this.id)
+      .subscribe((response: Category) => {
+        this.category = response as Category;
+        this.setEditForm();
+      });
+  }
+
+  setEditForm() {
+    this.editForm = this.formBuilder.group({
+      isActive: new FormControl(this.category.isActive, Validators.required),
+      name: new FormControl(this.category.name, Validators.required),
+      description: new FormControl(this.category.description, Validators.required)
+    });
+
+    this.loadingData = false;
+  }
+
+  submit(): void {
+    this.service
+      .updateCategory(this.id, this.editForm.value)
+      .subscribe((response: Category) => {
+        this.updateResponse = response as Category;
+        this.router.navigateByUrl(this.returnUrl);
+      });
+  }
 }

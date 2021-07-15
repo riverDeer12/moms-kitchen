@@ -1,18 +1,18 @@
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CommonService } from './../../../shared/services/common/common.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmDeleteComponent } from 'app/shared/components/common/confirm-delete/confirm-delete.component';
+import { CommonService } from 'app/shared/services/common/common.service';
 import { EntityType } from 'app/shared/constants/entity-type';
 
 @Component({
-  selector: 'app-complexity-level-info',
-  templateUrl: './complexity-level-info.component.html',
-  styleUrls: ['./complexity-level-info.component.scss'],
+  selector: 'app-category-info',
+  templateUrl: './category-info.component.html',
+  styleUrls: ['./category-info.component.scss']
 })
-export class ComplexityLevelInfoComponent implements OnInit {
+export class CategoryInfoComponent implements OnInit {
   id: string;
-  returnUrl = '/complexity-levels';
+  returnUrl = '/categories';
   loadingData: boolean;
 
   constructor(
@@ -26,18 +26,18 @@ export class ComplexityLevelInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getComplexityLevelId();
+    this.getCategory();
   }
 
-  getComplexityLevelId(): void {
+  getCategory(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.loadingData = false;
   }
 
   setPageSettings(): void {
     this.commonService.setPageSettings(
-      'Complexity level details',
-      'Here you can read data about complexity level'
+      'Category details',
+      'Here you can read more details about category'
     );
   }
 
@@ -46,19 +46,20 @@ export class ComplexityLevelInfoComponent implements OnInit {
   }
 
   goToEditPage(): void {
-    this.router.navigateByUrl('/complexity-levels/edit/' + this.id);
+    this.router.navigateByUrl('/categories/edit/' + this.id);
   }
 
   confirmDelete(): void {
     const modalRef = this.modalService.open(ConfirmDeleteComponent);
     modalRef.componentInstance.entityId = this.id;
-    modalRef.componentInstance.entityType = EntityType.COMPLEXITY_LEVELS;
-    modalRef.componentInstance.returnUrl = '/complexity-levels';
+    modalRef.componentInstance.entityType = EntityType.CATEGORIES;
+    modalRef.componentInstance.returnUrl = '/categories';
 
     modalRef.result.then((data) => {
-      this.router.navigateByUrl('/complexity-levels');
+      this.router.navigateByUrl('/categories');
     }, (reason) => {
       console.log('Not good!');
     });
   }
+
 }

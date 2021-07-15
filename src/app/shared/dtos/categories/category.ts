@@ -1,5 +1,6 @@
 export class Category {
-    categoryId: string;
+    id: string;
+    isActive: boolean;
     name: string;
     description: string;
 }

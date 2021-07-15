@@ -53,14 +53,12 @@ export class ConfirmDeleteComponent implements OnInit {
   deleteRecipe(): void {
     this.recipesService.deleteRecipe(this.entityId).subscribe(() => {
       this.activeModal.close();
-      this.router.navigateByUrl(this.returnUrl);
     });
   }
 
   deleteCategory(): void {
     this.categoriesService.deleteCategory(this.entityId).subscribe(() => {
       this.activeModal.close();
-      this.router.navigateByUrl(this.returnUrl);
     });
   }
 
@@ -69,7 +67,6 @@ export class ConfirmDeleteComponent implements OnInit {
       .deleteComplexityLevel(this.entityId)
       .subscribe(() => {
         this.activeModal.close();
-        this.router.navigateByUrl(this.returnUrl);
       });
   }
 }

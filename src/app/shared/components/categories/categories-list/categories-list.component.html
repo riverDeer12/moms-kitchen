@@ -11,23 +11,29 @@
             <th class="text-center"></th>
         </tr>
     </thead>
-    <tbody *ngIf="loadingData">Loading data...</tbody>
+    <tbody *ngIf="loadingData">
+        Loading data...
+    </tbody>
     <tbody *ngIf="!loadingData">
-        <tr  *ngFor="let category of categories">
+        <tr [className]="category.isActive ? 'active-record' : 'inactive-record'"
+            *ngFor="let category of categories">
             <td>{{ category.name }}</td>
             <td>{{ category.description }}</td>
             <td>{{ category.createdAt | date:'short' }}</td>
             <td class="td-actions text-center">
-                <button (click)="openInfoModal()" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
+                <button (click)="goToInfoPage(category.id)" type="button" rel="tooltip"
+                    class="btn btn-info btn-sm btn-round btn-icon">
                     <i class="fa fa-info"></i>
                 </button>
-                <button (click)="goToEditPage()" type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
+                <button (click)="goToEditPage(category.id)" type="button" rel="tooltip"
+                    class="btn btn-success btn-sm btn-round btn-icon">
                     <i class="fa fa-edit"></i>
                 </button>
-                <button (click)="openConfirmModal()" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
+                <button (click)="confirmDelete(category.id)" type="button" rel="tooltip"
+                    class="btn btn-danger btn-sm btn-round btn-icon">
                     <i class="fa fa-times"></i>
                 </button>
             </td>
         </tr>
     </tbody>
-  </table>
+</table>

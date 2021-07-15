@@ -1,8 +1,12 @@
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Category } from './../../../dtos/categories/category';
 import { CategoriesService } from './../../../services/categories/categories.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'app/shared/services/common/common.service';
 import { ApiResponse } from 'app/shared/common/api-response';
+import { Router } from '@angular/router';
+import { EntityType } from 'app/shared/constants/entity-type';
+import { ConfirmDeleteComponent } from '../../common/confirm-delete/confirm-delete.component';
 
 @Component({
   selector: 'app-categories-list',
@@ -15,7 +19,9 @@ export class CategoriesListComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
-    private categoriesService: CategoriesService
+    private categoriesService: CategoriesService,
+    private router: Router,
+    private modalService: NgbModal
   ) {
     this.loadingData = true;
     this.setPageSettings();
@@ -42,5 +48,24 @@ export class CategoriesListComponent implements OnInit {
         console.log(console.error());
       }
     );
+  }
+
+  confirmDelete(categoryId: string): void {
+    const modalRef = this.modalService.open(ConfirmDeleteComponent);
+    modalRef.componentInstance.entityId = categoryId;
+    modalRef.componentInstance.entityType = EntityType.CATEGORIES;
+    modalRef.componentInstance.returnUrl = '/categories';
+  }
+
+  goToInfoPage(categoryId: string): void {
+    this.router.navigateByUrl('/categories/info/' + categoryId);
+  }
+
+  goToEditPage(categoryId: string): void {
+    this.router.navigateByUrl('/categories/edit/' + categoryId);
+  }
+
+  goToConfirmDeletePage(categoryId: string): void {
+    this.router.navigateByUrl('/categories/delete/' + categoryId);
   }
 }

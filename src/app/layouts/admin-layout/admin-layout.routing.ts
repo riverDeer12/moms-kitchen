@@ -1,3 +1,4 @@
+import { CategoryInfoComponent } from './../../pages/categories/category-info/category-info.component';
 import { EditComplexityLevelComponent } from './../../pages/complexity-levels/edit-complexity-level/edit-complexity-level.component';
 import { CreateComplexityLevelComponent } from './../../pages/complexity-levels/create-complexity-level/create-complexity-level.component';
 import { ComplexityLevelsListComponent } from './../../shared/components/complexity-levels/complexity-levels-list/complexity-levels-list.component';
@@ -51,6 +52,10 @@ export const AdminLayoutRoutes: Routes = [
       {
         path: 'create',
         component: CreateCategoryComponent,
+      },
+      {
+        path: 'info/:id',
+        component: CategoryInfoComponent,
       },
       {
         path: 'edit/:id',

@@ -1,3 +1,4 @@
+import { CategoryDetailsComponent } from './components/categories/category-details/category-details.component';
 import { ComplexityLevelDetailsComponent } from './components/complexity-levels/complexity-level-details/complexity-level-details.component';
 import { CreateComplexityLevelFormComponent } from './components/complexity-levels/create-complexity-level-form/create-complexity-level-form.component';
 import { LoginFormComponent } from './components/auth/login-form/login-form.component';
@@ -20,6 +21,7 @@ import { ComplexityLevelsListComponent } from './components/complexity-levels/co
     CategoriesListComponent,
     CreateCategoryFormComponent,
     EditCategoryFormComponent,
+    CategoryDetailsComponent,
     RecipesListComponent,
     CreateRecipeFormComponent,
     EditRecipeFormComponent,
@@ -33,6 +35,7 @@ import { ComplexityLevelsListComponent } from './components/complexity-levels/co
     CategoriesListComponent,
     CreateCategoryFormComponent,
     EditCategoryFormComponent,
+    CategoryDetailsComponent,
     RecipesListComponent,
     CreateRecipeFormComponent,
     EditRecipeFormComponent,

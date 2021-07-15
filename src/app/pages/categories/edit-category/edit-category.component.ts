@@ -1,9 +1,9 @@
 import { ApiResponse } from './../../../shared/common/api-response';
-import { ICategoriesService } from 'app/shared/services/categories/i-categories-service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'app/shared/dtos/categories/category';
 import { CommonService } from 'app/shared/services/common/common.service';
+import { CategoriesService } from 'app/shared/services/categories/categories.service';
 
 @Component({
   selector: 'app-edit-category',
@@ -12,28 +12,24 @@ import { CommonService } from 'app/shared/services/common/common.service';
 })
 export class EditCategoryComponent implements OnInit {
   loadingData: boolean;
-  response: ApiResponse<Category>;
-  category: Category;
+  categoryId: string;
+  returnUrl = '/categories';
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private commonService: CommonService,
-    private categoriesService: ICategoriesService
   ) {
     this.loadingData = true;
     this.setPageSettings();
+  }
+
+  ngOnInit() {
     this.getCategory();
   }
 
-  ngOnInit() {}
-
   getCategory(): void {
-    const categoryId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.categoriesService.getCategory(categoryId).subscribe((response) => {
-      this.response = response as ApiResponse<Category>;
-      this.category = response.result;
-      this.loadingData = false;
-    });
+    this.categoryId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.loadingData = false;
   }
 
   setPageSettings(): void {

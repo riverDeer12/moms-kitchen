@@ -38,6 +38,8 @@ export class ComplexityLevelsListComponent implements OnInit {
   }
 
   getComplexityLevels(): void {
+    this.loadingData = true;
+
     this.complexityLevelsService.getComplexityLevels().subscribe(
       (response: ComplexityLevel[]) => {
         this.complexityLevels = response as ComplexityLevel[];
@@ -54,6 +56,12 @@ export class ComplexityLevelsListComponent implements OnInit {
     modalRef.componentInstance.entityId = complexityLevelId;
     modalRef.componentInstance.entityType = EntityType.COMPLEXITY_LEVELS;
     modalRef.componentInstance.returnUrl = '/complexity-levels';
+
+    modalRef.result.then((data) => {
+      this.getComplexityLevels();
+    }, (reason) => {
+      console.log('Not good!');
+    });
   }
 
   goToInfoPage(id: string): void {

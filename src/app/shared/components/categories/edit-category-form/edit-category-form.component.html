@@ -1,9 +1,14 @@
-<form>
+<form *ngIf="!loadingData" [formGroup]="editForm" (submit)="submit()">
   <div class="row">
     <div class="col-md-6 pr-1">
-      <div class="form-group">
-        <label>Is active</label>
-        <input type="checkbox"  class="form-control">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input"  formControlName="isActive">
+          Active
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
       </div>
     </div>
   </div>
@@ -11,7 +16,8 @@
     <div class="col-md-6 pr-1">
       <div class="form-group">
         <label>Name</label>
-        <input type="text" class="form-control" placeholder="enter category name here...">
+        <input type="text" class="form-control" placeholder="enter category name here..."
+          formControlName="name">
       </div>
     </div>
   </div>
@@ -19,13 +25,14 @@
     <div class="col-md-6 pr-1">
       <div class="form-group">
         <label>Description</label>
-        <input type="text" class="form-control" placeholder="enter category description here...">
+        <input type="text" class="form-control" placeholder="enter category description here..."
+          formControlName="description">
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-6">
-      <button type="submit" class="btn btn-primary btn-success">Save changes</button>
+      <button type="submit" class="btn btn-primary btn-success">Save</button>
     </div>
   </div>
 </form>

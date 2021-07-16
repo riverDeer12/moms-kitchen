@@ -1,5 +1,5 @@
+import { RecipeDetailsComponent } from './components/recipes/recipe-details/recipe-details.component';
 import { CategoryDetailsComponent } from './components/categories/category-details/category-details.component';
-import { ComplexityLevelDetailsComponent } from './components/complexity-levels/complexity-level-details/complexity-level-details.component';
 import { CreateComplexityLevelFormComponent } from './components/complexity-levels/create-complexity-level-form/create-complexity-level-form.component';
 import { LoginFormComponent } from './components/auth/login-form/login-form.component';
 import { EditRecipeFormComponent } from './components/recipes/edit-recipe-form/edit-recipe-form.component';
@@ -13,9 +13,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
 import { EditComplexityLevelFormComponent } from './components/complexity-levels/edit-complexity-level-form/edit-complexity-level-form.component';
 import { ComplexityLevelsListComponent } from './components/complexity-levels/complexity-levels-list/complexity-levels-list.component';
+import { ComplexityLevelDetailsComponent } from './components/complexity-levels/complexity-level-details/complexity-level-details.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    NgMultiSelectDropDownModule.forRoot()
+  ],
   declarations: [
     LoginFormComponent,
     CategoriesListComponent,
@@ -25,10 +31,11 @@ import { ComplexityLevelsListComponent } from './components/complexity-levels/co
     RecipesListComponent,
     CreateRecipeFormComponent,
     EditRecipeFormComponent,
+    RecipeDetailsComponent,
     ComplexityLevelsListComponent,
     CreateComplexityLevelFormComponent,
     EditComplexityLevelFormComponent,
-    ComplexityLevelDetailsComponent
+    ComplexityLevelDetailsComponent,
   ],
   exports: [
     LoginFormComponent,
@@ -39,10 +46,11 @@ import { ComplexityLevelsListComponent } from './components/complexity-levels/co
     RecipesListComponent,
     CreateRecipeFormComponent,
     EditRecipeFormComponent,
+    RecipeDetailsComponent,
     ComplexityLevelsListComponent,
     CreateComplexityLevelFormComponent,
     EditComplexityLevelFormComponent,
-    ComplexityLevelDetailsComponent
+    ComplexityLevelDetailsComponent,
   ],
 })
 export class SharedModule {}

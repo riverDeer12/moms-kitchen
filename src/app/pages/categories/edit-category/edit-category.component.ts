@@ -1,5 +1,5 @@
 import { ApiResponse } from './../../../shared/common/api-response';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'app/shared/dtos/categories/category';
 import { CommonService } from 'app/shared/services/common/common.service';
@@ -12,12 +12,13 @@ import { CategoriesService } from 'app/shared/services/categories/categories.ser
 })
 export class EditCategoryComponent implements OnInit {
   loadingData: boolean;
-  categoryId: string;
-  returnUrl = '/categories';
+  id: string;
+  listPageUrl = '/categories';
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private commonService: CommonService,
+    private router: Router
   ) {
     this.loadingData = true;
     this.setPageSettings();
@@ -28,7 +29,7 @@ export class EditCategoryComponent implements OnInit {
   }
 
   getCategory(): void {
-    this.categoryId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.loadingData = false;
   }
 

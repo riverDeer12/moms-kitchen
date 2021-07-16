@@ -1,4 +1,4 @@
-<a [href]="'/complexity-levels/create'" class="btn btn-info float-right">
+<a [href]="'/complexity-levels/create'" class="btn btn-info">
     Create new complexity level
 </a>
 
@@ -6,20 +6,17 @@
     <thead>
         <tr>
             <th>Name</th>
-            <th>Description</th>
-            <th>Complexity Weight</th>
             <th>Created At</th>
+            <th>Status</th>
             <th class="text-center"></th>
         </tr>
     </thead>
     <tbody *ngIf="loadingData">Loading data...</tbody>
     <tbody *ngIf="!loadingData">
-        <tr [className]="complexityLevel.isActive ? 'active-record' : 'inactive-record'"  
-            *ngFor="let complexityLevel of complexityLevels">
+        <tr *ngFor="let complexityLevel of complexityLevels">
             <td>{{ complexityLevel.name }}</td>
-            <td>{{ complexityLevel.description }}</td>
-            <td>{{ complexityLevel.complexityWeight }}</td>
             <td>{{ complexityLevel.createdAt | date:'dd.MM.yyyy HH:mm:ss' }}</td>
+            <td>{{ complexityLevel.getStatus() }}</td>
             <td class="td-actions text-center">
                 <button (click)="goToInfoPage(complexityLevel.id)" type="button" rel="tooltip"
                     class="btn btn-info btn-sm btn-round btn-icon">

@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { ComplexityLevelsService } from './shared/services/complexity-levels/complexity-levels.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RecipesComponent,
     CategoriesComponent,
     LoginComponent,
-    ComplexityLevelsComponent
+    ComplexityLevelsComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -44,14 +45,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FooterModule,
     FixedPluginModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
     AuthService,
     CommonService,
     RecipesService,
     CategoriesService,
-    ComplexityLevelsService
+    ComplexityLevelsService,
   ],
   bootstrap: [AppComponent],
 })

@@ -1,6 +1,16 @@
 <div class="row">
   <div class="col-md-12">
-    <button (click)="goBackToList()" type="button" class="btn btn-info btn-success">Go back</button>
-    <app-edit-complexity-level-form [id]="id" [returnUrl]="returnUrl"></app-edit-complexity-level-form>
+    <nav aria-label="breadcrumb" role="navigation">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [href]="'/complexity-levels'">List</a></li>
+        <li class="breadcrumb-item"><a [href]="'/complexity-levels/info/' + id">Details</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+      </ol>
+    </nav>
+    <div class="row">
+      <div class="col-md-12">
+        <app-edit-complexity-level-form [id]="id" [returnUrl]="listPageUrl"></app-edit-complexity-level-form>
+      </div>
+    </div>
   </div>
 </div>

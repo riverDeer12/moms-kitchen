@@ -1,5 +1,16 @@
 <div class="row">
-  <div class="col-md-8">
-    <app-edit-category-form [id]="categoryId" [returnUrl]="returnUrl"></app-edit-category-form>
+  <div class="col-md-12">
+    <nav aria-label="breadcrumb" role="navigation">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [href]="'/categories'">List</a></li>
+        <li class="breadcrumb-item"><a [href]="'/categories/info/' + id">Details</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+      </ol>
+    </nav>
+    <div class="row">
+      <div class="col-md-12">
+        <app-edit-category-form [id]="id" [returnUrl]="listPageUrl"></app-edit-category-form>
+      </div>
+    </div>
   </div>
 </div>

@@ -21,6 +21,7 @@ import { CreateRecipeComponent } from 'app/pages/recipes/create-recipe/create-re
 import { EditRecipeComponent } from 'app/pages/recipes/edit-recipe/edit-recipe.component';
 import { RecipesListComponent } from 'app/shared/components/recipes/recipes-list/recipes-list.component';
 import { ComplexityLevelInfoComponent } from 'app/pages/complexity-levels/complexity-level-info/complexity-level-info.component';
+import { RecipeInfoComponent } from 'app/pages/recipes/recipe-info/recipe-info.component';
 
 export const AdminLayoutRoutes: Routes = [
   {
@@ -34,6 +35,10 @@ export const AdminLayoutRoutes: Routes = [
       {
         path: 'create',
         component: CreateRecipeComponent,
+      },
+      {
+        path: 'info/:id',
+        component: RecipeInfoComponent,
       },
       {
         path: 'edit/:id',

@@ -41,7 +41,7 @@ export class CategoriesListComponent implements OnInit {
   getCategories(): void {
     this.categoriesService.getCategories().subscribe(
       (response: Category[]) => {
-        this.categories = response as Category[];
+        this.categories = response.map(x => Object.assign(new Category(), x));
         this.loadingData = false;
       },
       (error) => {

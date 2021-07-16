@@ -1,4 +1,7 @@
+import { Router } from '@angular/router';
+import { trigger, transition, useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { FadeAnimation } from 'app/shared/animations/fade';
 import { CommonService } from 'app/shared/services/common/common.service';
 
 @Component({
@@ -9,7 +12,7 @@ import { CommonService } from 'app/shared/services/common/common.service';
 export class CreateRecipeComponent implements OnInit {
   returnUrl = '/recipes';
 
-  constructor(private commonService: CommonService) {
+  constructor(private commonService: CommonService, private router: Router) {
     this.setPageSettings();
   }
 
@@ -20,5 +23,9 @@ export class CreateRecipeComponent implements OnInit {
       'New Recipe',
       'Please provide data for new recipe'
     );
+  }
+
+  goBackToList(): void {
+    this.router.navigateByUrl(this.returnUrl);
   }
 }

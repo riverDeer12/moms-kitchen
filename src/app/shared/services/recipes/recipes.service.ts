@@ -19,16 +19,16 @@ export class RecipesService {
     return this.http.get<Recipe[]>(this.recipesUrl);
   }
 
-  getRecipe(recipeId: string): Observable<ApiResponse<Recipe>> {
-    return this.http.get<ApiResponse<Recipe>>(this.recipesUrl + '/' + recipeId);
+  getRecipe(recipeId: string): Observable<Recipe> {
+    return this.http.get<Recipe>(this.recipesUrl + '/' + recipeId);
   }
 
   createRecipe(postRecipeRequest: PostRecipeRequest): Observable<Recipe> {
     return this.http.post<Recipe>(this.recipesUrl, postRecipeRequest)
   }
 
-  updateRecipe(recipeId: string, updateRecipeRequest: UpdateRecipeRequest): Observable<ApiResponse<Recipe>> {
-    return this.http.put<ApiResponse<Recipe>>(this.recipesUrl + '/' + recipeId, updateRecipeRequest)
+  updateRecipe(recipeId: string, updateRecipeRequest: UpdateRecipeRequest): Observable<Recipe> {
+    return this.http.put<Recipe>(this.recipesUrl + '/' + recipeId, updateRecipeRequest)
   }
 
   deleteRecipe(recipeId: string): Observable<Recipe> {

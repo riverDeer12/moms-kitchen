@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* -- MULTISELECT -- */
+.multiselect-dropdown .dropdown-btn {
+  background-color: #ffffff !important;
+  border: 1px solid #dddddd !important;
+  border-radius: 4px !important;
+  color: #66615b !important;
+  line-height: normal !important;
+  font-size: 14px !important;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out !important;
+  box-shadow: none !important;
+  padding: 10px !important;
+}
+/* -- MULTISELECT -- */

@@ -42,7 +42,7 @@ export class ComplexityLevelsListComponent implements OnInit {
 
     this.complexityLevelsService.getComplexityLevels().subscribe(
       (response: ComplexityLevel[]) => {
-        this.complexityLevels = response as ComplexityLevel[];
+        this.complexityLevels = response.map(x => Object.assign(new ComplexityLevel(), x));
         this.loadingData = false;
       },
       (error) => {

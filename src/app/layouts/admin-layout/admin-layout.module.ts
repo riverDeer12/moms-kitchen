@@ -1,3 +1,4 @@
+import { RecipeInfoComponent } from './../../pages/recipes/recipe-info/recipe-info.component';
 import { CategoryInfoComponent } from './../../pages/categories/category-info/category-info.component';
 import { EditComplexityLevelComponent } from './../../pages/complexity-levels/edit-complexity-level/edit-complexity-level.component';
 import { CreateComplexityLevelComponent } from './../../pages/complexity-levels/create-complexity-level/create-complexity-level.component';
@@ -47,6 +48,7 @@ import { ComplexityLevelInfoComponent } from 'app/pages/complexity-levels/comple
     CategoryInfoComponent,
     CreateRecipeComponent,
     EditRecipeComponent,
+    RecipeInfoComponent,
     CreateComplexityLevelComponent,
     EditComplexityLevelComponent,
     ComplexityLevelInfoComponent

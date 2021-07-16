@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'app/shared/services/common/common.service';
 
@@ -9,7 +10,7 @@ import { CommonService } from 'app/shared/services/common/common.service';
 export class CreateCategoryComponent implements OnInit {
   returnUrl = '/categories';
 
-  constructor(private commonService: CommonService) {
+  constructor(private commonService: CommonService, private router: Router) {
     this.setPageSettings();
   }
 
@@ -20,5 +21,9 @@ export class CreateCategoryComponent implements OnInit {
       'New Category',
       'Please provide data for new category'
     );
+  }
+
+  goBackToList(): void {
+    this.router.navigateByUrl(this.returnUrl);
   }
 }

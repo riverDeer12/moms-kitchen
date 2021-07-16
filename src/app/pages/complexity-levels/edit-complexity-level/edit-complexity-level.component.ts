@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditComplexityLevelComponent implements OnInit {
   id: string;
-  returnUrl = '/complexity-levels';
+  listPageUrl = '/complexity-levels';
   loadingData: boolean;
 
   constructor(
@@ -35,9 +35,5 @@ export class EditComplexityLevelComponent implements OnInit {
       'Edit complexity level',
       'Here you can edit complexity level data'
     );
-  }
-
-  goBackToList(): void {
-    this.router.navigateByUrl(this.returnUrl);
   }
 }

@@ -1,0 +1,6 @@
+<form *ngIf="!loadingData" [formGroup]="parentForm">
+  <label for="city">Select complexity level</label>
+  <ng-multiselect-dropdown formControlName="complexityLevelId" [placeholder]="'select complexity-level'"
+    [settings]="settings" [data]="complexityLevels">
+  </ng-multiselect-dropdown>
+</form>

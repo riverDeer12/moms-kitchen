@@ -18,18 +18,12 @@
   </div>
   <div class="row">
     <div class="col-md-6 pr-1">
-      <label for="city">Select complexity level</label>
-      <ng-multiselect-dropdown formControlName="complexityLevelId" [placeholder]="'select complexity-level'"
-        [settings]="complexityLevelsDropdownSettings" [data]="complexityLevels">
-      </ng-multiselect-dropdown>
+      <app-complexity-level-selector [parentForm]="createForm"></app-complexity-level-selector>
     </div>
   </div>
   <div class="row">
     <div class="col-md-6 pr-1">
-      <label for="city">Select categories</label>
-      <ng-multiselect-dropdown formControlName="categories" [placeholder]="'select categories'"
-        [settings]="categoriesDropdownSettings" [data]="categories">
-      </ng-multiselect-dropdown>
+      <app-categories-selector [parentForm]="createForm"></app-categories-selector>
     </div>
   </div>
   <div class="row">

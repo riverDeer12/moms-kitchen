@@ -1,3 +1,5 @@
+import { CategoriesSelectorComponent } from './components/categories/categories-selector/categories-selector.component';
+import { ComplexityLevelSelectorComponent } from './components/complexity-levels/complexity-level-selector/complexity-level-selector.component';
 import { RecipeDetailsComponent } from './components/recipes/recipe-details/recipe-details.component';
 import { CategoryDetailsComponent } from './components/categories/category-details/category-details.component';
 import { CreateComplexityLevelFormComponent } from './components/complexity-levels/create-complexity-level-form/create-complexity-level-form.component';
@@ -28,6 +30,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     CreateCategoryFormComponent,
     EditCategoryFormComponent,
     CategoryDetailsComponent,
+    CategoriesSelectorComponent,
     RecipesListComponent,
     CreateRecipeFormComponent,
     EditRecipeFormComponent,
@@ -36,6 +39,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     CreateComplexityLevelFormComponent,
     EditComplexityLevelFormComponent,
     ComplexityLevelDetailsComponent,
+    ComplexityLevelSelectorComponent
   ],
   exports: [
     LoginFormComponent,
@@ -43,6 +47,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     CreateCategoryFormComponent,
     EditCategoryFormComponent,
     CategoryDetailsComponent,
+    CategoriesSelectorComponent,
     RecipesListComponent,
     CreateRecipeFormComponent,
     EditRecipeFormComponent,
@@ -51,6 +56,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     CreateComplexityLevelFormComponent,
     EditComplexityLevelFormComponent,
     ComplexityLevelDetailsComponent,
+    ComplexityLevelSelectorComponent
   ],
 })
 export class SharedModule {}

@@ -1,0 +1,6 @@
+<form *ngIf="!loadingData" [formGroup]="parentForm">
+  <label for="city">Select categories</label>
+  <ng-multiselect-dropdown formControlName="categories" [placeholder]="'select categories...'"
+    [settings]="settings" [data]="categories">
+  </ng-multiselect-dropdown>
+</form>

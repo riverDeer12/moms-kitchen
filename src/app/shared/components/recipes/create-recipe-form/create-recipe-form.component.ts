@@ -18,7 +18,7 @@ export class CreateRecipeFormComponent implements OnInit {
 
   loadingData: boolean;
   createForm: FormGroup;
-  creationResponse: Recipe;
+  createdRecipeId: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,30 +36,36 @@ export class CreateRecipeFormComponent implements OnInit {
       name: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
       complexityLevelId: new FormControl('', Validators.required),
-      categories: new FormControl('', Validators.required),
+      categoryIds: new FormControl('', Validators.required),
     });
 
     this.loadingData = false;
   }
 
   submit(): void {
+    if (!this.createForm.valid) {
+      console.log('Form not valid!');
+      return;
+    }
+
+    this.prepareSelectors();
+
     this.service
       .createRecipe(this.createForm.value)
-      .subscribe((response: Recipe) => {
-        this.creationResponse = response as Recipe;
-        console.log(this.createForm.value);
+      .subscribe((response: string) => {
+        this.createdRecipeId = response;
       });
   }
 
   prepareSelectors(): void {
     const realCategories = this.createForm
-      .get('categories')
+      .get('categoryIds')
       .value.map((x) => x.id);
     const realComplexityLevel = this.createForm
       .get('complexityLevelId')
       .value.map((x) => x.id);
 
-    this.createForm.get('categories').setValue(realCategories);
+    this.createForm.get('categoryIds').setValue(realCategories);
     this.createForm.get('complexityLevelId').setValue(realComplexityLevel[0]);
   }
 }

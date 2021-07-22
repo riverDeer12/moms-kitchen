@@ -10,7 +10,6 @@ import { IRecipesService } from './i-recipes-service';
 
 @Injectable()
 export class RecipesService {
-
   recipesUrl = environment.apiUrl + '/recipes';
 
   constructor(private http: HttpClient) {}
@@ -23,12 +22,18 @@ export class RecipesService {
     return this.http.get<Recipe>(this.recipesUrl + '/' + recipeId);
   }
 
-  createRecipe(postRecipeRequest: PostRecipeRequest): Observable<Recipe> {
-    return this.http.post<Recipe>(this.recipesUrl, postRecipeRequest)
+  createRecipe(postRecipeRequest: PostRecipeRequest): Observable<string> {
+    return this.http.post<string>(this.recipesUrl, postRecipeRequest)
   }
 
-  updateRecipe(recipeId: string, updateRecipeRequest: UpdateRecipeRequest): Observable<Recipe> {
-    return this.http.put<Recipe>(this.recipesUrl + '/' + recipeId, updateRecipeRequest)
+  updateRecipe(
+    recipeId: string,
+    updateRecipeRequest: UpdateRecipeRequest
+  ): Observable<Recipe> {
+    return this.http.put<Recipe>(
+      this.recipesUrl + '/' + recipeId,
+      updateRecipeRequest
+    );
   }
 
   deleteRecipe(recipeId: string): Observable<Recipe> {

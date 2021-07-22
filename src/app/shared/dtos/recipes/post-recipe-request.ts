@@ -1,4 +1,8 @@
+import { SelectorItem } from '../selector-item';
+
 export class PostRecipeRequest {
-    name: string;
-    description: string;
+  name: string;
+  description: string;
+  complexityLevelId: string;
+  categories: any;
 }

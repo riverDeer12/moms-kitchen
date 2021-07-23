@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiResponse } from 'app/shared/common/api-response';
+import { Category } from 'app/shared/dtos/categories/category';
 import { PostRecipeRequest } from 'app/shared/dtos/recipes/post-recipe-request';
 import { Recipe } from 'app/shared/dtos/recipes/recipe';
 import { UpdateRecipeRequest } from 'app/shared/dtos/recipes/update-recipe-request';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
-import { IRecipesService } from './i-recipes-service';
 
 @Injectable()
 export class RecipesService {
-  recipesUrl = environment.apiUrl + '/recipes';
+  recipesUrl = environment.apiUrl + '/recipes/';
 
   constructor(private http: HttpClient) {}
 
@@ -19,7 +19,7 @@ export class RecipesService {
   }
 
   getRecipe(recipeId: string): Observable<Recipe> {
-    return this.http.get<Recipe>(this.recipesUrl + '/' + recipeId);
+    return this.http.get<Recipe>(this.recipesUrl + recipeId);
   }
 
   createRecipe(postRecipeRequest: PostRecipeRequest): Observable<string> {
@@ -31,12 +31,16 @@ export class RecipesService {
     updateRecipeRequest: UpdateRecipeRequest
   ): Observable<Recipe> {
     return this.http.put<Recipe>(
-      this.recipesUrl + '/' + recipeId,
+      this.recipesUrl + recipeId,
       updateRecipeRequest
     );
   }
 
   deleteRecipe(recipeId: string): Observable<Recipe> {
-    return this.http.delete<Recipe>(this.recipesUrl + '/' + recipeId);
+    return this.http.delete<Recipe>(this.recipesUrl + recipeId);
+  }
+
+  getRecipeCategories(recipeId: string): Observable<Category[]> {
+    return this.http.get<Category[]>(this.recipesUrl + recipeId + '/categories');
   }
 }

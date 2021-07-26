@@ -2,9 +2,6 @@ import { PostComplexityLevelRequest } from './../../dtos/complexity-levels/post-
 import { UpdateComplexityLevelRequest } from './../../dtos/complexity-levels/update-complexity-level-request';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ApiResponse } from 'app/shared/common/api-response';
-import { PostCategoryRequest } from 'app/shared/dtos/categories/post-category-request';
-import { UpdateCategoryRequest } from 'app/shared/dtos/categories/update-category-request';
 import { ComplexityLevel } from 'app/shared/dtos/complexity-levels/complexity-level';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
@@ -14,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class ComplexityLevelsService {
 
-  complexityLevelsUrl = environment.apiUrl + '/complexityLevels';
+  complexityLevelsUrl = environment.apiUrl + '/complexityLevels/';
 
   constructor(private http: HttpClient) {}
 
@@ -23,7 +20,7 @@ export class ComplexityLevelsService {
   }
 
   getComplexityLevel(complexityLevelId: string): Observable<ComplexityLevel> {
-    return this.http.get<ComplexityLevel>(this.complexityLevelsUrl + '/' + complexityLevelId);
+    return this.http.get<ComplexityLevel>(this.complexityLevelsUrl + complexityLevelId);
   }
 
   createComplexityLevel(request: PostComplexityLevelRequest): Observable<ComplexityLevel> {
@@ -32,10 +29,10 @@ export class ComplexityLevelsService {
 
   updateComplexityLevel(complexityLevelId: string, request: UpdateComplexityLevelRequest):
             Observable<ComplexityLevel> {
-    return this.http.put<ComplexityLevel>(this.complexityLevelsUrl + '/' + complexityLevelId, request)
+    return this.http.put<ComplexityLevel>(this.complexityLevelsUrl + complexityLevelId, request)
   }
 
   deleteComplexityLevel(complexityLevelId: string): Observable<ComplexityLevel> {
-    return this.http.delete<ComplexityLevel>(this.complexityLevelsUrl + '/' + complexityLevelId);
+    return this.http.delete<ComplexityLevel>(this.complexityLevelsUrl + complexityLevelId);
   }
 }

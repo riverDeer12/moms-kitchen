@@ -1,3 +1,5 @@
+import { AuthService } from './../shared/services/auth/auth.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 export interface RouteInfo {
@@ -8,30 +10,39 @@ export interface RouteInfo {
 }
 
 export const ROUTES: RouteInfo[] = [
-  { path: '/dashboard', title: 'Dashboard', icon: 'nc-bank', class: '' },
-  { path: '/recipes', title: 'Recipes', icon: 'nc-paper', class: '' },
-  { path: '/categories', title: 'Categories', icon: 'nc-bookmark-2', class: '' },
-  { path: '/complexity-levels', title: 'Complexity Levels', icon: 'nc-vector', class: '' },
-  { path: '/icons', title: 'Icons', icon: 'nc-diamond', class: '' },
+  { path: '/admin/dashboard', title: 'Dashboard', icon: 'nc-bank', class: '' },
+  { path: '/admin/recipes', title: 'Recipes', icon: 'nc-paper', class: '' },
   {
-    path: '/notifications',
+    path: '/admin/categories',
+    title: 'Categories',
+    icon: 'nc-bookmark-2',
+    class: '',
+  },
+  {
+    path: '/admin/complexity-levels',
+    title: 'Complexity Levels',
+    icon: 'nc-vector',
+    class: '',
+  },
+  { path: '/admin/icons', title: 'Icons', icon: 'nc-diamond', class: '' },
+  {
+    path: '/admin/notifications',
     title: 'Notifications',
     icon: 'nc-bell-55',
     class: '',
   },
-  { path: '/user', title: 'User Profile', icon: 'nc-single-02', class: '' },
-  { path: '/table', title: 'Table List', icon: 'nc-tile-56', class: '' },
   {
-    path: '/typography',
+    path: '/admin/user',
+    title: 'User Profile',
+    icon: 'nc-single-02',
+    class: '',
+  },
+  { path: '/admin/table', title: 'Table List', icon: 'nc-tile-56', class: '' },
+  {
+    path: '/admin/typography',
     title: 'Typography',
     icon: 'nc-caps-small',
     class: '',
-  },
-  {
-    path: '/upgrade',
-    title: 'Upgrade to PRO',
-    icon: 'nc-spaceship',
-    class: 'active-pro',
   },
 ];
 
@@ -42,7 +53,15 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   public menuItems: any[];
+
+  constructor(private router: Router, private authService: AuthService) {}
+
   ngOnInit() {
     this.menuItems = ROUTES.filter((menuItem) => menuItem);
+  }
+
+  logOut(): void {
+    this.authService.logOut();
+    this.router.navigateByUrl('/login');
   }
 }

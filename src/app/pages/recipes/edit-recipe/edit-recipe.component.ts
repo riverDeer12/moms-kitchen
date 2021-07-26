@@ -1,3 +1,4 @@
+import { RecipesService } from './../../../shared/services/recipes/recipes.service';
 import { CommonService } from 'app/shared/services/common/common.service';
 import { ApiResponse } from './../../../shared/common/api-response';
 import { Recipe } from './../../../shared/dtos/recipes/recipe';
@@ -12,13 +13,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditRecipeComponent implements OnInit {
   loadingData: boolean;
-  recipe: Recipe;
-  response: ApiResponse<Recipe>;
+  updateResponse: Recipe;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private commonService: CommonService,
-    private recipesService: IRecipesService
+    private recipesService: RecipesService
   ) {
     this.loadingData = true;
     this.setPageSettings();
@@ -30,8 +30,7 @@ export class EditRecipeComponent implements OnInit {
   getRecipe(): void {
     const recipeId = this.activatedRoute.snapshot.paramMap.get('id');
     this.recipesService.getRecipe(recipeId).subscribe((response) => {
-      this.response = response as ApiResponse<Recipe>;
-      this.recipe = response.result;
+      this.updateResponse = response as Recipe;
       this.loadingData = false;
     });
   }

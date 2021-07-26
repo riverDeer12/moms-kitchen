@@ -1,8 +1,12 @@
+import { Router } from '@angular/router';
 import { ApiResponse } from './../../../common/api-response';
 import { RecipesService } from './../../../services/recipes/recipes.service';
 import { CommonService } from 'app/shared/services/common/common.service';
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'app/shared/dtos/recipes/recipe';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmDeleteComponent } from '../../common/confirm-delete/confirm-delete.component';
+import { EntityType } from 'app/shared/constants/entity-type';
 
 @Component({
   selector: 'app-recipes-list',
@@ -15,7 +19,9 @@ export class RecipesListComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
-    private recipesService: RecipesService
+    private recipesService: RecipesService,
+    private router: Router,
+    private modalService: NgbModal
   ) {
     this.loadingData = true;
     this.setPageSettings();
@@ -42,5 +48,24 @@ export class RecipesListComponent implements OnInit {
         console.log(console.error());
       }
     );
+  }
+
+  confirmDelete(recipeId: string): void {
+    const modalRef = this.modalService.open(ConfirmDeleteComponent);
+    modalRef.componentInstance.entityId = recipeId;
+    modalRef.componentInstance.entityType = EntityType.RECIPES;
+    modalRef.componentInstance.returnUrl = '/admin/recipes';
+  }
+
+  goToInfoPage(recipeId: string): void {
+    this.router.navigateByUrl('/admin/recipes/info/' + recipeId);
+  }
+
+  goToEditPage(recipeId: string): void {
+    this.router.navigateByUrl('/admin/recipes/edit/' + recipeId);
+  }
+
+  goToConfirmDeletePage(recipeId: string): void {
+    this.router.navigateByUrl('/admin/recipes/delete/' + recipeId);
   }
 }

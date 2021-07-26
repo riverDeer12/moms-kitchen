@@ -46,17 +46,17 @@ export class RecipeInfoComponent implements OnInit {
   }
 
   goToEditPage(): void {
-    this.router.navigateByUrl('/recipes/edit/' + this.id);
+    this.router.navigateByUrl('/admin/recipes/edit/' + this.id);
   }
 
   confirmDelete(): void {
     const modalRef = this.modalService.open(ConfirmDeleteComponent);
     modalRef.componentInstance.entityId = this.id;
     modalRef.componentInstance.entityType = EntityType.RECIPES;
-    modalRef.componentInstance.returnUrl = '/recipes';
+    modalRef.componentInstance.returnUrl = '/admin/recipes';
 
     modalRef.result.then((data) => {
-      this.router.navigateByUrl('/recipes');
+      this.router.navigateByUrl('/admin/recipes');
     }, (reason) => {
       console.log('Not good!');
     });

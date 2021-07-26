@@ -54,18 +54,18 @@ export class CategoriesListComponent implements OnInit {
     const modalRef = this.modalService.open(ConfirmDeleteComponent);
     modalRef.componentInstance.entityId = categoryId;
     modalRef.componentInstance.entityType = EntityType.CATEGORIES;
-    modalRef.componentInstance.returnUrl = '/categories';
+    modalRef.componentInstance.returnUrl = '/admin/categories';
   }
 
   goToInfoPage(categoryId: string): void {
-    this.router.navigateByUrl('/categories/info/' + categoryId);
+    this.router.navigateByUrl('/admin/categories/info/' + categoryId);
   }
 
   goToEditPage(categoryId: string): void {
-    this.router.navigateByUrl('/categories/edit/' + categoryId);
+    this.router.navigateByUrl('/admin/categories/edit/' + categoryId);
   }
 
   goToConfirmDeletePage(categoryId: string): void {
-    this.router.navigateByUrl('/categories/delete/' + categoryId);
+    this.router.navigateByUrl('/admin/categories/delete/' + categoryId);
   }
 }

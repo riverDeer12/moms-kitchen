@@ -1,4 +1,4 @@
-<a [href]="'/recipes/create'" class="btn btn-info">
+<a [href]="'/admin/recipes/create'" class="btn btn-info">
   Create new recipe
 </a>
 
@@ -20,13 +20,13 @@
           <td>{{ recipe.complexityLevel }}</td>
           <td>{{ recipe.createdAt | date:'short' }}</td>
           <td class="td-actions text-center">
-            <button (click)="openInfoModal()" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
+            <button (click)="goToInfoPage(recipe.id)" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
                 <i class="fa fa-info"></i>
             </button>
-            <button (click)="goToEditPage()" type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
+            <button (click)="goToEditPage(recipe.id)" type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
                 <i class="fa fa-edit"></i>
             </button>
-            <button (click)="openConfirmModal()" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
+            <button (click)="goToConfirmDeletePage(recipe.id)" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
                 <i class="fa fa-times"></i>
             </button>
           </td>

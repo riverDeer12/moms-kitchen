@@ -46,7 +46,7 @@ export class CategoryInfoComponent implements OnInit {
   }
 
   goToEditPage(): void {
-    this.router.navigateByUrl('/categories/edit/' + this.id);
+    this.router.navigateByUrl('/admin/categories/edit/' + this.id);
   }
 
   confirmDelete(): void {
@@ -56,7 +56,7 @@ export class CategoryInfoComponent implements OnInit {
     modalRef.componentInstance.returnUrl = '/categories';
 
     modalRef.result.then((data) => {
-      this.router.navigateByUrl('/categories');
+      this.router.navigateByUrl('/admin/categories');
     }, (reason) => {
       console.log('Not good!');
     });

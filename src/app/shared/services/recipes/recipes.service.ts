@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ApiResponse } from 'app/shared/common/api-response';
 import { Category } from 'app/shared/dtos/categories/category';
 import { PostRecipeRequest } from 'app/shared/dtos/recipes/post-recipe-request';
 import { Recipe } from 'app/shared/dtos/recipes/recipe';

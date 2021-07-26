@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 })
 export class CategoriesService {
 
-  categoriesUrl = environment.apiUrl + '/categories';
+  categoriesUrl = environment.apiUrl + '/categories/';
 
   constructor(private http: HttpClient) {}
 
@@ -22,7 +22,7 @@ export class CategoriesService {
   }
 
   getCategory(categoryId: string): Observable<Category> {
-    return this.http.get<Category>(this.categoriesUrl + '/' + categoryId);
+    return this.http.get<Category>(this.categoriesUrl + categoryId);
   }
 
   createCategory(postCategoryRequest: PostCategoryRequest): Observable<Category> {
@@ -30,10 +30,10 @@ export class CategoriesService {
   }
 
   updateCategory(categoryId: string, updateCategoryRequest: UpdateCategoryRequest): Observable<Category> {
-    return this.http.put<Category>(this.categoriesUrl + '/' + categoryId, updateCategoryRequest)
+    return this.http.put<Category>(this.categoriesUrl + categoryId, updateCategoryRequest)
   }
 
   deleteCategory(categoryId: string): Observable<Category> {
-    return this.http.delete<Category>(this.categoriesUrl + '/' + categoryId);
+    return this.http.delete<Category>(this.categoriesUrl + categoryId);
   }
 }

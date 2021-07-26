@@ -46,17 +46,17 @@ export class ComplexityLevelInfoComponent implements OnInit {
   }
 
   goToEditPage(): void {
-    this.router.navigateByUrl('/complexity-levels/edit/' + this.id);
+    this.router.navigateByUrl('/admin/complexity-levels/edit/' + this.id);
   }
 
   confirmDelete(): void {
     const modalRef = this.modalService.open(ConfirmDeleteComponent);
     modalRef.componentInstance.entityId = this.id;
     modalRef.componentInstance.entityType = EntityType.COMPLEXITY_LEVELS;
-    modalRef.componentInstance.returnUrl = '/complexity-levels';
+    modalRef.componentInstance.returnUrl = '/admin/complexity-levels';
 
     modalRef.result.then((data) => {
-      this.router.navigateByUrl('/complexity-levels');
+      this.router.navigateByUrl('/admin/complexity-levels');
     }, (reason) => {
       console.log('Not good!');
     });

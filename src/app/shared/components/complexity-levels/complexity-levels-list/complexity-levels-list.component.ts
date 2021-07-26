@@ -55,7 +55,7 @@ export class ComplexityLevelsListComponent implements OnInit {
     const modalRef = this.modalService.open(ConfirmDeleteComponent);
     modalRef.componentInstance.entityId = complexityLevelId;
     modalRef.componentInstance.entityType = EntityType.COMPLEXITY_LEVELS;
-    modalRef.componentInstance.returnUrl = '/complexity-levels';
+    modalRef.componentInstance.returnUrl = '/admin/complexity-levels';
 
     modalRef.result.then((data) => {
       this.getComplexityLevels();
@@ -65,14 +65,14 @@ export class ComplexityLevelsListComponent implements OnInit {
   }
 
   goToInfoPage(id: string): void {
-    this.router.navigateByUrl('/complexity-levels/info/' + id);
+    this.router.navigateByUrl('/admin/complexity-levels/info/' + id);
   }
 
   goToEditPage(id: string): void {
-    this.router.navigateByUrl('/complexity-levels/edit/' + id);
+    this.router.navigateByUrl('/admin/complexity-levels/edit/' + id);
   }
 
   goToConfirmDeletePage(id: string): void {
-    this.router.navigateByUrl('/complexity-levels/delete/' + id);
+    this.router.navigateByUrl('/admin/complexity-levels/delete/' + id);
   }
 }

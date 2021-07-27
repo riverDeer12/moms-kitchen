@@ -9,12 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditComplexityLevelComponent implements OnInit {
   id: string;
-  listPageUrl = '/complexity-levels';
+  returnUrl = '/admin/complexity-levels';
   loadingData: boolean;
 
   constructor(
     private commonService: CommonService,
-    private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
     this.loadingData = true;

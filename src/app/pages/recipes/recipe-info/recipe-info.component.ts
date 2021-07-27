@@ -12,7 +12,7 @@ import { CommonService } from 'app/shared/services/common/common.service';
 })
 export class RecipeInfoComponent implements OnInit {
   id: string;
-  returnUrl = '/recipes';
+  returnUrl = '/admin/recipes';
   loadingData: boolean;
 
   constructor(

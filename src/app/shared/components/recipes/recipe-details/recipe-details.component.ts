@@ -23,7 +23,7 @@ export class RecipeDetailsComponent implements OnInit {
 
   getRecipe() {
     this.service.getRecipe(this.id).subscribe((response: Recipe) => {
-      this.recipe = response as Recipe;
+      this.recipe = Object.assign(new Recipe(), response);
       this.loadingData = false;
     });
   }

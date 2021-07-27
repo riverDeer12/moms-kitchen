@@ -21,8 +21,8 @@ export class RecipesService {
     return this.http.get<Recipe>(this.recipesUrl + recipeId);
   }
 
-  createRecipe(postRecipeRequest: PostRecipeRequest): Observable<string> {
-    return this.http.post<string>(this.recipesUrl, postRecipeRequest)
+  createRecipe(postRecipeRequest: PostRecipeRequest): Observable<Recipe> {
+    return this.http.post<Recipe>(this.recipesUrl, postRecipeRequest)
   }
 
   updateRecipe(

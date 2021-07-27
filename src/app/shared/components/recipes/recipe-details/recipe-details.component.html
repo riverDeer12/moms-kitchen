@@ -2,8 +2,13 @@
 	<h4 class="info-title">
     {{recipe.name}}
   </h4>
-	<p>
+  <p>
+    <label>Status: </label>
+    {{recipe.getStatus()}}
+  </p>
+  <p>
     <label>Description: </label>
     {{recipe.description}}
   </p>
+
 </div>

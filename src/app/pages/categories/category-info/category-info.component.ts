@@ -12,7 +12,7 @@ import { EntityType } from 'app/shared/constants/entity-type';
 })
 export class CategoryInfoComponent implements OnInit {
   id: string;
-  returnUrl = '/categories';
+  returnUrl = '/admin/categories';
   loadingData: boolean;
 
   constructor(

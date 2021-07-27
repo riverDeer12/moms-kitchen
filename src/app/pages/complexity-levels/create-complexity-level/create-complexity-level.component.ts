@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-complexity-level.component.css'],
 })
 export class CreateComplexityLevelComponent implements OnInit {
-  returnUrl = '/complexity-levels';
+  returnUrl = '/admin/complexity-levels';
 
   constructor(private commonService: CommonService, private router: Router) {
     this.setPageSettings();

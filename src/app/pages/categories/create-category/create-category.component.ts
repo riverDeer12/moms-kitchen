@@ -8,7 +8,7 @@ import { CommonService } from 'app/shared/services/common/common.service';
   styleUrls: ['./create-category.component.scss'],
 })
 export class CreateCategoryComponent implements OnInit {
-  returnUrl = '/categories';
+  returnUrl = '/admin/categories';
 
   constructor(private commonService: CommonService, private router: Router) {
     this.setPageSettings();

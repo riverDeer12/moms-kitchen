@@ -12,7 +12,7 @@ import { EntityType } from 'app/shared/constants/entity-type';
 })
 export class ComplexityLevelInfoComponent implements OnInit {
   id: string;
-  returnUrl = '/complexity-levels';
+  returnUrl = '/admin/complexity-levels';
   loadingData: boolean;
 
   constructor(

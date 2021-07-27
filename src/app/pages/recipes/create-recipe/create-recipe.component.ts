@@ -10,7 +10,7 @@ import { CommonService } from 'app/shared/services/common/common.service';
   styleUrls: ['./create-recipe.component.scss'],
 })
 export class CreateRecipeComponent implements OnInit {
-  returnUrl = '/recipes';
+  returnUrl = '/admin/recipes';
 
   constructor(private commonService: CommonService, private router: Router) {
     this.setPageSettings();

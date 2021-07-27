@@ -1,5 +1,6 @@
+import { Router } from '@angular/router';
+import { Recipe } from 'app/shared/dtos/recipes/recipe';
 import { RecipesService } from './../../../services/recipes/recipes.service';
-import { Recipe } from './../../../dtos/recipes/recipe';
 import { Component, Input, OnInit } from '@angular/core';
 import {
   FormGroup,
@@ -18,11 +19,12 @@ export class CreateRecipeFormComponent implements OnInit {
 
   loadingData: boolean;
   createForm: FormGroup;
-  createdRecipeId: string;
+  createdRecipe: Recipe;
 
   constructor(
     private formBuilder: FormBuilder,
-    private service: RecipesService
+    private service: RecipesService,
+    private router: Router
   ) {
     this.loadingData = true;
   }
@@ -36,7 +38,7 @@ export class CreateRecipeFormComponent implements OnInit {
       name: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
       complexityLevelId: new FormControl('', Validators.required),
-      categoryIds: new FormControl('', Validators.required),
+      categoryIds: new FormControl('', Validators.required)
     });
 
     this.loadingData = false;
@@ -52,8 +54,9 @@ export class CreateRecipeFormComponent implements OnInit {
 
     this.service
       .createRecipe(this.createForm.value)
-      .subscribe((response: string) => {
-        this.createdRecipeId = response;
+      .subscribe((response: Recipe) => {
+        this.createdRecipe = response as Recipe;
+        this.router.navigateByUrl(this.returnUrl);
       });
   }
 

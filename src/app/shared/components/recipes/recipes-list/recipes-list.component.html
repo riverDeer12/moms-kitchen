@@ -6,9 +6,8 @@
   <thead>
       <tr>
           <th>Name</th>
-          <th>Description</th>
-          <th>Complexity Level</th>
-          <th class="text-right">Salary</th>
+          <th>Created At</th>
+          <th>Status</th>
           <th class="text-center"></th>
       </tr>
   </thead>
@@ -16,9 +15,8 @@
   <tbody *ngIf="!loadingData">
       <tr  *ngFor="let recipe of recipes">
           <td>{{ recipe.name }}</td>
-          <td>{{ recipe.description }}</td>
-          <td>{{ recipe.complexityLevel }}</td>
-          <td>{{ recipe.createdAt | date:'short' }}</td>
+          <td>{{ recipe.createdAt | date:'dd.MM.yyyy HH:mm:ss' }}</td>
+          <td>{{ recipe.getStatus() }}</td>
           <td class="td-actions text-center">
             <button (click)="goToInfoPage(recipe.id)" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
                 <i class="fa fa-info"></i>

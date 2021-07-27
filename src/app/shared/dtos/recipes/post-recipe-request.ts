@@ -4,5 +4,5 @@ export class PostRecipeRequest {
   name: string;
   description: string;
   complexityLevelId: string;
-  categories: any;
+  categoryIds: string[];
 }

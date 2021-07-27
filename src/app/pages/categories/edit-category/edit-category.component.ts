@@ -1,9 +1,6 @@
-import { ApiResponse } from './../../../shared/common/api-response';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'app/shared/dtos/categories/category';
 import { CommonService } from 'app/shared/services/common/common.service';
-import { CategoriesService } from 'app/shared/services/categories/categories.service';
 
 @Component({
   selector: 'app-edit-category',
@@ -13,7 +10,7 @@ import { CategoriesService } from 'app/shared/services/categories/categories.ser
 export class EditCategoryComponent implements OnInit {
   loadingData: boolean;
   id: string;
-  listPageUrl = '/categories';
+  returnUrl = '/admin/categories';
 
   constructor(
     private activatedRoute: ActivatedRoute,

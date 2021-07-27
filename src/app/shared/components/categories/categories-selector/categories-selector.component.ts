@@ -27,29 +27,7 @@ export class CategoriesSelectorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCategories();
-  }
-
-  getCategories(): void {
-    this.recipeId === undefined
-      ? this.getAllCategories()
-      : this.getRecipeCategories();
-  }
-
-  getRecipeCategories(): void {
-    this.recipesService
-      .getRecipeCategories(this.recipeId)
-      .subscribe((response: Category[]) => {
-        this.categories = response.map((x) => Object.assign(new Category(), x));
-        this.loadingData = false;
-      });
-  }
-
-  getAllCategories(): void {
-    this.categoriesService.getCategories().subscribe((response: Category[]) => {
-      this.categories = response.map((x) => Object.assign(new Category(), x));
-      this.loadingData = false;
-    });
+    this.getAllCategories();
   }
 
   initSettings(): void {
@@ -61,5 +39,26 @@ export class CategoriesSelectorComponent implements OnInit {
       textField: 'name',
       allowSearchFilter: true,
     };
+  }
+
+  getAllCategories(): void {
+    this.categoriesService.getCategories().subscribe((response: Category[]) => {
+      this.categories = response.map((x) => Object.assign(new Category(), x));
+      this.getRecipeCategories();
+    });
+  }
+
+  getRecipeCategories(): void {
+    if (this.recipeId === undefined) {
+      this.loadingData = false;
+      return;
+    }
+
+    this.recipesService
+      .getRecipeCategories(this.recipeId)
+      .subscribe((response: Category[]) => {
+        this.parentForm.get('categoryIds').setValue(response);
+        this.loadingData = false;
+      });
   }
 }

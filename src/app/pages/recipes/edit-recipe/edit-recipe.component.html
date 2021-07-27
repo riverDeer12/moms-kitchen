@@ -1,5 +1,12 @@
 <div class="row">
-  <div class="col-md-12">
-    <app-edit-recipe-form></app-edit-recipe-form>
+  <div class="col-md-12" *ngIf="!loadingData">
+    <nav aria-label="breadcrumb" role="navigation">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [href]="'/admin/recipes'">List</a></li>
+        <li class="breadcrumb-item"><a [href]="'/admin/recipes/info/' + id">Details</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+      </ol>
+    </nav>
+    <app-edit-recipe-form [id]="id" [returnUrl]="returnUrl"></app-edit-recipe-form>
   </div>
 </div>

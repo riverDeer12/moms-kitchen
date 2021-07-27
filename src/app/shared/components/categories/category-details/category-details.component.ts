@@ -23,7 +23,7 @@ export class CategoryDetailsComponent implements OnInit {
 
   getComplexityLevel() {
     this.service.getCategory(this.id).subscribe((response: Category) => {
-      this.category = response as Category;
+      this.category = Object.assign(new Category(), response);
       this.loadingData = false;
     });
   }

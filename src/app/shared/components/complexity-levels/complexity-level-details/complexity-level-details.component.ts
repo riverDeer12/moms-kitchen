@@ -28,7 +28,7 @@ export class ComplexityLevelDetailsComponent implements OnInit {
     this.service
       .getComplexityLevel(this.id)
       .subscribe((response: ComplexityLevel) => {
-        this.complexityLevel = response as ComplexityLevel;
+        this.complexityLevel = Object.assign(new ComplexityLevel(), response);
         this.loadingData = false;
       });
   }

@@ -13,26 +13,25 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditRecipeComponent implements OnInit {
   loadingData: boolean;
-  updateResponse: Recipe;
+  id: string;
+  returnUrl = '/admin/recipes';
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private commonService: CommonService,
-    private recipesService: RecipesService
+    private commonService: CommonService
   ) {
     this.loadingData = true;
     this.setPageSettings();
-    this.getRecipe();
+
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getRecipeId();
+  }
 
-  getRecipe(): void {
-    const recipeId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.recipesService.getRecipe(recipeId).subscribe((response) => {
-      this.updateResponse = response as Recipe;
-      this.loadingData = false;
-    });
+  getRecipeId(): void {
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.loadingData = false;
   }
 
   setPageSettings(): void {

@@ -24,26 +24,6 @@ export const ROUTES: RouteInfo[] = [
     icon: 'nc-vector',
     class: '',
   },
-  { path: '/admin/icons', title: 'Icons', icon: 'nc-diamond', class: '' },
-  {
-    path: '/admin/notifications',
-    title: 'Notifications',
-    icon: 'nc-bell-55',
-    class: '',
-  },
-  {
-    path: '/admin/user',
-    title: 'User Profile',
-    icon: 'nc-single-02',
-    class: '',
-  },
-  { path: '/admin/table', title: 'Table List', icon: 'nc-tile-56', class: '' },
-  {
-    path: '/admin/typography',
-    title: 'Typography',
-    icon: 'nc-caps-small',
-    class: '',
-  },
 ];
 
 @Component({

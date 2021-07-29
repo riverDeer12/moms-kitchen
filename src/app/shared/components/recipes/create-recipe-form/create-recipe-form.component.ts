@@ -1,3 +1,4 @@
+import { NotificationsService } from './../../../services/notifications/notifications.service';
 import { Router } from '@angular/router';
 import { Recipe } from 'app/shared/dtos/recipes/recipe';
 import { RecipesService } from './../../../services/recipes/recipes.service';
@@ -23,7 +24,8 @@ export class CreateRecipeFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private service: RecipesService,
+    private recipesService: RecipesService,
+    private notificationsService: NotificationsService,
     private router: Router
   ) {
     this.loadingData = true;
@@ -38,7 +40,7 @@ export class CreateRecipeFormComponent implements OnInit {
       name: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
       complexityLevelId: new FormControl('', Validators.required),
-      categoryIds: new FormControl('', Validators.required)
+      categoryIds: new FormControl('', Validators.required),
     });
 
     this.loadingData = false;
@@ -46,18 +48,22 @@ export class CreateRecipeFormComponent implements OnInit {
 
   submit(): void {
     if (!this.createForm.valid) {
-      console.log('Form not valid!');
+      this.notificationsService.error('Form is not valid.');
       return;
     }
 
     this.prepareSelectors();
 
-    this.service
-      .createRecipe(this.createForm.value)
-      .subscribe((response: Recipe) => {
+    this.recipesService.createRecipe(this.createForm.value).subscribe(
+      (response: Recipe) => {
         this.createdRecipe = response as Recipe;
         this.router.navigateByUrl(this.returnUrl);
-      });
+        this.notificationsService.success('Successfully created recipe.');
+      },
+      (error: string) => {
+        this.notificationsService.error(error);
+      }
+    );
   }
 
   prepareSelectors(): void {

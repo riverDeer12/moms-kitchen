@@ -14,3 +14,7 @@
   padding: 10px !important;
 }
 /* -- MULTISELECT -- */
+
+.sidebar .logo a.logo-normal, .off-canvas-sidebar .logo a.logo-normal{
+  padding: 11px !important;
+}

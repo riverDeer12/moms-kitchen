@@ -1,5 +1,5 @@
 <div *ngIf="!loadingData" class="info">
-	<h4 class="info-title">
+  <h4 class="info-title">
     {{complexityLevel.name}}
   </h4>
   <p>
@@ -10,8 +10,8 @@
     <label>Complexity Weight: </label>
     {{complexityLevel.complexityWeight}}
   </p>
-	<p>
+  <p>
     <label>Description: </label>
-    {{complexityLevel.description}}
+    <span [innerHtml]="complexityLevel.description"></span>
   </p>
 </div>

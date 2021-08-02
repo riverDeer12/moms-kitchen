@@ -26,6 +26,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ComplexityLevelsService } from './shared/services/complexity-levels/complexity-levels.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     FixedPluginModule,
     HttpClientModule,
     SharedModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    AngularEditorModule
   ],
   providers: [
     {

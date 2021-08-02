@@ -6,8 +6,8 @@
     <label>Status: </label>
     {{category.getStatus()}}
   </p>
-	<p>
+  <p>
     <label>Description: </label>
-    {{category.description}}
+    <span [innerHtml]="category.description"></span>
   </p>
 </div>

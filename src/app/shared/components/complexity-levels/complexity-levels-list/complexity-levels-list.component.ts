@@ -6,6 +6,7 @@ import { ComplexityLevel } from 'app/shared/dtos/complexity-levels/complexity-le
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmDeleteComponent } from '../../common/confirm-delete/confirm-delete.component';
 import { EntityType } from 'app/shared/constants/entity-type';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-complexity-levels-list',
@@ -74,5 +75,9 @@ export class ComplexityLevelsListComponent implements OnInit {
 
   goToConfirmDeletePage(id: string): void {
     this.router.navigateByUrl('/admin/complexity-levels/delete/' + id);
+  }
+
+  clear(table: Table) {
+    table.clear();
   }
 }

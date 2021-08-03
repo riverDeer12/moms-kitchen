@@ -2,20 +2,34 @@
     Create new category
 </a>
 
-<table class="table">
-    <thead>
+<p-table #dt2 [value]="categories" dataKey="id" [rows]="5" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,20]"
+    styleClass="p-datatable-customers" [paginator]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['name','createdAt','status']">
+    <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+            <span class="p-input-icon-left p-ml-auto">
+                <input class="form-control" type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')"
+                    placeholder="Search" />
+            </span>
+            <button (click)="clear(dt2)" type="button" class="btn btn-info btn-sm btn-round btn-icon ml-2">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" class="datatable-header">
         <tr>
-            <th>Name</th>
-            <th>Created At</th>
-            <th>Status</th>
+            <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon>
+            </th>
+            <th pSortableColumn="createdAt">Created At <p-sortIcon field="createdAt"></p-sortIcon>
+            </th>
+            <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon>
+            </th>
             <th class="text-center"></th>
         </tr>
-    </thead>
-    <tbody *ngIf="loadingData">
-        Loading data...
-    </tbody>
-    <tbody *ngIf="!loadingData">
-        <tr *ngFor="let category of categories">
+    </ng-template>
+    <ng-template pTemplate="body" let-category>
+        <tr>
             <td>{{ category.name }}</td>
             <td>{{ category.createdAt | date:'dd.MM.yyyy HH:mm:ss' }}</td>
             <td>{{ category.getStatus() }}</td>
@@ -28,11 +42,11 @@
                     class="btn btn-success btn-sm btn-round btn-icon">
                     <i class="fa fa-edit"></i>
                 </button>
-                <button (click)="confirmDelete(category.id)" type="button" rel="tooltip"
+                <button (click)="goToConfirmDeletePage(category.id)" type="button" rel="tooltip"
                     class="btn btn-danger btn-sm btn-round btn-icon">
                     <i class="fa fa-times"></i>
                 </button>
             </td>
         </tr>
-    </tbody>
-</table>
+    </ng-template>
+</p-table>

@@ -7,6 +7,7 @@ import { ApiResponse } from 'app/shared/common/api-response';
 import { Router } from '@angular/router';
 import { EntityType } from 'app/shared/constants/entity-type';
 import { ConfirmDeleteComponent } from '../../common/confirm-delete/confirm-delete.component';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-categories-list',
@@ -67,5 +68,9 @@ export class CategoriesListComponent implements OnInit {
 
   goToConfirmDeletePage(categoryId: string): void {
     this.router.navigateByUrl('/admin/categories/delete/' + categoryId);
+  }
+
+  clear(table: Table) {
+    table.clear();
   }
 }

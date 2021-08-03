@@ -18,3 +18,28 @@
 .sidebar .logo a.logo-normal, .off-canvas-sidebar .logo a.logo-normal{
   padding: 11px !important;
 }
+
+/* -- DATATABLE -- */
+.p-datatable .p-datatable-header {
+  background: transparent !important;
+  border: none !important;
+  float: right;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight{
+  border-radius: 50px;
+  background: #51bcda !important;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
+  border-radius: 50px;
+}
+
+.p-paginator .p-dropdown{
+  padding-left: 10px;
+  border-radius: 50px;
+  height: 2.6rem !important;
+}
+/* -- DATATABLE -- */

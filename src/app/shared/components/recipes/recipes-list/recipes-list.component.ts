@@ -2,11 +2,12 @@ import { Router } from '@angular/router';
 import { ApiResponse } from './../../../common/api-response';
 import { RecipesService } from './../../../services/recipes/recipes.service';
 import { CommonService } from 'app/shared/services/common/common.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Recipe } from 'app/shared/dtos/recipes/recipe';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmDeleteComponent } from '../../common/confirm-delete/confirm-delete.component';
 import { EntityType } from 'app/shared/constants/entity-type';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-recipes-list',
@@ -14,7 +15,7 @@ import { EntityType } from 'app/shared/constants/entity-type';
   styleUrls: ['./recipes-list.component.scss'],
 })
 export class RecipesListComponent implements OnInit {
-  recipes: Recipe[];
+  recipes: Recipe[] = [];
   loadingData: boolean;
 
   constructor(
@@ -41,7 +42,7 @@ export class RecipesListComponent implements OnInit {
   getRecipes(): void {
     this.recipesService.getRecipes().subscribe(
       (response: Recipe[]) => {
-        this.recipes = response.map(x => Object.assign(new Recipe(), x));
+        this.recipes = response.map((x) => Object.assign(new Recipe(), x));
         this.loadingData = false;
       },
       (error) => {
@@ -67,5 +68,9 @@ export class RecipesListComponent implements OnInit {
 
   goToConfirmDeletePage(recipeId: string): void {
     this.router.navigateByUrl('/admin/recipes/delete/' + recipeId);
+  }
+
+  clear(table: Table) {
+    table.clear();
   }
 }

@@ -18,6 +18,8 @@ import { ComplexityLevelsListComponent } from './components/complexity-levels/co
 import { ComplexityLevelDetailsComponent } from './components/complexity-levels/complexity-level-details/complexity-level-details.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   imports: [
@@ -25,7 +27,9 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     ReactiveFormsModule,
     FormsModule,
     AngularEditorModule,
-    NgMultiSelectDropDownModule.forRoot()
+    TableModule,
+    ButtonModule,
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   declarations: [
     LoginFormComponent,
@@ -42,7 +46,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     CreateComplexityLevelFormComponent,
     EditComplexityLevelFormComponent,
     ComplexityLevelDetailsComponent,
-    ComplexityLevelSelectorComponent
+    ComplexityLevelSelectorComponent,
   ],
   exports: [
     LoginFormComponent,
@@ -59,7 +63,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     CreateComplexityLevelFormComponent,
     EditComplexityLevelFormComponent,
     ComplexityLevelDetailsComponent,
-    ComplexityLevelSelectorComponent
+    ComplexityLevelSelectorComponent,
   ],
 })
 export class SharedModule {}

@@ -1,3 +1,4 @@
+import { HomeComponent } from './pages/home/home.component';
 import { AdminInterceptor } from './shared/interceptors/admin.interceptor';
 import { ComplexityLevelsComponent } from './pages/complexity-levels/complexity-levels.component';
 import { CommonService } from 'app/shared/services/common/common.service';
@@ -35,6 +36,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     RecipesComponent,
     CategoriesComponent,
     LoginComponent,
+    HomeComponent,
     ComplexityLevelsComponent,
   ],
   imports: [

@@ -1,3 +1,4 @@
+import { HomeComponent } from './pages/home/home.component';
 import { AdminGuard } from './shared/guards/admin.guard';
 import { Routes } from '@angular/router';
 
@@ -6,13 +7,17 @@ import { LoginComponent } from './pages/login/login.component';
 
 export const AppRoutes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
   },
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'admin',

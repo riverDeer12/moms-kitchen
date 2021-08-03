@@ -1,22 +1,27 @@
-
 <div class="sidebar-wrapper">
   <div class="logo">
     <a href="https://www.rdd.com.hr" class="simple-text logo-normal">
       <img src="assets/img/logo.png">
     </a>
   </div>
-    <ul class="nav">
-        <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
-            <a [routerLink]="[menuItem.path]">
-                <i class="nc-icon {{menuItem.icon}}"></i>
-                <p>{{menuItem.title}}</p>
-            </a>
-        </li>
-        <li class="active-pro">
-          <a (click)="logOut()">
-              <i class="nc-icon nc-user-run"></i>
-              <p>Log Off</p>
-          </a>
-      </li>
-    </ul>
+  <ul class="nav">
+    <li>
+      <a target="_blank" [routerLink]="'/home'">
+        <i class="nc-icon nc-bank"></i>
+        <p>Home Page</p>
+      </a>
+    </li>
+    <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
+      <a [routerLink]="[menuItem.path]">
+        <i class="nc-icon {{menuItem.icon}}"></i>
+        <p>{{menuItem.title}}</p>
+      </a>
+    </li>
+    <li class="active-pro">
+      <a (click)="logOut()">
+        <i class="nc-icon nc-user-run"></i>
+        <p>Log Off</p>
+      </a>
+    </li>
+  </ul>
 </div>

@@ -11,18 +11,25 @@ import { CreateCategoryFormComponent } from './components/categories/create-cate
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EditCategoryFormComponent } from './components/categories/edit-category-form/edit-category-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
 import { EditComplexityLevelFormComponent } from './components/complexity-levels/edit-complexity-level-form/edit-complexity-level-form.component';
 import { ComplexityLevelsListComponent } from './components/complexity-levels/complexity-levels-list/complexity-levels-list.component';
 import { ComplexityLevelDetailsComponent } from './components/complexity-levels/complexity-level-details/complexity-level-details.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    NgMultiSelectDropDownModule.forRoot()
+    FormsModule,
+    AngularEditorModule,
+    TableModule,
+    ButtonModule,
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   declarations: [
     LoginFormComponent,
@@ -39,7 +46,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     CreateComplexityLevelFormComponent,
     EditComplexityLevelFormComponent,
     ComplexityLevelDetailsComponent,
-    ComplexityLevelSelectorComponent
+    ComplexityLevelSelectorComponent,
   ],
   exports: [
     LoginFormComponent,
@@ -56,7 +63,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     CreateComplexityLevelFormComponent,
     EditComplexityLevelFormComponent,
     ComplexityLevelDetailsComponent,
-    ComplexityLevelSelectorComponent
+    ComplexityLevelSelectorComponent,
   ],
 })
 export class SharedModule {}

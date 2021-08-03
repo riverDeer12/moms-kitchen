@@ -1,3 +1,4 @@
+import { EditorConfig } from './../../../../settings/editor-settings';
 import { NotificationsService } from './../../../services/notifications/notifications.service';
 import { Router } from '@angular/router';
 import { Recipe } from 'app/shared/dtos/recipes/recipe';
@@ -9,6 +10,7 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Component({
   selector: 'app-create-recipe-form',
@@ -21,6 +23,8 @@ export class CreateRecipeFormComponent implements OnInit {
   loadingData: boolean;
   createForm: FormGroup;
   createdRecipe: Recipe;
+
+  editorConfig = EditorConfig.getConfig();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -58,7 +62,7 @@ export class CreateRecipeFormComponent implements OnInit {
       (response: Recipe) => {
         this.createdRecipe = response as Recipe;
         this.router.navigateByUrl(this.returnUrl);
-        this.notificationsService.success('Successfully created recipe.');
+        this.notificationsService.success('Successfully created Recipe.');
       },
       (error: string) => {
         this.notificationsService.error(error);

@@ -1,3 +1,5 @@
+import { NotificationsService } from './../../../services/notifications/notifications.service';
+import { EditorConfig } from './../../../../settings/editor-settings';
 import { ComplexityLevelsService } from './../../../services/complexity-levels/complexity-levels.service';
 import { Component, Input, OnInit } from '@angular/core';
 import {
@@ -21,8 +23,11 @@ export class CreateComplexityLevelFormComponent implements OnInit {
   createForm: FormGroup;
   creationResponse: ComplexityLevel;
 
+  editorConfig = EditorConfig.getConfig();
+
   constructor(
     private complexityLevelsService: ComplexityLevelsService,
+    private notificationsService: NotificationsService,
     private formBuilder: FormBuilder,
     private router: Router
   ) {
@@ -47,11 +52,23 @@ export class CreateComplexityLevelFormComponent implements OnInit {
   }
 
   submit(): void {
+
+    if (!this.createForm.valid) {
+      this.notificationsService.error('Form is not valid!');
+      return;
+    }
+
     this.complexityLevelsService
       .createComplexityLevel(this.createForm.value)
-      .subscribe((response: ComplexityLevel) => {
-        this.creationResponse = response as ComplexityLevel;
-        this.router.navigateByUrl(this.returnUrl);
-      });
+      .subscribe(
+        (response: ComplexityLevel) => {
+          this.creationResponse = response as ComplexityLevel;
+          this.router.navigateByUrl(this.returnUrl);
+          this.notificationsService.success('Successfully created Complexity Level.');
+        },
+        (error: string) => {
+          this.notificationsService.error(error);
+        }
+      );
   }
 }

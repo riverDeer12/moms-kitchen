@@ -1,3 +1,5 @@
+import { NotificationsService } from './../../../services/notifications/notifications.service';
+import { EditorConfig } from './../../../../settings/editor-settings';
 import { Category } from './../../../dtos/categories/category';
 import { Router } from '@angular/router';
 import { CategoriesService } from './../../../services/categories/categories.service';
@@ -22,8 +24,11 @@ export class CreateCategoryFormComponent implements OnInit {
   createForm: FormGroup;
   creationResponse: Category;
 
+  editorConfig = EditorConfig.getConfig();
+
   constructor(
     private categoriesService: CategoriesService,
+    private notificationsService: NotificationsService,
     private formBuilder: FormBuilder,
     private router: Router
   ) {
@@ -42,11 +47,19 @@ export class CreateCategoryFormComponent implements OnInit {
   }
 
   submit(): void {
-    this.categoriesService
-      .createCategory(this.createForm.value)
-      .subscribe((response: Category) => {
+    if (!this.createForm.valid) {
+      this.notificationsService.error('Form is not valid!');
+      return;
+    }
+    this.categoriesService.createCategory(this.createForm.value).subscribe(
+      (response: Category) => {
         this.creationResponse = response as Category;
         this.router.navigateByUrl(this.returnUrl);
-      });
+        this.notificationsService.success('Successfully created Category.');
+      },
+      (error: string) => {
+        this.notificationsService.error(error);
+      }
+    );
   }
 }

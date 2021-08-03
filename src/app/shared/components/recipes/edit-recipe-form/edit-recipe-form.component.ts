@@ -1,3 +1,5 @@
+import { NotificationsService } from './../../../services/notifications/notifications.service';
+import { EditorConfig } from './../../../../settings/editor-settings';
 import { Router } from '@angular/router';
 import { RecipesService } from './../../../services/recipes/recipes.service';
 import { Component, Input, OnInit } from '@angular/core';
@@ -24,8 +26,11 @@ export class EditRecipeFormComponent implements OnInit {
   editForm: FormGroup;
   complexityLevelId: string;
 
+  editorConfig = EditorConfig.getConfig();
+
   constructor(
-    private service: RecipesService,
+    private recipesService: RecipesService,
+    private notificationsService: NotificationsService,
     private fb: FormBuilder,
     private router: Router
   ) {
@@ -37,7 +42,7 @@ export class EditRecipeFormComponent implements OnInit {
   }
 
   getRecipe(): void {
-    this.service.getRecipe(this.id).subscribe((response: Recipe) => {
+    this.recipesService.getRecipe(this.id).subscribe((response: Recipe) => {
       this.recipe = response as Recipe;
       this.setEditForm();
     });
@@ -60,18 +65,22 @@ export class EditRecipeFormComponent implements OnInit {
 
   submit(): void {
     if (!this.editForm.valid) {
-      console.log('Form not valid!');
+      this.notificationsService.error('Form is not valid!');
       return;
     }
 
     this.prepareSelectors();
 
-    this.service
-      .updateRecipe(this.id, this.editForm.value)
-      .subscribe((response: Recipe) => {
+    this.recipesService.updateRecipe(this.id, this.editForm.value).subscribe(
+      (response: Recipe) => {
         this.response = response as Recipe;
         this.router.navigateByUrl(this.returnUrl);
-      });
+        this.notificationsService.success('Successfully updated Recipe.');
+      },
+      (error: string) => {
+        this.notificationsService.error(error);
+      }
+    );
   }
 
   prepareSelectors(): void {

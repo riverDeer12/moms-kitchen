@@ -24,8 +24,7 @@
     <div class="col-md-6 pr-1">
       <div class="form-group">
         <label>Description</label>
-        <input type="text" class="form-control" formControlName="description"
-          placeholder="enter recipe description here...">
+        <angular-editor formControlName="description" [config]="editorConfig"></angular-editor>
       </div>
     </div>
   </div>

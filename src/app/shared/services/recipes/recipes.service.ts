@@ -22,7 +22,7 @@ export class RecipesService {
   }
 
   createRecipe(postRecipeRequest: PostRecipeRequest): Observable<Recipe> {
-    return this.http.post<Recipe>(this.recipesUrl, postRecipeRequest)
+    return this.http.post<Recipe>(this.recipesUrl, postRecipeRequest);
   }
 
   updateRecipe(
@@ -40,6 +40,12 @@ export class RecipesService {
   }
 
   getRecipeCategories(recipeId: string): Observable<Category[]> {
-    return this.http.get<Category[]>(this.recipesUrl + recipeId + '/categories');
+    return this.http.get<Category[]>(
+      this.recipesUrl + recipeId + '/categories'
+    );
+  }
+
+  getActiveRecipes(): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(this.recipesUrl + 'active');
   }
 }

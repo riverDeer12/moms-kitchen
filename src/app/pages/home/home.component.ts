@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   getRecipes(): void {
-    this.recipesService.getRecipes().subscribe((response: Recipe[]) => {
+    this.recipesService.getActiveRecipes().subscribe((response: Recipe[]) => {
       this.recipes = response.map((x) => Object.assign(new Recipe(), x));
       this.loadingData = false;
     });

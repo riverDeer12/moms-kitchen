@@ -1,6 +1,6 @@
 import { HomeComponent } from './pages/home/home.component';
 import { AdminInterceptor } from './shared/interceptors/admin.interceptor';
-import { ComplexityLevelsComponent } from './pages/complexity-levels/complexity-levels.component';
+import { ComplexityLevelsComponent } from './pages/admin/complexity-levels/complexity-levels.component';
 import { CommonService } from 'app/shared/services/common/common.service';
 import { CategoriesService } from './shared/services/categories/categories.service';
 import { RecipesService } from './shared/services/recipes/recipes.service';
@@ -20,10 +20,10 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { RecipesComponent } from './pages/recipes/recipes.component';
-import { CategoriesComponent } from './pages/categories/categories.component';
+import { RecipesComponent } from './pages/admin/recipes/recipes.component';
+import { CategoriesComponent } from './pages/admin/categories/categories.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './pages/admin/login/login.component';
 import { ComplexityLevelsService } from './shared/services/complexity-levels/complexity-levels.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';

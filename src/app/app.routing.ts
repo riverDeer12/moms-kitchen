@@ -3,7 +3,7 @@ import { AdminGuard } from './shared/guards/admin.guard';
 import { Routes } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './pages/admin/login/login.component';
 
 export const AppRoutes: Routes = [
   {
@@ -33,6 +33,6 @@ export const AppRoutes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'login',
+    redirectTo: 'home',
   },
 ];

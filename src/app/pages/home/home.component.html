@@ -6,15 +6,12 @@
     <div class="col-md-4 mt-5" *ngFor="let recipe of recipes">
       <div class="card profile-card-5 h-100">
         <div class="card-img-block">
-          <img class="card-img-top" src="assets/img/default_recipe_image.jpg"
-            alt="Card image cap">
+          <img class="card-img-top" src="assets/img/default_recipe_image.jpg">
         </div>
         <div class="card-body pt-0">
           <h5 class="card-title">{{ recipe.name }}</h5>
           <p class="card-text">
-            <button type="button" class="btn btn-round btn-success">kategorija</button>      
-            <button type="button" class="btn btn-round btn-warning">kategorija</button>       
-            <button type="button" class="btn btn-round btn-info">kategorija</button>        
+            <span *ngFor="let category of recipe.categories" class="btn btn-round btn-sm btn-primary">{{ category.name }}</span>      
           </p>
         </div>
       </div>

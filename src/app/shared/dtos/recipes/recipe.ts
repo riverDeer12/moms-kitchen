@@ -1,4 +1,3 @@
-import { ComplexityLevel } from 'app/shared/dtos/complexity-levels/complexity-level';
 import { Category } from '../categories/category';
 
 export class Recipe {

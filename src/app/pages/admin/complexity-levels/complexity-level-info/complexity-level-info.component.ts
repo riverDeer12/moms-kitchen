@@ -1,9 +1,9 @@
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommonService } from './../../../shared/services/common/common.service';
 import { Component, OnInit } from '@angular/core';
 import { ConfirmDeleteComponent } from 'app/shared/components/common/confirm-delete/confirm-delete.component';
 import { EntityType } from 'app/shared/constants/entity-type';
+import { CommonService } from 'app/shared/services/common/common.service';
 
 @Component({
   selector: 'app-complexity-level-info',

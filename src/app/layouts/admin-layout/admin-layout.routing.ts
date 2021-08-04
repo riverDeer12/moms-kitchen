@@ -1,20 +1,20 @@
-import { CategoryInfoComponent } from './../../pages/categories/category-info/category-info.component';
-import { EditComplexityLevelComponent } from './../../pages/complexity-levels/edit-complexity-level/edit-complexity-level.component';
-import { CreateComplexityLevelComponent } from './../../pages/complexity-levels/create-complexity-level/create-complexity-level.component';
+import { CategoryInfoComponent } from './../../pages/admin/categories/category-info/category-info.component';
+import { EditComplexityLevelComponent } from './../../pages/admin/complexity-levels/edit-complexity-level/edit-complexity-level.component';
+import { CreateComplexityLevelComponent } from './../../pages/admin/complexity-levels/create-complexity-level/create-complexity-level.component';
 import { ComplexityLevelsListComponent } from './../../shared/components/complexity-levels/complexity-levels-list/complexity-levels-list.component';
-import { ComplexityLevelsComponent } from './../../pages/complexity-levels/complexity-levels.component';
+import { ComplexityLevelsComponent } from './../../pages/admin/complexity-levels/complexity-levels.component';
 import { Routes } from '@angular/router';
-import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
-import { RecipesComponent } from 'app/pages/recipes/recipes.component';
-import { CategoriesComponent } from 'app/pages/categories/categories.component';
-import { CreateCategoryComponent } from 'app/pages/categories/create-category/create-category.component';
+import { DashboardComponent } from '../../pages/admin/dashboard/dashboard.component';
+import { RecipesComponent } from 'app/pages/admin/recipes/recipes.component';
+import { CategoriesComponent } from 'app/pages/admin/categories/categories.component';
+import { CreateCategoryComponent } from 'app/pages/admin/categories/create-category/create-category.component';
 import { CategoriesListComponent } from 'app/shared/components/categories/categories-list/categories-list.component';
-import { EditCategoryComponent } from 'app/pages/categories/edit-category/edit-category.component';
-import { CreateRecipeComponent } from 'app/pages/recipes/create-recipe/create-recipe.component';
-import { EditRecipeComponent } from 'app/pages/recipes/edit-recipe/edit-recipe.component';
+import { EditCategoryComponent } from 'app/pages/admin/categories/edit-category/edit-category.component';
+import { CreateRecipeComponent } from 'app/pages/admin/recipes/create-recipe/create-recipe.component';
+import { EditRecipeComponent } from 'app/pages/admin/recipes/edit-recipe/edit-recipe.component';
 import { RecipesListComponent } from 'app/shared/components/recipes/recipes-list/recipes-list.component';
-import { ComplexityLevelInfoComponent } from 'app/pages/complexity-levels/complexity-level-info/complexity-level-info.component';
-import { RecipeInfoComponent } from 'app/pages/recipes/recipe-info/recipe-info.component';
+import { ComplexityLevelInfoComponent } from 'app/pages/admin/complexity-levels/complexity-level-info/complexity-level-info.component';
+import { RecipeInfoComponent } from 'app/pages/admin/recipes/recipe-info/recipe-info.component';
 
 export const AdminLayoutRoutes: Routes = [
   {

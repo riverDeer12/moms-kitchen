@@ -1,9 +1,5 @@
-import { RecipesService } from './../../../shared/services/recipes/recipes.service';
 import { CommonService } from 'app/shared/services/common/common.service';
-import { ApiResponse } from './../../../shared/common/api-response';
-import { Recipe } from './../../../shared/dtos/recipes/recipe';
 import { Component, OnInit } from '@angular/core';
-import { IRecipesService } from 'app/shared/services/recipes/i-recipes-service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

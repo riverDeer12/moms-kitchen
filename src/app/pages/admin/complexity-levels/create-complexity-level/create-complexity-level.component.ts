@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
-import { CommonService } from './../../../shared/services/common/common.service';
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'app/shared/services/common/common.service';
 
 @Component({
   selector: 'app-create-complexity-level',

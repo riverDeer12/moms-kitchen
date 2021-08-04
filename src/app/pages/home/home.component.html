@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row" *ngIf="loadingData">
+    Loading data...
+  </div>
+  <div class="row" *ngIf="!loadingData">
+    <div class="col-md-4 mt-5" *ngFor="let recipe of recipes">
+      <div class="card profile-card-5 h-100">
+        <div class="card-img-block">
+          <img class="card-img-top" src="assets/img/default_recipe_image.jpg"
+            alt="Card image cap">
+        </div>
+        <div class="card-body pt-0">
+          <h5 class="card-title">{{ recipe.name }}</h5>
+          <p class="card-text">
+            <button type="button" class="btn btn-round btn-success">kategorija</button>      
+            <button type="button" class="btn btn-round btn-warning">kategorija</button>       
+            <button type="button" class="btn btn-round btn-info">kategorija</button>        
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

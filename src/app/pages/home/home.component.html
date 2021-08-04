@@ -11,8 +11,15 @@
         <div class="card-body pt-0">
           <h5 class="card-title">{{ recipe.name }}</h5>
           <p class="card-text">
-            <span *ngFor="let category of recipe.categories" class="btn btn-round btn-sm btn-primary">{{ category.name }}</span>      
+            <span (click)="openCategoryPage(category.id)" *ngFor="let category of recipe.categories" class="btn btn-round btn-sm btn-primary">
+              <i class="fa fa-bookmark"></i> {{ category.name }}
+            </span>   
           </p>
+        </div>
+        <div class="card-footer d-flex justify-content-center">
+          <span (click)="openRecipePage(recipe.id)" class="btn btn-round btn-sm btn-info">
+            <i class="fa fa-info"></i> Read more details 
+          </span>
         </div>
       </div>
     </div>

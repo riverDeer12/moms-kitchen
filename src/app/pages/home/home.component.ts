@@ -11,6 +11,7 @@ import { Recipe } from 'app/shared/dtos/recipes/recipe';
 export class HomeComponent implements OnInit {
   loadingData: boolean;
   recipes: Recipe[];
+  navbarLabel = "Mom's Kitchen";
 
   constructor(private recipesService: RecipesService, private router: Router) {
     this.loadingData = true;

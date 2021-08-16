@@ -1,52 +1,23 @@
-import {
-  Component,
-  OnInit,
-  Renderer2,
-  ViewChild,
-  ElementRef,
-  Input,
-} from '@angular/core';
-import { ROUTES } from '../../sidebar/sidebar.component';
-import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
-  selector: 'navbar-cmp',
-  templateUrl: 'navbar.component.html',
+  selector: 'app-home-navbar',
+  templateUrl: './home-navbar.component.html',
+  styleUrls: ['./home-navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
-  
-  private listTitles: any[];
-  location: Location;
-  private nativeElement: Node;
-  private toggleButton;
-  private sidebarVisible: boolean;
+export class HomeNavbarComponent implements OnInit {
 
+  sidebarVisible: boolean;
+  toggleButton: any;
   public isCollapsed = true;
-  @ViewChild('navbar-cmp', { static: false }) button;
 
-  constructor(
-    location: Location,
-    private element: ElementRef,
-    private router: Router
-  ) {
-    this.location = location;
-    this.nativeElement = element.nativeElement;
-    this.sidebarVisible = false;
+  constructor() { }
+
+  ngOnInit(): void {
   }
 
-  ngOnInit() {
-    this.listTitles = ROUTES.filter((listTitle) => listTitle);
-    const navbar: HTMLElement = this.element.nativeElement;
-    this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
-    this.router.events.subscribe(() => {
-      this.sidebarClose();
-    });
-  }
-
-  getTitle() {
-    return 'Administration'
+  getTitle(): string {
+    return "Mom's Kitchen";
   }
 
   sidebarToggle() {
@@ -100,4 +71,5 @@ export class NavbarComponent implements OnInit {
       navbar.classList.remove('bg-white');
     }
   }
+
 }

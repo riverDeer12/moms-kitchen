@@ -20,6 +20,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { HomeNavbarComponent } from './components/common/home-navbar/home-navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -30,6 +32,7 @@ import { ButtonModule } from 'primeng/button';
     TableModule,
     ButtonModule,
     NgMultiSelectDropDownModule.forRoot(),
+    NgbModule
   ],
   declarations: [
     LoginFormComponent,
@@ -47,6 +50,7 @@ import { ButtonModule } from 'primeng/button';
     EditComplexityLevelFormComponent,
     ComplexityLevelDetailsComponent,
     ComplexityLevelSelectorComponent,
+    HomeNavbarComponent,
   ],
   exports: [
     LoginFormComponent,
@@ -64,6 +68,7 @@ import { ButtonModule } from 'primeng/button';
     EditComplexityLevelFormComponent,
     ComplexityLevelDetailsComponent,
     ComplexityLevelSelectorComponent,
+    HomeNavbarComponent
   ],
 })
 export class SharedModule {}

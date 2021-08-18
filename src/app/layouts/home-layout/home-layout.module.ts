@@ -8,6 +8,8 @@ import { HomeLayoutRoutes } from './home-layout.routing';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RecipesComponent } from 'app/pages/home/recipes/recipes.component';
+import { CategoriesComponent } from 'app/pages/home/categories/categories.component';
 
 @NgModule({
   imports: [
@@ -17,6 +19,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     SharedModule,
   ],
-  declarations: [HomeLayoutComponent, CategoryComponent, RecipeComponent],
+  declarations: [
+    HomeLayoutComponent,
+    CategoriesComponent,
+    RecipesComponent,
+    CategoryComponent,
+    RecipeComponent,
+  ],
 })
 export class HomeLayoutModule {}

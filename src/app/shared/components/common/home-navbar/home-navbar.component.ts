@@ -17,7 +17,7 @@ export class HomeNavbarComponent implements OnInit {
   }
 
   getTitle(): string {
-    return "Mom's Kitchen";
+    return 'Mom\'s Kitchen';
   }
 
   sidebarToggle() {

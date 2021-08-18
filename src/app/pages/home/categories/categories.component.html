@@ -1,0 +1,19 @@
+<div class="row" *ngIf="loadingData">
+  Loading data...
+</div>
+<div class="row" *ngIf="!loadingData">
+  <div class="col-md-3 mt-5" *ngFor="let category of categories">
+    <div class="card profile-card-5 h-100">
+      <div class="card-img-block">
+        <img class="card-img-top" src="assets/img/default_category_image.jpeg">
+      </div>
+      <div class="card-body pt-0">
+        <h5 class="card-title">{{ category.name }}</h5>
+      </div>
+      <div class="card-footer d-flex justify-content-center">
+        <span (click)="openCategoryRecipesPage(category.id)" class="btn btn-round btn-sm btn-info">
+          <i class="fa fa-info"></i> Go To Recipes
+        </span>
+      </div>
+    </div>
+  </div>

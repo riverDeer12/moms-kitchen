@@ -15,7 +15,8 @@
 }
 /* -- MULTISELECT -- */
 
-.sidebar .logo a.logo-normal, .off-canvas-sidebar .logo a.logo-normal{
+.sidebar .logo a.logo-normal,
+.off-canvas-sidebar .logo a.logo-normal {
   padding: 11px !important;
 }
 
@@ -26,7 +27,7 @@
   float: right;
 }
 
-.p-paginator .p-paginator-pages .p-paginator-page.p-highlight{
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
   border-radius: 50px;
   background: #51bcda !important;
   color: #ffffff !important;
@@ -37,7 +38,7 @@
   border-radius: 50px;
 }
 
-.p-paginator .p-dropdown{
+.p-paginator .p-dropdown {
   padding-left: 10px;
   border-radius: 50px;
   height: 2.6rem !important;
@@ -45,8 +46,12 @@
 /* -- DATATABLE -- */
 
 /* -- CARD -- */
-.profile-card-5{
-  margin-top:20px;
+.card .card-body{
+  padding-bottom: 0 !important;
+}
+
+.profile-card-5 {
+  margin-top: 20px;
 }
 
 .profile-card-5 .card-img-block {
@@ -58,21 +63,21 @@
   justify-content: center;
   align-items: center;
 }
-.profile-card-5 .card-img-block img{
+.profile-card-5 .card-img-block img {
   border-radius: 50%;
-  box-shadow:0 0 10px rgba(0,0,0,0.63);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
   max-width: 150px;
 }
-.profile-card-5 h5{
-  color:#4E5E30;
-  font-weight:600;
+.profile-card-5 h5 {
+  color: #4e5e30;
+  font-weight: 600;
 }
-.profile-card-5 p{
-  font-size:14px;
-  font-weight:300;
+.profile-card-5 p {
+  font-size: 14px;
+  font-weight: 300;
 }
-.profile-card-5 .btn-primary{
-  background-color:#4E5E30;
-  border-color:#4E5E30;
+.profile-card-5 .btn-primary {
+  background-color: #4e5e30;
+  border-color: #4e5e30;
 }
 /* -- CARD -- */

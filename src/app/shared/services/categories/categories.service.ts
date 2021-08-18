@@ -36,4 +36,8 @@ export class CategoriesService {
   deleteCategory(categoryId: string): Observable<Category> {
     return this.http.delete<Category>(this.categoriesUrl + categoryId);
   }
+
+  getActiveCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(this.categoriesUrl + 'active');
+  }
 }

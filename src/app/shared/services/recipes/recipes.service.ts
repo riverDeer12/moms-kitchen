@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Category } from 'app/shared/dtos/categories/category';
+import { LatestRecipes } from 'app/shared/dtos/recipes/latest-recipes';
 import { PostRecipeRequest } from 'app/shared/dtos/recipes/post-recipe-request';
 import { Recipe } from 'app/shared/dtos/recipes/recipe';
 import { UpdateRecipeRequest } from 'app/shared/dtos/recipes/update-recipe-request';
@@ -47,5 +48,9 @@ export class RecipesService {
 
   getActiveRecipes(): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(this.recipesUrl + 'active');
+  }
+
+  getLatestRecipes(): Observable<LatestRecipes> {
+    return this.http.get<LatestRecipes>(this.recipesUrl + 'latest');
   }
 }

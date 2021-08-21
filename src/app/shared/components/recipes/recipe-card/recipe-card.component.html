@@ -1,0 +1,24 @@
+<div class="card profile-card-5 h-100">
+  <div class="card-img-block">
+    <img class="card-img-top" src="assets/img/default_recipe_image.jpg">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ recipe.name }}</h5>
+    <p class="card-text">
+      <span class="btn btn-round btn-sm btn-success">
+        <i class="fa fa-calendar"></i> Published: {{ recipe.createdAt | date:'dd.MM.yyyy'}}
+      </span>
+    <div class="related-categories-container">
+      <h6>Related Categories</h6>
+      <span (click)="openCategoryPage(category.id)" *ngFor="let category of recipe.categories"
+        class="btn btn-round btn-sm btn-primary">
+        <i class="fa fa-bookmark"></i> {{ category.name }}
+      </span>
+    </div>
+  </div>
+  <div class="card-footer d-flex justify-content-center">
+    <span (click)="openRecipePage()" class="btn btn-round btn-sm btn-info">
+      <i class="fa fa-info"></i> Read more details
+    </span>
+  </div>
+</div>

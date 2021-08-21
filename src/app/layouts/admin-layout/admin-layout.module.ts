@@ -1,3 +1,4 @@
+import { UsersComponent } from './../../pages/admin/users/users.component';
 import { RecipeInfoComponent } from './../../pages/admin/recipes/recipe-info/recipe-info.component';
 import { CategoryInfoComponent } from './../../pages/admin/categories/category-info/category-info.component';
 import { EditComplexityLevelComponent } from './../../pages/admin/complexity-levels/edit-complexity-level/edit-complexity-level.component';
@@ -38,7 +39,8 @@ import { ComplexityLevelInfoComponent } from 'app/pages/admin/complexity-levels/
     RecipeInfoComponent,
     CreateComplexityLevelComponent,
     EditComplexityLevelComponent,
-    ComplexityLevelInfoComponent
+    ComplexityLevelInfoComponent,
+    UsersComponent
   ]
 })
 export class AdminLayoutModule {}

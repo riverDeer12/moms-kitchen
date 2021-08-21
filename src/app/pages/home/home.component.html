@@ -1,31 +1,31 @@
 <div class="row" *ngIf="loadingData">
-  Loading data...
+  <span class="mt-5">
+    Loading latest recipes...
+  </span>
 </div>
 <div class="row" *ngIf="!loadingData">
-  <div class="col-md-3 mt-5" *ngFor="let recipe of recipes">
-    <div class="card profile-card-5 h-100">
-      <div class="card-img-block">
-        <img class="card-img-top" src="assets/img/default_recipe_image.jpg">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">{{ recipe.name }}</h5>
-        <p class="card-text">
-          <span class="btn btn-round btn-sm btn-success">
-            <i class="fa fa-calendar"></i> Published: {{ recipe.createdAt | date:'dd.MM.yyyy'}}
-          </span>
-        <div class="related-categories-container">
-          <h6>Related Categories</h6>
-          <span (click)="openCategoryPage(category.id)" *ngFor="let category of recipe.categories"
-            class="btn btn-round btn-sm btn-primary">
-            <i class="fa fa-bookmark"></i> {{ category.name }}
-          </span>
-        </div>
-      </div>
-      <div class="card-footer d-flex justify-content-center">
-        <span (click)="openRecipePage(recipe.id)" class="btn btn-round btn-sm btn-info">
-          <i class="fa fa-info"></i> Read more details
-        </span>
-      </div>
-    </div>
+  <div class="col-md-3 mt-5" *ngFor="let recipe of latestRecipes.latest">
+    <app-recipe-card [recipe]="recipe"></app-recipe-card>
+  </div>
+
+  <a [href]="'/categories/'+ mostPopularCategory.id ">
+    <h6>{{ mostPopularCategory.name }}</h6>
+  </a>
+  <div class="col-md-3 mt-5" *ngFor="let recipe of latestRecipes.mostPopularCategory">
+    <app-recipe-card [recipe]="recipe"></app-recipe-card>
+  </div>
+
+  <a [href]="'/categories/'+ secondMostPopularCategory.id ">
+    <h6>{{ secondMostPopularCategory.name }}</h6>
+  </a>
+  <div class="col-md-3 mt-5" *ngFor="let recipe of latestRecipes.secondMostPopularCategory">
+    <app-recipe-card [recipe]="recipe"></app-recipe-card>
+  </div>
+
+  <a [href]="'/categories/'+ thirdMostPopularCategory.id ">
+    <h6>{{ thirdMostPopularCategory.name }}</h6>
+  </a>
+  <div class="col-md-3 mt-5" *ngFor="let recipe of latestRecipes.thirdMostPopularCategory">
+    <app-recipe-card [recipe]="recipe"></app-recipe-card>
   </div>
 </div>

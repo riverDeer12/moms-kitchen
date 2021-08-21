@@ -1,3 +1,4 @@
+import { RecipeCardComponent } from './components/recipes/recipe-card/recipe-card.component';
 import { CategoriesSelectorComponent } from './components/categories/categories-selector/categories-selector.component';
 import { ComplexityLevelSelectorComponent } from './components/complexity-levels/complexity-level-selector/complexity-level-selector.component';
 import { RecipeDetailsComponent } from './components/recipes/recipe-details/recipe-details.component';
@@ -51,6 +52,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ComplexityLevelDetailsComponent,
     ComplexityLevelSelectorComponent,
     HomeNavbarComponent,
+    RecipeCardComponent
   ],
   exports: [
     LoginFormComponent,
@@ -68,7 +70,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EditComplexityLevelFormComponent,
     ComplexityLevelDetailsComponent,
     ComplexityLevelSelectorComponent,
-    HomeNavbarComponent
+    HomeNavbarComponent,
+    RecipeCardComponent
   ],
 })
 export class SharedModule {}

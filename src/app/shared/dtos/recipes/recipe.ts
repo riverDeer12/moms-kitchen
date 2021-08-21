@@ -4,6 +4,7 @@ export class Recipe {
   id: string;
   isActive: boolean;
   isDeleted: boolean;
+  createdAt: Date;
   name: string;
   description: string;
   complexityLevelId: string;

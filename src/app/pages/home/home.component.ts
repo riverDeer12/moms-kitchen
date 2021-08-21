@@ -1,3 +1,4 @@
+import { LatestRecipes } from 'app/shared/dtos/recipes/latest-recipes';
 import { Router } from '@angular/router';
 import { RecipesService } from './../../shared/services/recipes/recipes.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,20 +11,20 @@ import { Recipe } from 'app/shared/dtos/recipes/recipe';
 })
 export class HomeComponent implements OnInit {
   loadingData: boolean;
-  recipes: Recipe[];
-  navbarLabel = "Mom's Kitchen";
+  latestRecipes: LatestRecipes;
+  navbarLabel = 'Mom\'s Kitchen';
 
   constructor(private recipesService: RecipesService, private router: Router) {
     this.loadingData = true;
   }
 
   ngOnInit() {
-    this.getRecipes();
+    this.getLatestRecipes();
   }
 
-  getRecipes(): void {
-    this.recipesService.getActiveRecipes().subscribe((response: Recipe[]) => {
-      this.recipes = response.map((x) => Object.assign(new Recipe(), x));
+  getLatestRecipes(): void {
+    this.recipesService.getLatestRecipes().subscribe((response: LatestRecipes) => {
+      this.latestRecipes = Object.assign(new Recipe(), response);
       this.loadingData = false;
     });
   }

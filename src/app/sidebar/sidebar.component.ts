@@ -24,6 +24,12 @@ export const ROUTES: RouteInfo[] = [
     icon: 'nc-vector',
     class: '',
   },
+  {
+    path: '/admin/users',
+    title: 'Users',
+    icon: 'nc-badge',
+    class: '',
+  },
 ];
 
 @Component({

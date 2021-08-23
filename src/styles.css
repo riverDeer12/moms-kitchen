@@ -46,6 +46,10 @@
 /* -- DATATABLE -- */
 
 /* -- CARD -- */
+.card{
+  box-shadow: 0 6px 10px 0px rgb(0 0 0 / 15%) !important;
+}
+
 .card .card-body{
   padding-bottom: 0 !important;
 }
@@ -81,3 +85,14 @@
   border-color: #4e5e30;
 }
 /* -- CARD -- */
+
+/* -- HEADINGS -- */
+
+h1{
+  font-size: 3rem !important;
+}
+
+h1, h2 {
+  margin-bottom: 0 !important;
+}
+/* -- HEADINGS -- */

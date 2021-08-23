@@ -1,0 +1,8 @@
+.navbar a:not(.btn):not(.dropdown-item){
+    color: #636363 !important;
+    font-weight: 400;
+}
+
+.navbar {
+    position: inherit !important;
+}

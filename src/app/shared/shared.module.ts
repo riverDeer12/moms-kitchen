@@ -1,3 +1,4 @@
+import { HomeFooterComponent } from './components/common/home-footer/home-footer.component';
 import { RecipeCardComponent } from './components/recipes/recipe-card/recipe-card.component';
 import { CategoriesSelectorComponent } from './components/categories/categories-selector/categories-selector.component';
 import { ComplexityLevelSelectorComponent } from './components/complexity-levels/complexity-level-selector/complexity-level-selector.component';
@@ -52,6 +53,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ComplexityLevelDetailsComponent,
     ComplexityLevelSelectorComponent,
     HomeNavbarComponent,
+    HomeFooterComponent,
     RecipeCardComponent
   ],
   exports: [
@@ -71,6 +73,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ComplexityLevelDetailsComponent,
     ComplexityLevelSelectorComponent,
     HomeNavbarComponent,
+    HomeFooterComponent,
     RecipeCardComponent
   ],
 })

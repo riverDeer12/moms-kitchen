@@ -1,31 +1,58 @@
-<div class="row" *ngIf="loadingData">
+<div class="container" *ngIf="loadingData">
   <span class="mt-5">
     Loading latest recipes...
   </span>
 </div>
-<div class="row" *ngIf="!loadingData">
-  <div class="col-md-3 mt-5" *ngFor="let recipe of latestRecipes.latest">
-    <app-recipe-card [recipe]="recipe"></app-recipe-card>
+
+<div class="container-fluid" *ngIf="!loadingData">
+  <div class="container mb-5">
+    <h2 class="mt-5"><i class="fa fa-bolt text-danger"></i> Latest recipes</h2>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mt-5" *ngFor="let recipe of latestRecipes.latest">
+        <app-recipe-card [recipe]="recipe"></app-recipe-card>
+      </div>
+    </div>
   </div>
 
-  <a [href]="'/categories/'+ mostPopularCategory.id ">
-    <h6>{{ mostPopularCategory.name }}</h6>
-  </a>
-  <div class="col-md-3 mt-5" *ngFor="let recipe of latestRecipes.mostPopularCategory">
-    <app-recipe-card [recipe]="recipe"></app-recipe-card>
-  </div>
-
-  <a [href]="'/categories/'+ secondMostPopularCategory.id ">
-    <h6>{{ secondMostPopularCategory.name }}</h6>
-  </a>
-  <div class="col-md-3 mt-5" *ngFor="let recipe of latestRecipes.secondMostPopularCategory">
-    <app-recipe-card [recipe]="recipe"></app-recipe-card>
-  </div>
-
-  <a [href]="'/categories/'+ thirdMostPopularCategory.id ">
-    <h6>{{ thirdMostPopularCategory.name }}</h6>
-  </a>
-  <div class="col-md-3 mt-5" *ngFor="let recipe of latestRecipes.thirdMostPopularCategory">
-    <app-recipe-card [recipe]="recipe"></app-recipe-card>
+  <div class="container mt-3 mb-3">
+    <div class="card popular-categories-container">
+      <div class="card-header text-center">
+        <h1><i class="fa fa-star text-danger"></i> Most popular categories</h1>
+      </div>
+      <div class="card-body">
+        <div class="container mb-5">
+          <a class="text-danger" [href]="'/categories/'+ latestRecipes.mostPopularCategory.id ">
+            <h2 class="mt-5"><i class="fa fa-bookmark"></i> {{ latestRecipes.mostPopularCategory.name }}</h2>
+          </a>
+          <div class="row">
+            <div class="col-lg-4 col-md-6 mt-5" *ngFor="let recipe of latestRecipes.mostPopularCategory.recipes">
+              <app-recipe-card [recipe]="recipe"></app-recipe-card>
+            </div>
+          </div>
+        </div>
+      
+        <div class="container mb-5">
+          <a class="text-danger" [href]="'/categories/'+ latestRecipes.secondMostPopularCategory.id ">
+            <h2 class="mt-5"><i class="fa fa-bookmark"></i> {{ latestRecipes.secondMostPopularCategory.name }}</h2>
+          </a>
+          <div class="row">
+            <div class="col-lg-4 col-md-6 mt-5" *ngFor="let recipe of latestRecipes.secondMostPopularCategory.recipes">
+              <app-recipe-card [recipe]="recipe"></app-recipe-card>
+            </div>
+          </div>
+        </div>
+      
+        <div class="container mb-5">
+          <a class="text-danger" [href]="'/categories/'+ latestRecipes.thirdMostPopularCategory.id ">
+            <h2 class="mt-5"><i class="fa fa-bookmark"></i> {{ latestRecipes.thirdMostPopularCategory.name }}</h2>
+          </a>
+          <div class="row">
+            <div class="col-lg-4 col-md-6 mt-5" *ngFor="let recipe of latestRecipes.thirdMostPopularCategory.recipes">
+              <app-recipe-card [recipe]="recipe"></app-recipe-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { HomeLayoutComponent } from './home-layout.component';
 import { HomeLayoutRoutes } from './home-layout.routing';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecipesComponent } from 'app/pages/home/recipes/recipes.component';
 import { CategoriesComponent } from 'app/pages/home/categories/categories.component';
@@ -18,6 +18,7 @@ import { CategoriesComponent } from 'app/pages/home/categories/categories.compon
     FormsModule,
     NgbModule,
     SharedModule,
+    ReactiveFormsModule
   ],
   declarations: [
     HomeLayoutComponent,

@@ -4,12 +4,15 @@ import { Category } from 'app/shared/dtos/categories/category';
 import { LatestRecipes } from 'app/shared/dtos/recipes/latest-recipes';
 import { PostRecipeRequest } from 'app/shared/dtos/recipes/post-recipe-request';
 import { Recipe } from 'app/shared/dtos/recipes/recipe';
+import { SearchFilterRequest } from 'app/shared/dtos/recipes/search-filter-request';
 import { UpdateRecipeRequest } from 'app/shared/dtos/recipes/update-recipe-request';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Injectable()
 export class RecipesService {
+
   recipesUrl = environment.apiUrl + '/recipes/';
 
   constructor(private http: HttpClient) {}
@@ -52,5 +55,9 @@ export class RecipesService {
 
   getLatestRecipes(): Observable<LatestRecipes> {
     return this.http.get<LatestRecipes>(this.recipesUrl + 'latest');
+  }
+
+  filterRecipes(request: SearchFilterRequest): Observable<Recipe[]> {
+    return this.http.post<Recipe[]>(this.recipesUrl + 'filter', request);
   }
 }

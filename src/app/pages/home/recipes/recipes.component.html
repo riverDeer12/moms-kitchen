@@ -1,33 +1,40 @@
-<div class="row" *ngIf="loadingData">
-  <span class="col-md-3 mt-5">
-    Loading recipes...    
-  </span>
-</div>
-<div class="row recipes-container" *ngIf="!loadingData">
-  <div class="col-md-3 mt-5" *ngFor="let recipe of recipes">
-    <div class="card profile-card-5 h-100">
-      <div class="card-img-block">
-        <img class="card-img-top" src="assets/img/default_recipe_image.jpg">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">{{ recipe.name }}</h5>
-        <p class="card-text">
-          <span class="btn btn-round btn-sm btn-success">
-            <i class="fa fa-calendar"></i> Published: {{ recipe.createdAt | date:'dd.MM.yyyy'}}
-          </span>
-        <div class="related-categories-container">
-          <h6>Related Categories</h6>
-          <span (click)="openCategoryPage(category.id)" *ngFor="let category of recipe.categories"
-            class="btn btn-round btn-sm btn-primary">
-            <i class="fa fa-bookmark"></i> {{ category.name }}
-          </span>
-        </div>
-      </div>
-      <div class="card-footer d-flex justify-content-center">
-        <span (click)="openRecipePage(recipe.id)" class="btn btn-round btn-sm btn-info">
-          <i class="fa fa-info"></i> Read more details
-        </span>
+<form [formGroup]="filterForm" autocomplete="off" (submit)="filterRecipes()">
+  <div class="row">
+    <div class="col-md-4 pr-1">
+      <div class="form-group">
+        <label>Keyword</label>
+        <input type="text" class="form-control" formControlName="keyword" placeholder="enter keyword here...">
       </div>
     </div>
+    <div class="col-md-4 pr-1">
+      <div class="form-group">
+        <label>From</label>
+        <input type="text" class="form-control" formControlName="from" placeholder="enter start date here...">
+      </div>
+    </div>
+    <div class="col-md-4 pr-1">
+      <div class="form-group">
+        <label>To</label>
+        <input type="text" class="form-control" formControlName="to" placeholder="enter end date here...">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <button type="submit" class="btn btn-primary btn-primary">
+        Search recipes<i class="nc-icon nc-zoom-split ml-2"></i></button>
+    </div>
+  </div>
+</form>
+
+<div class="row" *ngIf="loadingData">
+  <span class="col-md-3 mt-5">
+    Loading recipes...
+  </span>
+</div>
+
+<div class="row recipes-container" *ngIf="!loadingData">
+  <div class="col-md-3 mt-5" *ngFor="let recipe of recipes">
+    <app-recipe-card [recipe]="recipe"></app-recipe-card>
   </div>
 </div>

@@ -1,3 +1,9 @@
+<div class="row">
+  <div class="container mb-5">
+    <h2><i class="nc-icon nc-zoom-split text-danger ml-2"></i> Find your recipe</h2>
+  </div>
+</div>
+
 <form [formGroup]="filterForm" autocomplete="off" (submit)="filterRecipes()">
   <div class="row">
     <div class="col-lg-6 col-md-6  ">
@@ -15,20 +21,38 @@
     <div class="col-lg-6 col-md-6">
       <div class="form-group">
         <label>From</label>
-        <p-calendar formControlName="from"></p-calendar>
+        <p-calendar 
+          class="form-control datepicker" 
+          dateFormat="dd.mm.yy" 
+          formControlName="from"
+          [touchUI]="true"
+          [monthNavigator]="true"
+          [yearNavigator]="true"
+          yearRange="2021:2021"
+          placeholder="enter start date here...">
+        </p-calendar>
       </div>
     </div>
     <div class="col-lg-6 col-md-6">
       <div class="form-group">
         <label>To</label>
-        <input type="text" class="form-control" formControlName="to" placeholder="enter end date here...">
+        <p-calendar 
+          class="form-control datepicker" 
+          dateFormat="dd.mm.yy" 
+          formControlName="to"
+          [touchUI]="true"
+          [monthNavigator]="true"
+          [yearNavigator]="true"
+          yearRange="2021:2021"
+          placeholder="enter end date here...">
+        </p-calendar>
       </div>
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-lg-6 col-md-6 text-center">
+    <div class="col-lg-4 col-md-6 text-center">
       <button type="submit" class="btn btn-primary btn-block">
-        Search recipes<i class="nc-icon nc-zoom-split ml-2"></i></button>
+        Search <i class="nc-icon nc-zoom-split ml-2"></i></button>
     </div>
   </div>
 </form>

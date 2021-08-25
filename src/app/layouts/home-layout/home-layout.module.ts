@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecipesComponent } from 'app/pages/home/recipes/recipes.component';
 import { CategoriesComponent } from 'app/pages/home/categories/categories.component';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { CategoriesComponent } from 'app/pages/home/categories/categories.compon
     FormsModule,
     NgbModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CalendarModule,
   ],
   declarations: [
     HomeLayoutComponent,

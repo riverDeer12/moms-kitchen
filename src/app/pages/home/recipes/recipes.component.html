@@ -1,27 +1,33 @@
 <form [formGroup]="filterForm" autocomplete="off" (submit)="filterRecipes()">
   <div class="row">
-    <div class="col-md-4 pr-1">
+    <div class="col-lg-6 col-md-6  ">
       <div class="form-group">
         <label>Keyword</label>
         <input type="text" class="form-control" formControlName="keyword" placeholder="enter keyword here...">
       </div>
     </div>
-    <div class="col-md-4 pr-1">
+    <div class="col-lg-6 col-md-6">
+      <div class="form-group">
+        <label>Related categories</label>
+        <app-categories-selector [parentForm]="filterForm"></app-categories-selector>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6">
       <div class="form-group">
         <label>From</label>
         <p-calendar formControlName="from"></p-calendar>
       </div>
     </div>
-  </div>
-  <div class="col-md-4 pr-1">
-    <div class="form-group">
-      <label>To</label>
-      <p-calendar formControlName="to"></p-calendar>
+    <div class="col-lg-6 col-md-6">
+      <div class="form-group">
+        <label>To</label>
+        <input type="text" class="form-control" formControlName="to" placeholder="enter end date here...">
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-6">
-      <button type="submit" class="btn btn-primary btn-primary">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-6 text-center">
+      <button type="submit" class="btn btn-primary btn-block">
         Search recipes<i class="nc-icon nc-zoom-split ml-2"></i></button>
     </div>
   </div>
@@ -34,7 +40,7 @@
 </div>
 
 <div class="row recipes-container" *ngIf="!loadingData">
-  <div class="col-md-3 mt-5" *ngFor="let recipe of recipes">
+  <div class="col-lg-3 col-md-6 mt-5" *ngFor="let recipe of recipes">
     <app-recipe-card [recipe]="recipe"></app-recipe-card>
   </div>
 </div>

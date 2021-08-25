@@ -31,8 +31,9 @@ export class RecipesComponent implements OnInit {
   setFilterForm(): void {
     this.filterForm = this.fb.group({
       keyword: new FormControl(''),
-      from: new FormControl(new Date()),
-      to: new FormControl(new Date())
+      from: new FormControl(''),
+      to: new FormControl(''),
+      categoryIds: new FormControl('')
     });
   }
 

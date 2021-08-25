@@ -13,10 +13,12 @@ import { FormGroup } from '@angular/forms';
 export class CategoriesSelectorComponent implements OnInit {
   @Input() parentForm: FormGroup;
   @Input() recipeId?: string;
+  @Input() selectorLabel: string;
 
   loadingData: boolean;
   categories: Category[];
   settings: IDropdownSettings = {};
+  recipeCategoriesPicker: boolean;
 
   constructor(
     private categoriesService: CategoriesService,
@@ -27,7 +29,9 @@ export class CategoriesSelectorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAllCategories();
+    this.recipeCategoriesPicker
+      ? this.getAllCategories()
+      : this.getActiveCategories();
   }
 
   initSettings(): void {
@@ -39,6 +43,7 @@ export class CategoriesSelectorComponent implements OnInit {
       textField: 'name',
       allowSearchFilter: true,
     };
+    this.recipeCategoriesPicker = this.recipeId !== undefined;
   }
 
   getAllCategories(): void {
@@ -48,8 +53,17 @@ export class CategoriesSelectorComponent implements OnInit {
     });
   }
 
+  getActiveCategories(): void {
+    this.categoriesService
+      .getActiveCategories()
+      .subscribe((response: Category[]) => {
+        this.categories = response.map((x) => Object.assign(new Category(), x));
+        this.loadingData = false;
+      });
+  }
+
   getRecipeCategories(): void {
-    if (this.recipeId === undefined) {
+    if (!this.recipeCategoriesPicker) {
       this.loadingData = false;
       return;
     }

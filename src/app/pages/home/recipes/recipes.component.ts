@@ -32,7 +32,8 @@ export class RecipesComponent implements OnInit {
     this.filterForm = this.fb.group({
       keyword: new FormControl(''),
       from: new FormControl(''),
-      to: new FormControl('')
+      to: new FormControl(''),
+      categoryIds: new FormControl('')
     });
   }
 

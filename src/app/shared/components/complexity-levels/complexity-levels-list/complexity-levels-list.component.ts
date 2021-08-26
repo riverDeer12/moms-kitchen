@@ -1,3 +1,4 @@
+import { NotificationsService } from './../../../services/notifications/notifications.service';
 import { Router } from '@angular/router';
 import { CommonService } from './../../../services/common/common.service';
 import { ComplexityLevelsService } from './../../../services/complexity-levels/complexity-levels.service';
@@ -19,6 +20,7 @@ export class ComplexityLevelsListComponent implements OnInit {
 
   constructor(
     private complexityLevelsService: ComplexityLevelsService,
+    private notificationService: NotificationsService,
     private commonService: CommonService,
     private router: Router,
     private modalService: NgbModal
@@ -47,7 +49,7 @@ export class ComplexityLevelsListComponent implements OnInit {
         this.loadingData = false;
       },
       (error) => {
-        console.log(console.error());
+        this.notificationService.error('Error getting complexity levels.');
       }
     );
   }
@@ -61,7 +63,7 @@ export class ComplexityLevelsListComponent implements OnInit {
     modalRef.result.then((data) => {
       this.getComplexityLevels();
     }, (reason) => {
-      console.log('Not good!');
+      this.notificationService.error('Not good.');
     });
   }
 

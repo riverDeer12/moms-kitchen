@@ -1,3 +1,4 @@
+import { NotificationsService } from './../../../services/notifications/notifications.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Category } from './../../../dtos/categories/category';
 import { CategoriesService } from './../../../services/categories/categories.service';
@@ -20,6 +21,7 @@ export class CategoriesListComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
+    private notificationService: NotificationsService,
     private categoriesService: CategoriesService,
     private router: Router,
     private modalService: NgbModal
@@ -46,7 +48,7 @@ export class CategoriesListComponent implements OnInit {
         this.loadingData = false;
       },
       (error) => {
-        console.log(console.error());
+        this.notificationService.error('Error on getting categories');
       }
     );
   }

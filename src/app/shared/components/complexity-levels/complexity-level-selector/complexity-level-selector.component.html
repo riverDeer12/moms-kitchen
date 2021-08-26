@@ -5,11 +5,11 @@
 </div>
 
 <form *ngIf="!loadingData" [formGroup]="parentForm">
-  <label>Complexity level</label>
   <p-dropdown 
     class="form-control multiselect"
-    [options]="complexityLevels" 
-    optionLabel="name" optionValue="id" 
+    [options]="complexityLevels"
+    optionValue="id"
+    optionLabel="name"  
     formControlName="complexityLevelId"
     defaultLabel="select complexity level..."></p-dropdown>
 </form>

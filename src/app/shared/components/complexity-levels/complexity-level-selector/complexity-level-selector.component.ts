@@ -45,7 +45,7 @@ export class ComplexityLevelSelectorComponent implements OnInit {
     this.service
       .getComplexityLevel(this.complexityLevelId)
       .subscribe((response: ComplexityLevel) => {
-        this.parentForm.get('complexityLevelId').setValue(response);
+        this.parentForm.get('complexityLevelId').setValue(response.id);
         this.loadingData = false;
       });
   }

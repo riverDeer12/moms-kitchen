@@ -56,8 +56,6 @@ export class CreateRecipeFormComponent implements OnInit {
       return;
     }
 
-    this.prepareSelectors();
-
     this.recipesService.createRecipe(this.createForm.value).subscribe(
       (response: Recipe) => {
         this.createdRecipe = response as Recipe;
@@ -68,17 +66,5 @@ export class CreateRecipeFormComponent implements OnInit {
         this.notificationsService.error(error);
       }
     );
-  }
-
-  prepareSelectors(): void {
-    const realCategories = this.createForm
-      .get('categoryIds')
-      .value.map((x) => x.id);
-    const realComplexityLevel = this.createForm
-      .get('complexityLevelId')
-      .value.map((x) => x.id);
-
-    this.createForm.get('categoryIds').setValue(realCategories);
-    this.createForm.get('complexityLevelId').setValue(realComplexityLevel[0]);
   }
 }

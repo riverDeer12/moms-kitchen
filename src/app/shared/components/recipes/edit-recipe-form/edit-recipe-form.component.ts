@@ -69,8 +69,6 @@ export class EditRecipeFormComponent implements OnInit {
       return;
     }
 
-    this.prepareSelectors();
-
     this.recipesService.updateRecipe(this.id, this.editForm.value).subscribe(
       (response: Recipe) => {
         this.response = response as Recipe;
@@ -81,17 +79,5 @@ export class EditRecipeFormComponent implements OnInit {
         this.notificationsService.error(error);
       }
     );
-  }
-
-  prepareSelectors(): void {
-    const realCategories = this.editForm
-      .get('categoryIds')
-      .value.map((x) => x.id);
-    const realComplexityLevel = this.editForm
-      .get('complexityLevelId')
-      .value.map((x) => x.id);
-
-    this.editForm.get('categoryIds').setValue(realCategories);
-    this.editForm.get('complexityLevelId').setValue(realComplexityLevel[0]);
   }
 }

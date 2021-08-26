@@ -1,3 +1,4 @@
+import { NotificationsService } from './../../../../shared/services/notifications/notifications.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -17,6 +18,7 @@ export class RecipeInfoComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
+    private notificationService: NotificationsService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private modalService: NgbModal
@@ -58,7 +60,7 @@ export class RecipeInfoComponent implements OnInit {
     modalRef.result.then((data) => {
       this.router.navigateByUrl('/admin/recipes');
     }, (reason) => {
-      console.log('Not good!');
+      this.notificationService.error('Modal error.');
     });
   }
 

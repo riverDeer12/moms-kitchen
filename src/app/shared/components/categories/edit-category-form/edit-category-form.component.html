@@ -1,6 +1,6 @@
 <form *ngIf="!loadingData" [formGroup]="editForm" (submit)="submit()">
   <div class="row">
-    <div class="col-md-6 pr-1">
+    <div class="col-md-6 mt-3">
       <div class="form-check">
         <label class="form-check-label">
           <input type="checkbox" class="form-check-input"  formControlName="isActive">
@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 pr-1">
+    <div class="col-md-6">
       <div class="form-group">
         <label>Name</label>
         <input type="text" class="form-control" placeholder="enter category name here..."
@@ -22,14 +22,14 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 pr-1">
+    <div class="col-md-6">
       <div class="form-group">
         <label>Description</label>
         <angular-editor formControlName="description" [config]="editorConfig"></angular-editor>
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-3">
     <div class="col-md-6">
       <button type="submit" class="btn btn-primary btn-success">Save</button>
     </div>

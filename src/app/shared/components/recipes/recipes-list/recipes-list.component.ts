@@ -1,3 +1,4 @@
+import { NotificationsService } from './../../../services/notifications/notifications.service';
 import { Router } from '@angular/router';
 import { ApiResponse } from './../../../common/api-response';
 import { RecipesService } from './../../../services/recipes/recipes.service';
@@ -20,6 +21,7 @@ export class RecipesListComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
+    private notificationService: NotificationsService,
     private recipesService: RecipesService,
     private router: Router,
     private modalService: NgbModal
@@ -46,7 +48,7 @@ export class RecipesListComponent implements OnInit {
         this.loadingData = false;
       },
       (error) => {
-        console.log(console.error());
+        this.notificationService.error('Error getting recipes.');
       }
     );
   }

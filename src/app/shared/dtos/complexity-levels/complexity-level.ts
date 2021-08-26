@@ -1,5 +1,3 @@
-import { textSpanIntersectsWithTextSpan } from 'typescript';
-
 export class ComplexityLevel {
   id: string;
   isActive: boolean;

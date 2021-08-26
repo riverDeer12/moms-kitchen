@@ -18,31 +18,16 @@ export class CategoriesSelectorComponent implements OnInit {
   loadingData: boolean;
   categories: Category[];
   settings: IDropdownSettings = {};
-  recipeCategoriesPicker: boolean;
 
   constructor(
     private categoriesService: CategoriesService,
     private recipesService: RecipesService
   ) {
     this.loadingData = true;
-    this.initSettings();
   }
 
   ngOnInit() {
-    this.recipeCategoriesPicker
-      ? this.getAllCategories()
-      : this.getActiveCategories();
-  }
-
-  initSettings(): void {
-    this.recipeCategoriesPicker = this.recipeId !== undefined;
-  }
-
-  getAllCategories(): void {
-    this.categoriesService.getCategories().subscribe((response: Category[]) => {
-      this.categories = response.map((x) => Object.assign(new Category(), x));
-      this.getRecipeCategories();
-    });
+    this.getActiveCategories();
   }
 
   getActiveCategories(): void {
@@ -50,12 +35,12 @@ export class CategoriesSelectorComponent implements OnInit {
       .getActiveCategories()
       .subscribe((response: Category[]) => {
         this.categories = response.map((x) => Object.assign(new Category(), x));
-        this.loadingData = false;
+        this.getRecipeCategories();
       });
   }
 
   getRecipeCategories(): void {
-    if (!this.recipeCategoriesPicker) {
+    if (this.recipeId === undefined) {
       this.loadingData = false;
       return;
     }
@@ -63,7 +48,8 @@ export class CategoriesSelectorComponent implements OnInit {
     this.recipesService
       .getRecipeCategories(this.recipeId)
       .subscribe((response: Category[]) => {
-        this.parentForm.get('categories').setValue(response);
+        const categoryIds = response.map((x) => x.id);
+        this.parentForm.get('categoryIds').setValue(categoryIds);
         this.loadingData = false;
       });
   }

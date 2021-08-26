@@ -48,11 +48,9 @@ export class RecipesComponent implements OnInit {
 
     this.loadingData = true;
 
-    console.log(this.filterForm.value);
-
-    // this.service.filterRecipes(this.filterForm.value).subscribe((response: Recipe[]) => {
-    //   this.recipes = response.map((x) => Object.assign(new Recipe(), x));
-    //   this.loadingData = false;
-    // });
+    this.service.filterRecipes(this.filterForm.value).subscribe((response: Recipe[]) => {
+      this.recipes = response.map((x) => Object.assign(new Recipe(), x));
+      this.loadingData = false;
+    });
   }
 }

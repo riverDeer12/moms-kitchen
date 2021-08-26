@@ -1,6 +1,15 @@
+<div class="row" *ngIf="loadingData">
+  <span class="col-md-3 mt-5">
+    Loading complexity levels...
+  </span>
+</div>
+
 <form *ngIf="!loadingData" [formGroup]="parentForm">
-  <label for="city">Select complexity level</label>
-  <ng-multiselect-dropdown formControlName="complexityLevelId" [placeholder]="'select complexity-level'"
-    [settings]="settings" [data]="complexityLevels">
-  </ng-multiselect-dropdown>
+  <label>Complexity level</label>
+  <p-dropdown 
+    class="form-control multiselect"
+    [options]="complexityLevels" 
+    optionLabel="name" optionValue="id" 
+    formControlName="complexityLevelId"
+    defaultLabel="select complexity level..."></p-dropdown>
 </form>

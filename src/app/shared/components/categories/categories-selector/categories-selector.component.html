@@ -1,5 +1,16 @@
+<div class="row" *ngIf="loadingData">
+  <span class="col-md-3 mt-5">
+    Loading categories...
+  </span>
+</div>
+
 <form *ngIf="!loadingData" [formGroup]="parentForm">
-  <ng-multiselect-dropdown formControlName="categoryIds" [placeholder]="'select categories...'"
-    [settings]="settings" [data]="categories">
-  </ng-multiselect-dropdown>
+  <p-multiSelect 
+    class="form-control multiselect" 
+    [options]="categories" 
+    formControlName="categories" 
+    defaultLabel="select categories..." 
+    optionLabel="name"
+    optionValue="id"
+    display="chip"></p-multiSelect>
 </form>

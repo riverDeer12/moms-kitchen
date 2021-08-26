@@ -35,14 +35,6 @@ export class CategoriesSelectorComponent implements OnInit {
   }
 
   initSettings(): void {
-    this.settings = {
-      singleSelection: false,
-      defaultOpen: false,
-      itemsShowLimit: 3,
-      idField: 'id',
-      textField: 'name',
-      allowSearchFilter: true,
-    };
     this.recipeCategoriesPicker = this.recipeId !== undefined;
   }
 
@@ -71,7 +63,7 @@ export class CategoriesSelectorComponent implements OnInit {
     this.recipesService
       .getRecipeCategories(this.recipeId)
       .subscribe((response: Category[]) => {
-        this.parentForm.get('categoryIds').setValue(response);
+        this.parentForm.get('categories').setValue(response);
         this.loadingData = false;
       });
   }

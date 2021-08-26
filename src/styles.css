@@ -114,4 +114,52 @@ h1, h2 {
   width: 100% !important;
   display: grid !important;
 }
+
 /* -- DATEPICKER -- */
+
+/* -- MULTISELECT -- */
+
+.p-multiselect {
+  border: none !important;
+  width: 100%;
+}
+
+.multiselect{
+  padding: 0 !important;
+}
+
+.p-checkbox .p-checkbox-box.p-highlight{
+  border-color:#ef815742 !important;
+  background: #da7750 !important;
+}
+
+.p-multiselect.p-multiselect-chip .p-multiselect-token{
+  background: #ef8157 !important;
+  color: #fffafa !important;
+}
+
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight{
+  background: #ef81570d !important;
+}
+
+.p-datepicker table td.p-datepicker-today > span{
+  background: #51cbce !important;
+  color: #fffafa !important;
+}
+
+.p-datepicker table td > span.p-highlight{
+  background: #ef8157 !important;
+  color: #fffafa !important;
+}
+
+/* -- MULTISELECT -- */
+
+/* -- DROPDOWN -- */
+
+.p-dropdown{
+  width: 100%;
+  border: none !important;
+}
+
+/* -- DROPDOWN -- */
+

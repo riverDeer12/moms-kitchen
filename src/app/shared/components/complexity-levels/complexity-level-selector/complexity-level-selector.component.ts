@@ -19,22 +19,10 @@ export class ComplexityLevelSelectorComponent implements OnInit {
 
   constructor(private service: ComplexityLevelsService) {
     this.loadingData = true;
-    this.initSettings();
   }
 
   ngOnInit() {
     this.getComplexityLevels();
-  }
-
-  initSettings(): void {
-    this.settings = {
-      singleSelection: true,
-      defaultOpen: false,
-      itemsShowLimit: 3,
-      idField: 'id',
-      textField: 'name',
-      allowSearchFilter: true,
-    };
   }
 
   getComplexityLevels(): void {
@@ -57,7 +45,7 @@ export class ComplexityLevelSelectorComponent implements OnInit {
     this.service
       .getComplexityLevel(this.complexityLevelId)
       .subscribe((response: ComplexityLevel) => {
-        this.parentForm.get('complexityLevelId').setValue([response]);
+        this.parentForm.get('complexityLevelId').setValue(response);
         this.loadingData = false;
       });
   }

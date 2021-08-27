@@ -1,3 +1,4 @@
+import { CalendarModule } from 'primeng/calendar';
 import { HomeFooterComponent } from './components/common/home-footer/home-footer.component';
 import { RecipeCardComponent } from './components/recipes/recipe-card/recipe-card.component';
 import { CategoriesSelectorComponent } from './components/categories/categories-selector/categories-selector.component';
@@ -38,7 +39,8 @@ import { DropdownModule } from 'primeng/dropdown';
     NgMultiSelectDropDownModule.forRoot(),
     NgbModule,
     MultiSelectModule,
-    DropdownModule
+    DropdownModule,
+    CalendarModule
   ],
   declarations: [
     LoginFormComponent,

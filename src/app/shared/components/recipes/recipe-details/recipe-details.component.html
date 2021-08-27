@@ -1,5 +1,12 @@
+<div class="container" *ngIf="loadingData">
+  <span class="mt-5">
+    Loading recipe...
+  </span>
+</div>
+
 <div *ngIf="!loadingData" class="info">
-	<h4 class="info-title">
+  <img class="img img-fluid img-recipe" src="assets/img/default_recipe_image.jpg">
+  <h4 class="info-title">
     {{recipe.name}}
   </h4>
   <p>
@@ -10,5 +17,10 @@
     <label>Description: </label>
     <span [innerHtml]="recipe.description"></span>
   </p>
-
+  <p>
+    <label>Categories: </label>
+    <span *ngFor="let category in recipe.categories">
+      {{category.name}}
+    </span>
+  </p>
 </div>

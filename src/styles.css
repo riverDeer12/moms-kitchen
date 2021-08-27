@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* -- IMAGES -- */
+
+.img-recipe{
+  max-width: 200px !important;
+}
+
+/* -- IMAGES -- */
+
 /* -- MULTISELECT -- */
 .multiselect-dropdown .dropdown-btn {
   background-color: #ffffff !important;
@@ -125,7 +133,12 @@ h1, h2 {
 }
 
 .multiselect{
-  padding: 0 !important;
+  padding: 2px !important;
+}
+
+.p-multiselect .p-multiselect-label.p-placeholder{
+  font-family: 'Montserrat';
+  font-size: 14px;
 }
 
 .p-checkbox .p-checkbox-box.p-highlight{

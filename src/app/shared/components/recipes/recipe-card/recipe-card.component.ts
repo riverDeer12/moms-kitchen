@@ -10,15 +10,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class RecipeCardComponent implements OnInit {
   @Input() recipe: Recipe;
 
-  constructor(private router: Router) {}
+  imageLoading: boolean;
+
+  constructor(private router: Router) {
+    this.imageLoading = true;
+  }
 
   ngOnInit() {}
 
-  openCategoryPage(id: string): void {
-    this.router.navigateByUrl('/categories/' + id);
-  }
-
-  openRecipePage(): void {
-    this.router.navigateByUrl('/recipes/' + this.recipe.id);
+  imageLoaded(): void {
+    console.log('Image loaded');
+    this.imageLoading = false;
   }
 }

@@ -27,6 +27,7 @@ import { HomeNavbarComponent } from './components/common/home-navbar/home-navbar
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MultiSelectModule} from 'primeng/multiselect';
 import { DropdownModule } from 'primeng/dropdown';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -40,7 +41,8 @@ import { DropdownModule } from 'primeng/dropdown';
     NgbModule,
     MultiSelectModule,
     DropdownModule,
-    CalendarModule
+    CalendarModule,
+    RouterModule
   ],
   declarations: [
     LoginFormComponent,

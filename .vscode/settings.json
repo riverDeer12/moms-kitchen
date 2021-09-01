@@ -1,3 +1,9 @@
 {
-    "angular.enable-strict-mode-prompt": false
+    "angular.enable-strict-mode-prompt": false,
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/d111ad01-03c7-47fd-ab45-d9bfa696dceb/resourceGroups/MomsKitchenResourceGroup/providers/Microsoft.Web/sites/moms-kitchen-app",
+    "appService.deploySubpath": "."
 }

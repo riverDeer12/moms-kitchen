@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.scss']
+  styleUrls: ['./category.component.scss'],
 })
 export class CategoryComponent implements OnInit {
+  @Input() id: string;
+  @Input() returnUrl: string;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    console.log(this.id);
   }
 
+  ngOnInit() {}
 }

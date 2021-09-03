@@ -12,7 +12,6 @@ import { filter } from 'rxjs/operators';
 
 @Injectable()
 export class RecipesService {
-
   recipesUrl = environment.apiUrl + '/recipes/';
 
   constructor(private http: HttpClient) {}
@@ -21,8 +20,8 @@ export class RecipesService {
     return this.http.get<Recipe[]>(this.recipesUrl);
   }
 
-  getRecipe(recipeId: string): Observable<Recipe> {
-    return this.http.get<Recipe>(this.recipesUrl + recipeId);
+  getRecipe(id: string): Observable<Recipe> {
+    return this.http.get<Recipe>(this.recipesUrl + id);
   }
 
   createRecipe(postRecipeRequest: PostRecipeRequest): Observable<Recipe> {
@@ -30,23 +29,18 @@ export class RecipesService {
   }
 
   updateRecipe(
-    recipeId: string,
+    id: string,
     updateRecipeRequest: UpdateRecipeRequest
   ): Observable<Recipe> {
-    return this.http.put<Recipe>(
-      this.recipesUrl + recipeId,
-      updateRecipeRequest
-    );
+    return this.http.put<Recipe>(this.recipesUrl + id, updateRecipeRequest);
   }
 
-  deleteRecipe(recipeId: string): Observable<Recipe> {
-    return this.http.delete<Recipe>(this.recipesUrl + recipeId);
+  deleteRecipe(id: string): Observable<Recipe> {
+    return this.http.delete<Recipe>(this.recipesUrl + id);
   }
 
-  getRecipeCategories(recipeId: string): Observable<Category[]> {
-    return this.http.get<Category[]>(
-      this.recipesUrl + recipeId + '/categories'
-    );
+  getRecipeCategories(id: string): Observable<Category[]> {
+    return this.http.get<Category[]>(this.recipesUrl + id + '/categories');
   }
 
   getActiveRecipes(): Observable<Recipe[]> {
@@ -59,5 +53,9 @@ export class RecipesService {
 
   filterRecipes(request: SearchFilterRequest): Observable<Recipe[]> {
     return this.http.post<Recipe[]>(this.recipesUrl + 'filter', request);
+  }
+
+  getRecipePublicDetails(id: string): Observable<Recipe> {
+    return this.http.get<Recipe>(this.recipesUrl + id + '/details');
   }
 }

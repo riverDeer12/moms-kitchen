@@ -17,7 +17,6 @@ export class RecipesComponent implements OnInit {
 
   constructor(
     private service: RecipesService,
-    private router: Router,
     private fb: FormBuilder
   ) {
     this.loadingData = true;
@@ -28,13 +27,20 @@ export class RecipesComponent implements OnInit {
     this.getRecipes();
   }
 
+  emptyForm = (): boolean => {
+    return (
+      this.filterForm.get('keyword').value === '' &&
+      this.filterForm.get('categoryIds').value === ''
+    );
+  };
+
   setFilterForm(): void {
     this.filterForm = this.fb.group({
       keyword: new FormControl(''),
-      from: new FormControl(''),
-      to: new FormControl(''),
-      categoryIds: new FormControl('')
+      categoryIds: new FormControl(''),
     });
+
+    console.log(this.filterForm.value);
   }
 
   getRecipes(): void {
@@ -45,12 +51,17 @@ export class RecipesComponent implements OnInit {
   }
 
   filterRecipes(): void {
-
     this.loadingData = true;
 
-    this.service.filterRecipes(this.filterForm.value).subscribe((response: Recipe[]) => {
-      this.recipes = response.map((x) => Object.assign(new Recipe(), x));
-      this.loadingData = false;
-    });
+    if (!this.filterForm.valid) {
+      return;
+    }
+
+    this.service
+      .filterRecipes(this.filterForm.value)
+      .subscribe((response: Recipe[]) => {
+        this.recipes = response.map((x) => Object.assign(new Recipe(), x));
+        this.loadingData = false;
+      });
   }
 }

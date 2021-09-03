@@ -22,7 +22,7 @@
       <div class="card-body">
         <div class="container mb-5">
           <a class="text-danger" [href]="'/categories/'+ latestRecipes.mostPopularCategory.id ">
-            <h2 class="mt-5"><i class="fa fa-bookmark"></i> {{ latestRecipes.mostPopularCategory.name }}</h2>
+            <h2 class="mt-5"><i class="fa fa-tag"></i> {{ latestRecipes.mostPopularCategory.name }}</h2>
           </a>
           <div class="row">
             <div class="col-lg-4 col-md-6 mt-5" *ngFor="let recipe of latestRecipes.mostPopularCategory.recipes">
@@ -33,7 +33,7 @@
       
         <div class="container mb-5">
           <a class="text-danger" [href]="'/categories/'+ latestRecipes.secondMostPopularCategory.id ">
-            <h2 class="mt-5"><i class="fa fa-bookmark"></i> {{ latestRecipes.secondMostPopularCategory.name }}</h2>
+            <h2 class="mt-5"><i class="fa fa-tag"></i> {{ latestRecipes.secondMostPopularCategory.name }}</h2>
           </a>
           <div class="row">
             <div class="col-lg-4 col-md-6 mt-5" *ngFor="let recipe of latestRecipes.secondMostPopularCategory.recipes">
@@ -44,7 +44,7 @@
       
         <div class="container mb-5">
           <a class="text-danger" [href]="'/categories/'+ latestRecipes.thirdMostPopularCategory.id ">
-            <h2 class="mt-5"><i class="fa fa-bookmark"></i> {{ latestRecipes.thirdMostPopularCategory.name }}</h2>
+            <h2 class="mt-5"><i class="fa fa-tag"></i> {{ latestRecipes.thirdMostPopularCategory.name }}</h2>
           </a>
           <div class="row">
             <div class="col-lg-4 col-md-6 mt-5" *ngFor="let recipe of latestRecipes.thirdMostPopularCategory.recipes">

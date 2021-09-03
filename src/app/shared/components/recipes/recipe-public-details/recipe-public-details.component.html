@@ -1,0 +1,31 @@
+<div class="container" *ngIf="loadingData">
+  <span class="mt-5">
+    Loading recipe details...
+  </span>
+</div>
+
+<div class="container-fluid" *ngIf="!loadingData">
+  <div>
+    <h2><i class="fa fa-cutlery text-danger"></i> <span class="ml-2">{{ recipe.name }}</span> </h2>
+  </div>
+  <div class="card-img-block d-flex justify-content-center">
+    <img class="recipe-image" *ngIf="imageLoading" src="assets/img/default-image.jpg" alt="loading" />
+    <img class="recipe-image" [hidden]="imageLoading" (load)="imageLoaded()"
+      src="assets/img/default_recipe_image.jpg" />
+  </div>
+  <div class="recipe-description-container">
+    <h4><i class="fa fa-info text-danger"></i> <span class="ml-2">Description</span> </h4>
+    <div [innerHtml]="recipe.description"></div>
+  </div>
+  <div class="related-categories-container" *ngIf="recipe.categories?.length > 0">
+    <h4>
+      <i class="fa fa-tags text-danger"></i>
+      <span class="ml-2">Related Categories</span>
+    </h4>
+    <span *ngFor="let category of recipe.categories">
+      <a class="btn btn-primary btn-primary btn-round" [href]="['/categories/' + category.id ]">
+        <i class="fa fa-tag"></i> {{ category.name }}
+      </a>
+    </span>
+  </div>
+</div>

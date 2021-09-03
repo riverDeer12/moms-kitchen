@@ -1,3 +1,4 @@
+import { RecipePublicDetailsComponent } from './components/recipes/recipe-public-details/recipe-public-details.component';
 import { CalendarModule } from 'primeng/calendar';
 import { HomeFooterComponent } from './components/common/home-footer/home-footer.component';
 import { RecipeCardComponent } from './components/recipes/recipe-card/recipe-card.component';
@@ -62,7 +63,8 @@ import { RouterModule } from '@angular/router';
     ComplexityLevelSelectorComponent,
     HomeNavbarComponent,
     HomeFooterComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
+    RecipePublicDetailsComponent
   ],
   exports: [
     LoginFormComponent,
@@ -82,7 +84,8 @@ import { RouterModule } from '@angular/router';
     ComplexityLevelSelectorComponent,
     HomeNavbarComponent,
     HomeFooterComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
+    RecipePublicDetailsComponent
   ],
 })
 export class SharedModule {}

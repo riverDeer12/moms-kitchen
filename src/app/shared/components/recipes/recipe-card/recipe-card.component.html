@@ -1,7 +1,9 @@
 <div class="card profile-card-5 h-100">
   <div class="card-img-block">
     <img *ngIf="imageLoading" src="assets/img/default-image.jpg" alt="loading" />
-    <img [hidden]="imageLoading" (load)="imageLoaded()" src="assets/img/default_recipe_image.jpg" />
+    <a [href]="['/recipes/' + recipe.id ]">
+      <img [hidden]="imageLoading" (load)="imageLoaded()" src="assets/img/default_recipe_image.jpg" />
+    </a>
   </div>
   <div class="card-body">
     <h5 class="card-title">{{ recipe.name }}</h5>
@@ -13,7 +15,7 @@
       <h6>Related Categories</h6>
       <span *ngFor="let category of recipe.categories">
         <a class="btn btn-primary btn-primary btn-sm btn-round" [href]="['/categories/' + category.id ]">
-          <i class="fa fa-bookmark"></i> {{ category.name }}
+          <i class="fa fa-tag"></i> {{ category.name }}
         </a>
       </span>
     </div>

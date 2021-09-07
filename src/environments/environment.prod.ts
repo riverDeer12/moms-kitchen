@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://azzure.website.momskitchen/api'
+  apiUrl: 'https://moms-kitchen-api.azurewebsites.net/api'
 };

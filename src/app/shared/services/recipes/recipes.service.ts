@@ -52,7 +52,7 @@ export class RecipesService {
   }
 
   filterRecipes(request: SearchFilterRequest): Observable<Recipe[]> {
-    return this.http.post<Recipe[]>(this.recipesUrl + 'filter', request);
+    return this.http.post<Recipe[]>(this.recipesUrl + 'active-filter', request);
   }
 
   getRecipePublicDetails(id: string): Observable<Recipe> {

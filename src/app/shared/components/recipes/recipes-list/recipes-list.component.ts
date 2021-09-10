@@ -1,6 +1,5 @@
 import { NotificationsService } from './../../../services/notifications/notifications.service';
 import { Router } from '@angular/router';
-import { ApiResponse } from './../../../common/api-response';
 import { RecipesService } from './../../../services/recipes/recipes.service';
 import { CommonService } from 'app/shared/services/common/common.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';

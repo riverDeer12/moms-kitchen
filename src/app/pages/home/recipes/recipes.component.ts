@@ -1,22 +1,25 @@
+import { NotificationsService } from './../../../shared/services/notifications/notifications.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Recipe } from 'app/shared/dtos/recipes/recipe';
 import { RecipesService } from 'app/shared/services/recipes/recipes.service';
+import { fadeInAnimation } from 'app/shared/animations/page.animation';
 
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.scss'],
+  animations: [fadeInAnimation],
 })
 export class RecipesComponent implements OnInit {
   loadingData: boolean;
   recipes: Recipe[];
-  navbarLabel = 'Mom\'s Kitchen';
+  navbarLabel = "Mom's Kitchen";
   filterForm: FormGroup;
 
   constructor(
     private service: RecipesService,
+    private notificationsService: NotificationsService,
     private fb: FormBuilder
   ) {
     this.loadingData = true;
@@ -37,7 +40,7 @@ export class RecipesComponent implements OnInit {
   setFilterForm(): void {
     this.filterForm = this.fb.group({
       keyword: new FormControl(''),
-      categoryIds: new FormControl(''),
+      categoryIds: new FormControl([]),
     });
   }
 
@@ -55,11 +58,17 @@ export class RecipesComponent implements OnInit {
       return;
     }
 
-    this.service
-      .filterRecipes(this.filterForm.value)
-      .subscribe((response: Recipe[]) => {
+    this.service.filterRecipes(this.filterForm.value).subscribe(
+      (response: Recipe[]) => {
         this.recipes = response.map((x) => Object.assign(new Recipe(), x));
         this.loadingData = false;
-      });
+      },
+      (response) => {
+        this.notificationsService.error(
+          'At least one search property needs to be populated.'
+        );
+        this.loadingData = false;
+      }
+    );
   }
 }

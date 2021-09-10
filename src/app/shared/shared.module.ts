@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryPublicDetailsComponent } from './components/categories/category-public-details/category-public-details.component';
 import { RecipePublicDetailsComponent } from './components/recipes/recipe-public-details/recipe-public-details.component';
 import { CalendarModule } from 'primeng/calendar';

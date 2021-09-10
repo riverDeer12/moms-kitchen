@@ -2,8 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { LoginRequest } from './../../dtos/auth/login-request';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { ApiResponse } from 'app/shared/common/api-response';
-import { AuthUser } from 'app/shared/common/auth-user';
 import { environment } from 'environments/environment';
 import { AuthToken } from 'app/shared/dtos/auth/auth-token';
 import jwtDecode from 'jwt-decode';
@@ -18,9 +16,6 @@ export class AuthService {
     return this.http.post(this.authUrl + 'login', request);
   }
 
-  getAuthUser(): ApiResponse<AuthUser> {
-    throw new Error('Method not implemented.');
-  }
 
   logOut(): void {
     localStorage.removeItem('token');

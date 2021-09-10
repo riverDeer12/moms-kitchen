@@ -1,11 +1,13 @@
 import { Category } from './../../../dtos/categories/category';
 import { CategoriesService } from './../../../services/categories/categories.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { fadeInAnimation } from 'app/shared/animations/page.animation';
 
 @Component({
   selector: 'app-category-public-details',
   templateUrl: './category-public-details.component.html',
   styleUrls: ['./category-public-details.component.scss'],
+  animations: [fadeInAnimation]
 })
 export class CategoryPublicDetailsComponent implements OnInit {
   @Input() id: string;

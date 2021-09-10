@@ -4,7 +4,7 @@
   </span>
 </div>
 
-<div class="container-fluid" *ngIf="!loadingData">
+<div @fadeInAnimation class="container-fluid" *ngIf="!loadingData">
   <div>
     <h2><i class="fa fa-cutlery text-danger"></i> <span class="ml-2">{{ recipe.name }}</span> </h2>
   </div>

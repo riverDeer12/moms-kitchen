@@ -1,7 +1,8 @@
 <div class="row" *ngIf="loadingData">
-  Loading data...
+  Loading categories...
 </div>
-<div class="row categories-container" *ngIf="!loadingData">
+
+<div @fadeInAnimation class="row categories-container" *ngIf="!loadingData">
   <div class="col-md-3 mt-5" *ngFor="let category of categories">
     <div class="card profile-card-5 h-100">
       <div class="card-img-block">

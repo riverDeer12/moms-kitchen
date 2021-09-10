@@ -4,16 +4,17 @@ import { Category } from './../../../dtos/categories/category';
 import { CategoriesService } from './../../../services/categories/categories.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'app/shared/services/common/common.service';
-import { ApiResponse } from 'app/shared/common/api-response';
 import { Router } from '@angular/router';
 import { EntityType } from 'app/shared/constants/entity-type';
 import { ConfirmDeleteComponent } from '../../common/confirm-delete/confirm-delete.component';
 import { Table } from 'primeng/table';
+import { fadeInAnimation } from 'app/shared/animations/page.animation';
 
 @Component({
   selector: 'app-categories-list',
   templateUrl: './categories-list.component.html',
   styleUrls: ['./categories-list.component.scss'],
+  animations: [fadeInAnimation]
 })
 export class CategoriesListComponent implements OnInit {
   categories: Category[];

@@ -1,17 +1,12 @@
-import { trigger, transition, useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { FadeAnimation } from 'app/shared/animations/fade';
+import { fadeInAnimation } from 'app/shared/animations/page.animation';
 import { CommonService } from 'app/shared/services/common/common.service';
 
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css'],
-  animations: [
-    trigger('fadeAnimation', [
-      transition('void => *', [useAnimation(FadeAnimation)]),
-    ]),
-  ]
+  animations: [fadeInAnimation]
 })
 export class RecipesComponent implements OnInit {
   title: string;

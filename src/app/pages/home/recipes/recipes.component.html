@@ -4,7 +4,7 @@
   </div>
 </div>
 
-<form [formGroup]="filterForm" autocomplete="off" (submit)="filterRecipes()">
+<form @fadeInAnimation [formGroup]="filterForm" autocomplete="off" (submit)="filterRecipes()">
   <div class="row">
     <div class="col-lg-6 col-md-6  ">
       <div class="form-group">
@@ -33,7 +33,7 @@
   </span>
 </div>
 
-<div class="row recipes-container" *ngIf="!loadingData">
+<div @fadeInAnimation class="row recipes-container" *ngIf="!loadingData">
   <div class="col-lg-3 col-md-6 mt-5" *ngFor="let recipe of recipes">
     <app-recipe-card [recipe]="recipe"></app-recipe-card>
   </div>

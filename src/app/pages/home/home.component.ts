@@ -3,11 +3,13 @@ import { Router } from '@angular/router';
 import { RecipesService } from './../../shared/services/recipes/recipes.service';
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'app/shared/dtos/recipes/recipe';
+import { fadeInAnimation } from 'app/shared/animations/page.animation';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  animations: [fadeInAnimation]
 })
 export class HomeComponent implements OnInit {
   loadingData: boolean;

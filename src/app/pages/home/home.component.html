@@ -4,7 +4,7 @@
   </span>
 </div>
 
-<div class="container-fluid" *ngIf="!loadingData">
+<div @fadeInAnimation class="container-fluid" *ngIf="!loadingData">
   <div class="container mb-5">
     <h2><i class="fa fa-bolt text-danger"></i> Latest recipes</h2>
     <div class="row">

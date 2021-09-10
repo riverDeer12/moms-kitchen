@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ApiResponse } from 'app/shared/common/api-response';
 import { Category } from 'app/shared/dtos/categories/category';
 import { PostCategoryRequest } from 'app/shared/dtos/categories/post-category-request';
 import { UpdateCategoryRequest } from 'app/shared/dtos/categories/update-category-request';

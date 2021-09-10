@@ -2,7 +2,7 @@
     Create new category
 </a>
 
-<p-table #dt2 [value]="categories" dataKey="id" [rows]="5" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,20]"
+<p-table @fadeInAnimation #dt2 [value]="categories" dataKey="id" [rows]="5" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,20]"
     styleClass="p-datatable-customers" [paginator]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [globalFilterFields]="['name','createdAt','status']">

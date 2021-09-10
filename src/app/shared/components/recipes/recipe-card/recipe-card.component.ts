@@ -19,7 +19,6 @@ export class RecipeCardComponent implements OnInit {
   ngOnInit() {}
 
   imageLoaded(): void {
-    console.log('Image loaded');
     this.imageLoading = false;
   }
 }

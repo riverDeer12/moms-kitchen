@@ -14,7 +14,7 @@ import { fadeInAnimation } from 'app/shared/animations/page.animation';
 export class RecipesComponent implements OnInit {
   loadingData: boolean;
   recipes: Recipe[];
-  navbarLabel = "Mom's Kitchen";
+  navbarLabel = 'Mom\'s Kitchen';
   filterForm: FormGroup;
 
   constructor(

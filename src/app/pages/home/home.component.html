@@ -21,7 +21,7 @@
       </div>
       <div class="card-body">
         <div class="container mb-5">
-          <a class="text-danger" [href]="'/categories/'+ latestRecipes.mostPopularCategory.id ">
+          <a class="text-danger" [routerLink]="['/categories' + latestRecipes.mostPopularCategory.id]">
             <h2 class="mt-5"><i class="fa fa-tag"></i> {{ latestRecipes.mostPopularCategory.name }}</h2>
           </a>
           <div class="row">
@@ -32,7 +32,7 @@
         </div>
       
         <div class="container mb-5">
-          <a class="text-danger" [href]="'/categories/'+ latestRecipes.secondMostPopularCategory.id ">
+          <a class="text-danger" [routerLink]="['/categories' + latestRecipes.secondMostPopularCategory.id]">
             <h2 class="mt-5"><i class="fa fa-tag"></i> {{ latestRecipes.secondMostPopularCategory.name }}</h2>
           </a>
           <div class="row">
@@ -43,7 +43,7 @@
         </div>
       
         <div class="container mb-5">
-          <a class="text-danger" [href]="'/categories/'+ latestRecipes.thirdMostPopularCategory.id ">
+          <a class="text-danger" [routerLink]="['/categories' + latestRecipes.thirdMostPopularCategory.id]">
             <h2 class="mt-5"><i class="fa fa-tag"></i> {{ latestRecipes.thirdMostPopularCategory.name }}</h2>
           </a>
           <div class="row">

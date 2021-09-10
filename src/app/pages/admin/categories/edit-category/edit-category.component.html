@@ -2,8 +2,8 @@
   <div class="col-md-12">
     <nav aria-label="breadcrumb" role="navigation">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a [href]="'/admin/categories'">List</a></li>
-        <li class="breadcrumb-item"><a [href]="'/admin/categories/info/' + id">Details</a></li>
+        <li class="breadcrumb-item"><a [routerLink]="['/admin/categories']">List</a></li>
+        <li class="breadcrumb-item"><a [routerLink]="['/admin/categories/info' +  id]">Details</a></li>
         <li class="breadcrumb-item active" aria-current="page">Edit</li>
       </ol>
     </nav>

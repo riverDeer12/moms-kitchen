@@ -1,7 +1,7 @@
 <div class="card profile-card-5 h-100">
   <div class="card-img-block">
     <img *ngIf="imageLoading" src="assets/img/default-image.jpg" alt="loading" />
-    <a [href]="['/recipes/' + recipe.id ]">
+    <a [routerLink]="['/recipes/' + recipe.id ]">
       <img [hidden]="imageLoading" (load)="imageLoaded()" src="assets/img/default_recipe_image.jpg" />
     </a>
   </div>
@@ -14,7 +14,7 @@
     <div class="related-categories-container" *ngIf="recipe.categories?.length > 0">
       <h6>Related Categories</h6>
       <span *ngFor="let category of recipe.categories">
-        <a class="btn btn-primary btn-primary btn-sm btn-round" [href]="['/categories/' + category.id ]">
+        <a class="btn btn-primary btn-primary btn-sm btn-round" [routerLink]="['/categories/' + category.id ]">
           <i class="fa fa-tag"></i> {{ category.name }}
         </a>
       </span>
@@ -22,7 +22,7 @@
   </div>
   <div class="card-footer d-flex justify-content-center">
     <span>
-      <a class="btn btn-round btn-sm btn-info" [href]="['/recipes/' + recipe.id ]">
+      <a class="btn btn-round btn-sm btn-info" [routerLink]="['/recipes/' + recipe.id ]">
         <i class="fa fa-info"></i> Read more details
       </a>
     </span>

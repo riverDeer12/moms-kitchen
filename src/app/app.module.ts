@@ -8,7 +8,7 @@ import { AuthService } from './shared/services/auth/auth.service';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { PreloadAllModules, RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 
 import { SidebarModule } from './sidebar/sidebar.module';
@@ -42,7 +42,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
   imports: [
     BrowserAnimationsModule,
     NgbModule,
-    RouterModule.forRoot(AppRoutes),
+    RouterModule.forRoot(AppRoutes, { preloadingStrategy: PreloadAllModules }),
     SidebarModule,
     NavbarModule,
     ToastrModule.forRoot(),

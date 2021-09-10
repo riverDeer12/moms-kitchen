@@ -23,7 +23,7 @@
   </h4>
   <div class="row" *ngIf="recipe.categories?.length > 0">
     <div class="col-md-3 m-0 p-0" *ngFor="let category of recipe.categories">
-      <a class="btn btn-primary btn-primary btn-round" [href]="['/categories/' + category.id ]">
+      <a class="btn btn-primary btn-primary btn-round" [routerLink]="['/categories/' + category.id ]">
         <i class="fa fa-tag"></i> {{ category.name }}
       </a>
     </div>

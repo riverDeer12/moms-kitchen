@@ -1,3 +1,4 @@
+import { CategoryPublicDetailsComponent } from './components/categories/category-public-details/category-public-details.component';
 import { RecipePublicDetailsComponent } from './components/recipes/recipe-public-details/recipe-public-details.component';
 import { CalendarModule } from 'primeng/calendar';
 import { HomeFooterComponent } from './components/common/home-footer/home-footer.component';
@@ -26,7 +27,7 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { HomeNavbarComponent } from './components/common/home-navbar/home-navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {MultiSelectModule} from 'primeng/multiselect';
+import { MultiSelectModule } from 'primeng/multiselect';
 import { DropdownModule } from 'primeng/dropdown';
 import { RouterModule } from '@angular/router';
 
@@ -43,7 +44,7 @@ import { RouterModule } from '@angular/router';
     MultiSelectModule,
     DropdownModule,
     CalendarModule,
-    RouterModule
+    RouterModule,
   ],
   declarations: [
     LoginFormComponent,
@@ -64,7 +65,8 @@ import { RouterModule } from '@angular/router';
     HomeNavbarComponent,
     HomeFooterComponent,
     RecipeCardComponent,
-    RecipePublicDetailsComponent
+    RecipePublicDetailsComponent,
+    CategoryPublicDetailsComponent
   ],
   exports: [
     LoginFormComponent,
@@ -85,7 +87,8 @@ import { RouterModule } from '@angular/router';
     HomeNavbarComponent,
     HomeFooterComponent,
     RecipeCardComponent,
-    RecipePublicDetailsComponent
+    RecipePublicDetailsComponent,
+    CategoryPublicDetailsComponent
   ],
 })
 export class SharedModule {}

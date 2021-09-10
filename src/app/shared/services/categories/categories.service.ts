@@ -40,4 +40,8 @@ export class CategoriesService {
   getActiveCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(this.categoriesUrl + 'active');
   }
+
+  getCategoryPublicDetails(id: string) {
+    return this.http.get<Category>(this.categoriesUrl + id + '/details');
+  }
 }

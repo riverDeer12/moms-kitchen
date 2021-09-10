@@ -39,8 +39,6 @@ export class RecipesComponent implements OnInit {
       keyword: new FormControl(''),
       categoryIds: new FormControl(''),
     });
-
-    console.log(this.filterForm.value);
   }
 
   getRecipes(): void {

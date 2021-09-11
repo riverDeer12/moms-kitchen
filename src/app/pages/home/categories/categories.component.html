@@ -12,8 +12,8 @@
         <h5 class="card-title">{{ category.name }}</h5>
       </div>
       <div class="card-footer d-flex justify-content-center">
-        <span (click)="openCategoryRecipesPage(category.id)" class="btn btn-round btn-sm btn-info">
-          <i class="fa fa-info"></i> Go To Recipes
+        <span [routerLink]="'/categories/' + category.id" class="btn btn-round btn-sm btn-info">
+          <i class="fa fa-info"></i> Go To Category Details
         </span>
       </div>
     </div>

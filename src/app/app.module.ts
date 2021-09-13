@@ -1,3 +1,5 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContactComponent } from './pages/home/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AdminInterceptor } from './shared/interceptors/admin.interceptor';
 import { ComplexityLevelsComponent } from './pages/admin/complexity-levels/complexity-levels.component';
@@ -38,6 +40,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     LoginComponent,
     HomeComponent,
     ComplexityLevelsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -51,7 +54,9 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     HttpClientModule,
     SharedModule,
     NgMultiSelectDropDownModule.forRoot(),
-    AngularEditorModule
+    AngularEditorModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

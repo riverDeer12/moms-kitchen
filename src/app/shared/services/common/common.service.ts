@@ -26,6 +26,6 @@ export class CommonService {
   }
 
   sendEmail(request: EmailRequest): Observable<EmailResponse> {
-    return this.http.post<EmailResponse>(this.commonServiceUrl + '/contact-email', request);
+    return this.http.post<EmailResponse>(this.commonServiceUrl + '/email-contact', request);
   }
 }

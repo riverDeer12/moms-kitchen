@@ -41,14 +41,16 @@ export class ContactComponent implements OnInit {
   sendEmail(): void {
     this.loading = true;
 
-    this.commonService.sendEmail(this.emailForm.value).subscribe(
-      (response: EmailResponse) => {
-        this.loading = false;
-        this.notificationsService.success('Email has been sent.');
-      },
-      (error) => {
-        this.notificationsService.error('Email has not been sent.');
-      }
-    );
+    this.notificationsService.info('Work in progress.');
+
+    // this.commonService.sendEmail(this.emailForm.value).subscribe(
+    //   (response: EmailResponse) => {
+    //     this.loading = false;
+    //     this.notificationsService.success('Email has been sent.');
+    //   },
+    //   (error) => {
+    //     this.notificationsService.error('Email has not been sent.');
+    //   }
+    // );
   }
 }

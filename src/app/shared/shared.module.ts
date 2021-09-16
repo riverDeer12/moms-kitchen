@@ -31,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DropdownModule } from 'primeng/dropdown';
 import { RouterModule } from '@angular/router';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import { RouterModule } from '@angular/router';
     DropdownModule,
     CalendarModule,
     RouterModule,
+    NgxCaptchaModule
   ],
   declarations: [
     LoginFormComponent,
@@ -68,7 +70,7 @@ import { RouterModule } from '@angular/router';
     RecipeCardComponent,
     RecipePublicDetailsComponent,
     CategoryPublicDetailsComponent
-  ],
+    ],
   exports: [
     LoginFormComponent,
     CategoriesListComponent,

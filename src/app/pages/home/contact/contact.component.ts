@@ -1,3 +1,4 @@
+import { environment } from 'environments/environment';
 import { EmailResponse } from './../../../shared/common/email-response';
 import { NotificationsService } from './../../../shared/services/notifications/notifications.service';
 import { CommonService } from './../../../shared/services/common/common.service';
@@ -20,6 +21,8 @@ export class ContactComponent implements OnInit {
   emailForm: FormGroup;
   loading: boolean;
 
+  siteKey = environment.recaptcha.siteKey;
+
   constructor(
     private fb: FormBuilder,
     private commonService: CommonService,
@@ -35,6 +38,7 @@ export class ContactComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       subject: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
+      recaptcha: new FormControl('', Validators.required),
     });
   }
 

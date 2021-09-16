@@ -30,6 +30,7 @@ import { ComplexityLevelsService } from './shared/services/complexity-levels/com
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     NgMultiSelectDropDownModule.forRoot(),
     AngularEditorModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxCaptchaModule
   ],
   providers: [
     {

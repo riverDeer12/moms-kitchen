@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecipesComponent } from 'app/pages/home/recipes/recipes.component';
 import { CategoriesComponent } from 'app/pages/home/categories/categories.component';
 import { CalendarModule } from 'primeng/calendar';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { CalendarModule } from 'primeng/calendar';
     SharedModule,
     ReactiveFormsModule,
     CalendarModule,
+    NgxCaptchaModule
   ],
   declarations: [
     HomeLayoutComponent,

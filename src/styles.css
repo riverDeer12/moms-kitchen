@@ -176,3 +176,10 @@ h1, h2 {
 
 /* -- DROPDOWN -- */
 
+/* -- TEXTAREA -- */
+
+.mk-textarea{
+  min-height: 200px !important;
+}
+
+/* -- TEXTAREA -- */

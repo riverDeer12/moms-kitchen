@@ -2,7 +2,7 @@
   <div @fadeInAnimation class="container mb-5">
     <h2><i class="fa fa-envelope text-danger"></i> Feel free to contact us</h2>
     <div class="container mt-5">
-      <form [formGroup]="emailForm" autocomplete="off" (submit)="sendEmail()">
+      <form [formGroup]="contactForm" autocomplete="off" (submit)="sendEmail()">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -25,20 +25,19 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Description</label>
-              <textarea class="form-control" formControlName="description"
+              <textarea class="form-control mk-textarea" formControlName="description"
                 placeholder="enter your questions or suggestions here..."></textarea>
             </div>
           </div>
         </div>
         <div class="row">
-          <ngx-recaptcha2 #captchaElem
-          [siteKey]="siteKey"
-          formControlName="recaptcha">
-        </ngx-recaptcha2>
+          <div class="col-md-6 d-flex justify-content-left mt-3">
+            <app-captcha [parentForm]="contactForm"></app-captcha>
+          </div>
         </div>
         <div class="row">
           <div class="col-md-6 text-center">
-            <button [disabled]="this.emailForm.invalid" type="submit" class="btn btn-primary btn-block">
+            <button [disabled]="this.contactForm.invalid" type="submit" class="btn btn-primary btn-block">
               Send email <i class="nc-icon nc-email-85 ml-2"></i></button>
           </div>
         </div>

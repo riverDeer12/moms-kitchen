@@ -1,0 +1,10 @@
+<form [formGroup]="parentForm">
+  <ngx-recaptcha2 
+    #captchaElem [siteKey]="siteKey" 
+    [hl]="'en'" (reset)="handleReset()" 
+    (ready)="handleReady()" 
+    (load)="handleLoad()"
+    (success)="handleSuccess($event)" 
+    formControlName="recaptcha">
+  </ngx-recaptcha2>
+</form>

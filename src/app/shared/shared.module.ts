@@ -1,3 +1,4 @@
+import { CaptchaComponent } from './components/auth/captcha/captcha.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryPublicDetailsComponent } from './components/categories/category-public-details/category-public-details.component';
 import { RecipePublicDetailsComponent } from './components/recipes/recipe-public-details/recipe-public-details.component';
@@ -69,7 +70,8 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     HomeFooterComponent,
     RecipeCardComponent,
     RecipePublicDetailsComponent,
-    CategoryPublicDetailsComponent
+    CategoryPublicDetailsComponent,
+    CaptchaComponent
     ],
   exports: [
     LoginFormComponent,
@@ -91,7 +93,8 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     HomeFooterComponent,
     RecipeCardComponent,
     RecipePublicDetailsComponent,
-    CategoryPublicDetailsComponent
+    CategoryPublicDetailsComponent,
+    CaptchaComponent
   ],
 })
 export class SharedModule {}

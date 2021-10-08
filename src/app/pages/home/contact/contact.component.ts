@@ -46,11 +46,11 @@ export class ContactComponent implements OnInit {
   sendEmail(): void {
     this.loading = true;
 
-    this.notificationsService.info('Work in progress.');
-
     this.commonService.sendEmail(this.contactForm.value).subscribe(
       (response: EmailResponse) => {
         this.loading = false;
+        this.setEmailForm();
+        this.commonService.resetCaptcha();
         this.notificationsService.success('Email has been sent.');
       },
       (error) => {

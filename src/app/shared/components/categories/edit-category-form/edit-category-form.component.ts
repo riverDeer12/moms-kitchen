@@ -37,10 +37,10 @@ export class EditCategoryFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getComplexityLevel();
+    this.getCategory();
   }
 
-  getComplexityLevel() {
+  getCategory(): void {
     this.categoriesService.getCategory(this.id).subscribe((response: Category) => {
       this.category = response as Category;
       this.setEditForm();
@@ -49,7 +49,7 @@ export class EditCategoryFormComponent implements OnInit {
 
   setEditForm() {
     this.editForm = this.formBuilder.group({
-      isActive: new FormControl(this.category.isActive, Validators.required),
+      isActive: new FormControl(this.category.isActive),
       name: new FormControl(this.category.name, Validators.required),
       description: new FormControl(
         this.category.description,

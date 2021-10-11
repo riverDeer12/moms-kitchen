@@ -4,7 +4,7 @@ import { Category } from 'app/shared/dtos/categories/category';
 import { LatestRecipes } from 'app/shared/dtos/recipes/latest-recipes';
 import { PostRecipeRequest } from 'app/shared/dtos/recipes/post-recipe-request';
 import { Recipe } from 'app/shared/dtos/recipes/recipe';
-import { SearchFilterRequest } from 'app/shared/dtos/recipes/search-filter-request';
+import { RecipeFilterRequest } from 'app/shared/dtos/recipes/recipe-filter-request';
 import { UpdateRecipeRequest } from 'app/shared/dtos/recipes/update-recipe-request';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
@@ -44,15 +44,15 @@ export class RecipesService {
   }
 
   getActiveRecipes(): Observable<Recipe[]> {
-    return this.http.get<Recipe[]>(this.recipesUrl + 'active');
+    return this.http.get<Recipe[]>(this.recipesUrl + 'public');
   }
 
   getLatestRecipes(): Observable<LatestRecipes> {
     return this.http.get<LatestRecipes>(this.recipesUrl + 'latest');
   }
 
-  filterRecipes(request: SearchFilterRequest): Observable<Recipe[]> {
-    return this.http.post<Recipe[]>(this.recipesUrl + 'active-filter', request);
+  filterRecipes(request: RecipeFilterRequest): Observable<Recipe[]> {
+    return this.http.post<Recipe[]>(this.recipesUrl + 'public-filter', request);
   }
 
   getRecipePublicDetails(id: string): Observable<Recipe> {

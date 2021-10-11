@@ -14,7 +14,7 @@ import { fadeInAnimation } from 'app/shared/animations/page.animation';
 export class RecipesComponent implements OnInit {
   loadingData: boolean;
   recipes: Recipe[];
-  navbarLabel = 'Mom\'s Kitchen';
+  navbarLabel = "Mom's Kitchen";
   filterForm: FormGroup;
 
   constructor(
@@ -57,7 +57,7 @@ export class RecipesComponent implements OnInit {
     if (!this.filterForm.valid) {
       return;
     }
-    
+
     this.service.filterRecipes(this.filterForm.value).subscribe(
       (response: Recipe[]) => {
         this.recipes = response.map((x) => Object.assign(new Recipe(), x));

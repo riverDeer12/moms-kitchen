@@ -1,24 +1,31 @@
+import { NotificationsService } from './../../../shared/services/notifications/notifications.service';
 import { Router } from '@angular/router';
 import { CategoriesService } from './../../../shared/services/categories/categories.service';
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'app/shared/dtos/categories/category';
 import { fadeInAnimation } from 'app/shared/animations/page.animation';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss'],
-  animations: [fadeInAnimation]
+  animations: [fadeInAnimation],
 })
 export class CategoriesComponent implements OnInit {
   loadingData: boolean;
   categories: Category[];
+  filterForm: FormGroup;
+  navbarLabel = "Mom's Kitchen";
 
   constructor(
     private categoriesService: CategoriesService,
+    private notificationsService: NotificationsService,
+    private fb: FormBuilder,
     private router: Router
   ) {
     this.loadingData = true;
+    this.setFilterForm();
   }
 
   ngOnInit() {
@@ -34,7 +41,30 @@ export class CategoriesComponent implements OnInit {
       });
   }
 
-  openCategoryRecipesPage(id: string): void {
-    this.router.navigateByUrl('/category/' + id);
+  setFilterForm(): void {
+    this.filterForm = this.fb.group({
+      keyword: new FormControl('', Validators.required)
+    });
+  }
+
+  filterCategories(): void {
+    this.loadingData = true;
+
+    if (!this.filterForm.valid) {
+      return;
+    }
+
+    this.categoriesService.filterCategories(this.filterForm.value).subscribe(
+      (response: Category[]) => {
+        this.categories = response.map((x) => Object.assign(new Category(), x));
+        this.loadingData = false;
+      },
+      (response: any) => {
+        this.notificationsService.error(
+          'At least one search property needs to be populated.'
+        );
+        this.loadingData = false;
+      }
+    );
   }
 }

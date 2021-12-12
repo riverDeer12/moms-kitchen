@@ -28,7 +28,7 @@ import { ComplexityLevelInfoComponent } from 'app/pages/admin/complexity-levels/
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     NgbModule,
-    SharedModule
+    SharedModule,
   ],
   declarations: [
     DashboardComponent,
@@ -41,7 +41,7 @@ import { ComplexityLevelInfoComponent } from 'app/pages/admin/complexity-levels/
     CreateComplexityLevelComponent,
     EditComplexityLevelComponent,
     ComplexityLevelInfoComponent,
-    UsersComponent
-  ]
+    UsersComponent,
+  ],
 })
 export class AdminLayoutModule {}

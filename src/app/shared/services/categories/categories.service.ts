@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Category } from 'app/shared/dtos/categories/category';
+import { CategoryFilterRequest } from 'app/shared/dtos/categories/category-filter-request';
 import { PostCategoryRequest } from 'app/shared/dtos/categories/post-category-request';
 import { UpdateCategoryRequest } from 'app/shared/dtos/categories/update-category-request';
 import { environment } from 'environments/environment';
@@ -24,12 +25,12 @@ export class CategoriesService {
     return this.http.get<Category>(this.categoriesUrl + categoryId);
   }
 
-  createCategory(postCategoryRequest: PostCategoryRequest): Observable<Category> {
-    return this.http.post<Category>(this.categoriesUrl, postCategoryRequest)
+  createCategory(request: PostCategoryRequest): Observable<Category> {
+    return this.http.post<Category>(this.categoriesUrl, request)
   }
 
-  updateCategory(categoryId: string, updateCategoryRequest: UpdateCategoryRequest): Observable<Category> {
-    return this.http.put<Category>(this.categoriesUrl + categoryId, updateCategoryRequest)
+  updateCategory(categoryId: string, request: UpdateCategoryRequest): Observable<Category> {
+    return this.http.put<Category>(this.categoriesUrl + categoryId, request)
   }
 
   deleteCategory(categoryId: string): Observable<Category> {
@@ -37,10 +38,14 @@ export class CategoriesService {
   }
 
   getActiveCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.categoriesUrl + 'active');
+    return this.http.get<Category[]>(this.categoriesUrl + 'public');
   }
 
   getCategoryPublicDetails(id: string) {
     return this.http.get<Category>(this.categoriesUrl + id + '/details');
+  }
+
+  filterCategories(request: CategoryFilterRequest): Observable<Category[]> {
+    return this.http.post<Category[]>(this.categoriesUrl  + 'public-filter', request);
   }
 }

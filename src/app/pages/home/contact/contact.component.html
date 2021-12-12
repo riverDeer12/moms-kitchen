@@ -37,7 +37,7 @@
         </div>
         <div class="row">
           <div class="col-md-6 text-center">
-            <button [disabled]="this.contactForm.invalid" type="submit" class="btn btn-primary btn-block">
+            <button [disabled]="this.contactForm.invalid || loading" type="submit" class="btn btn-primary btn-block">
               Send email <i class="nc-icon nc-email-85 ml-2"></i></button>
           </div>
         </div>

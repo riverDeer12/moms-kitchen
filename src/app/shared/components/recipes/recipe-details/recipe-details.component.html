@@ -10,17 +10,27 @@
     {{recipe.name}}
   </h4>
   <p>
+    <label>Time of creation: </label>
+    {{recipe.createdAt | date:'dd.MM.yyyy HH:mm:ss'}}
+  </p>
+  <p>
+    <label>Last change: </label>
+    {{recipe.updatedAt | date:'dd.MM.yyyy HH:mm:ss'}}
+  </p>
+  <p>
     <label>Status: </label>
     {{recipe.getStatus()}}
   </p>
   <p>
     <label>Description: </label>
-    <span [innerHtml]="recipe.description"></span>
+    <span class="ml-1" [innerHtml]="recipe.description"></span>
   </p>
   <p>
     <label>Categories: </label>
-    <span *ngFor="let category in recipe.categories">
-      {{category.name}}
+    <span class="ml-1 mr-1" *ngFor="let category of recipe.categories">
+      <a class="btn btn-primary btn-primary btn-sm btn-round" [routerLink]="['/admin/categories/' + category.id ]">
+        <i class="fa fa-tag"></i> {{ category.name }}
+      </a>
     </span>
   </p>
 </div>

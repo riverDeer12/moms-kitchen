@@ -1,6 +1,14 @@
+import { CommonService } from 'app/shared/services/common/common.service';
 import { FormGroup } from '@angular/forms';
 import { environment } from 'environments/environment';
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { ReCaptcha2Component } from 'ngx-captcha';
 
 @Component({
   selector: 'app-captcha',
@@ -17,9 +25,24 @@ export class CaptchaComponent implements OnInit {
 
   siteKey = environment.captcha.siteKey;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  @ViewChild('captchaElem', { static: false }) captchaElem: ReCaptcha2Component;
 
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private commonService: CommonService
+  ) {
+    this.setCaptchaListener();
+  }
   ngOnInit() {}
+
+  setCaptchaListener(): void {
+    this.commonService.getCaptchaStatus().subscribe((resetStatus: boolean) => {
+      if (resetStatus) {
+        this.captchaElem.resetCaptcha();
+      }
+    });
+  }
+
 
   handleReset(): void {
     this.captchaSuccess = false;
@@ -30,8 +53,6 @@ export class CaptchaComponent implements OnInit {
   handleSuccess(captchaResponse: string): void {
     this.captchaSuccess = true;
     this.captchaResponse = captchaResponse;
-    console.log(this.captchaResponse);
-    this.printCaptchaStatus();
     this.cdr.detectChanges();
   }
 
@@ -43,12 +64,5 @@ export class CaptchaComponent implements OnInit {
   handleReady(): void {
     this.captchaIsReady = true;
     this.cdr.detectChanges();
-  }
-
-  printCaptchaStatus(): void {
-    console.log('Success: ', this.captchaSuccess);
-    console.log('Ready: ', this.captchaIsReady);
-    console.log('Loaded: ', this.captchaIsLoaded);
-    console.log('Ready: ', this.captchaIsLoaded);
   }
 }

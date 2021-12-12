@@ -10,6 +10,8 @@ import { EmailResponse } from 'app/shared/common/email-response';
 export class CommonService {
   private pageSettings = new Subject<PageSetting>();
 
+  private captchaResetReady = new Subject<boolean>();
+
   commonServiceUrl = environment.apiUrl + '/common';
 
   constructor(private http: HttpClient) {}
@@ -27,5 +29,13 @@ export class CommonService {
 
   sendEmail(request: EmailRequest): Observable<EmailResponse> {
     return this.http.post<EmailResponse>(this.commonServiceUrl + '/email-contact', request);
+  }
+
+  getCaptchaStatus(): Subject<boolean> {
+    return this.captchaResetReady;
+  }
+
+  resetCaptcha(): void {
+    this.captchaResetReady.next(true);
   }
 }

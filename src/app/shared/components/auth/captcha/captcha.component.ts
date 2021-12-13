@@ -1,4 +1,4 @@
-import { CommonService } from 'app/shared/services/common/common.service';
+import { CommonService } from 'app/core/services/common/common.service';
 import { FormGroup } from '@angular/forms';
 import { environment } from 'environments/environment';
 import {

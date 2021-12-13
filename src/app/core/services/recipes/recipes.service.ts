@@ -1,14 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Category } from 'app/shared/dtos/categories/category';
-import { LatestRecipes } from 'app/shared/dtos/recipes/latest-recipes';
-import { PostRecipeRequest } from 'app/shared/dtos/recipes/post-recipe-request';
-import { Recipe } from 'app/shared/dtos/recipes/recipe';
-import { RecipeFilterRequest } from 'app/shared/dtos/recipes/recipe-filter-request';
-import { UpdateRecipeRequest } from 'app/shared/dtos/recipes/update-recipe-request';
+import { Category } from 'app/core/dtos/categories/category';
+import { LatestRecipes } from 'app/core/dtos/recipes/latest-recipes';
+import { PostRecipeRequest } from 'app/core/dtos/recipes/post-recipe-request';
+import { Recipe } from 'app/core/dtos/recipes/recipe';
+import { RecipeFilterRequest } from 'app/core/dtos/recipes/recipe-filter-request';
+import { UpdateRecipeRequest } from 'app/core/dtos/recipes/update-recipe-request';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
 
 @Injectable()
 export class RecipesService {

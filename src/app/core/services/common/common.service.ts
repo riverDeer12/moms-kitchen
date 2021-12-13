@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { environment } from './../../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 import { Injectable } from '@angular/core';
-import { EmailRequest } from 'app/shared/common/email-request';
-import { PageSetting } from 'app/shared/common/page-setting';
+import { EmailRequest } from 'app/core/common/email-request';
+import { PageSetting } from 'app/core/common/page-setting';
 import { Observable, Subject } from 'rxjs';
-import { EmailResponse } from 'app/shared/common/email-response';
+import { EmailResponse } from 'app/core/common/email-response';
 
 @Injectable()
 export class CommonService {

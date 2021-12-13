@@ -1,39 +1,41 @@
-import { CommonService } from 'app/shared/services/common/common.service';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {CommonService} from 'app/core/services/common/common.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Recipe} from '../../../../core/dtos/recipes/recipe';
 
 @Component({
-  selector: 'app-edit-recipe',
-  templateUrl: './edit-recipe.component.html',
-  styleUrls: ['./edit-recipe.component.scss'],
+    selector: 'app-edit-recipe',
+    templateUrl: './edit-recipe.component.html',
+    styleUrls: ['./edit-recipe.component.scss'],
 })
 export class EditRecipeComponent implements OnInit {
-  loadingData: boolean;
-  id: string;
-  returnUrl = '/admin/recipes';
+    recipe: Recipe;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private commonService: CommonService
-  ) {
-    this.loadingData = true;
-    this.setPageSettings();
+    constructor(
+        private activatedRoute: ActivatedRoute,
+        private commonService: CommonService
+    ) {
+        this.setPageSettings();
+    }
 
-  }
+    ngOnInit() {
+        this.listenToResolver();
+    }
 
-  ngOnInit() {
-    this.getRecipeId();
-  }
+    /**
+     * Listen to resolver
+     * actions.
+     */
+    listenToResolver(): void {
+        this.activatedRoute.data.subscribe((response: any) => {
+            this.recipe = Object.assign(new Recipe(), response.recipe);
+        });
+    }
 
-  getRecipeId(): void {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.loadingData = false;
-  }
-
-  setPageSettings(): void {
-    this.commonService.setPageSettings(
-      'Edit recipe',
-      'Here you can edit recipe details.'
-    );
-  }
+    setPageSettings(): void {
+        this.commonService.setPageSettings(
+            'Edit recipe',
+            'Here you can edit recipe details.'
+        );
+    }
 }

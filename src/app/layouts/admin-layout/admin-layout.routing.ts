@@ -16,6 +16,9 @@ import { EditRecipeComponent } from 'app/pages/admin/recipes/edit-recipe/edit-re
 import { RecipesListComponent } from 'app/shared/components/recipes/recipes-list/recipes-list.component';
 import { ComplexityLevelInfoComponent } from 'app/pages/admin/complexity-levels/complexity-level-info/complexity-level-info.component';
 import { RecipeInfoComponent } from 'app/pages/admin/recipes/recipe-info/recipe-info.component';
+import {RecipeResolver} from '../../core/resolvers/recipe.resolver';
+import {CategoryResolver} from '../../core/resolvers/category.resolver';
+import {ComplexityLevelResolver} from '../../core/resolvers/complexity-level.resolver';
 
 export const AdminLayoutRoutes: Routes = [
   {
@@ -33,12 +36,18 @@ export const AdminLayoutRoutes: Routes = [
       {
         path: 'info/:id',
         component: RecipeInfoComponent,
+        resolve: {
+          recipe: RecipeResolver
+        }
       },
       {
         path: 'edit/:id',
         component: EditRecipeComponent,
-      },
-    ],
+        resolve: {
+          recipe: RecipeResolver
+        }
+      }
+    ]
   },
   {
     path: 'categories',
@@ -55,12 +64,18 @@ export const AdminLayoutRoutes: Routes = [
       {
         path: 'info/:id',
         component: CategoryInfoComponent,
+        resolve: {
+          category: CategoryResolver
+        }
       },
       {
         path: 'edit/:id',
         component: EditCategoryComponent,
-      },
-    ],
+        resolve: {
+          category: CategoryResolver
+        }
+      }
+    ]
   },
   {
     path: 'complexity-levels',
@@ -77,12 +92,18 @@ export const AdminLayoutRoutes: Routes = [
       {
         path: 'info/:id',
         component: ComplexityLevelInfoComponent,
+        resolve: {
+          complexityLevel: ComplexityLevelResolver
+        }
       },
       {
         path: 'edit/:id',
         component: EditComplexityLevelComponent,
-      },
-    ],
+        resolve: {
+          complexityLevel: ComplexityLevelResolver
+        }
+      }
+    ]
   },
   {
     path: 'users',

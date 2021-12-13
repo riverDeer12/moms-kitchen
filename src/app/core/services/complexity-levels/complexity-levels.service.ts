@@ -1,8 +1,8 @@
-import { PostComplexityLevelRequest } from './../../dtos/complexity-levels/post-complexity-level-request';
-import { UpdateComplexityLevelRequest } from './../../dtos/complexity-levels/update-complexity-level-request';
+import { PostComplexityLevelRequest } from '../../dtos/complexity-levels/post-complexity-level-request';
+import { UpdateComplexityLevelRequest } from '../../dtos/complexity-levels/update-complexity-level-request';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ComplexityLevel } from 'app/shared/dtos/complexity-levels/complexity-level';
+import { ComplexityLevel } from 'app/core/dtos/complexity-levels/complexity-level';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 

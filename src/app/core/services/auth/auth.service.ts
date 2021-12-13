@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { LoginRequest } from './../../dtos/auth/login-request';
+import { LoginRequest } from '../../dtos/auth/login-request';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { AuthToken } from 'app/shared/dtos/auth/auth-token';
+import { AuthToken } from 'app/core/dtos/auth/auth-token';
 import jwtDecode from 'jwt-decode';
 
 @Injectable()
@@ -44,10 +44,6 @@ export class AuthService {
 
     const now = Date.now().valueOf() / 1000;
 
-    if (decodedToken.exp < now) {
-      return false;
-    }
-
-    return true;
+    return decodedToken.exp >= now;
   }
 }

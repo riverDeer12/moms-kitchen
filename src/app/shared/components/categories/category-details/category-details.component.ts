@@ -1,5 +1,4 @@
-import { CategoriesService } from 'app/shared/services/categories/categories.service';
-import { Category } from 'app/shared/dtos/categories/category';
+import { Category } from 'app/core/dtos/categories/category';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -8,23 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./category-details.component.scss'],
 })
 export class CategoryDetailsComponent implements OnInit {
-  @Input() id: string;
+  @Input() category: Category;
 
-  category: Category;
-  loadingData: boolean;
+  constructor() {}
 
-  constructor(private service: CategoriesService) {
-    this.loadingData = true;
-  }
-
-  ngOnInit() {
-    this.getComplexityLevel();
-  }
-
-  getComplexityLevel() {
-    this.service.getCategory(this.id).subscribe((response: Category) => {
-      this.category = Object.assign(new Category(), response);
-      this.loadingData = false;
-    });
-  }
+  ngOnInit() {}
 }

@@ -1,7 +1,6 @@
 import { environment } from 'environments/environment';
-import { EmailResponse } from './../../../shared/common/email-response';
-import { NotificationsService } from './../../../shared/services/notifications/notifications.service';
-import { CommonService } from './../../../shared/services/common/common.service';
+import { NotificationsService } from '../../../core/services/notifications/notifications.service';
+import { CommonService } from '../../../core/services/common/common.service';
 import {
   FormGroup,
   FormControl,
@@ -9,8 +8,7 @@ import {
   FormBuilder,
 } from '@angular/forms';
 import { fadeInAnimation } from './../../../shared/animations/page.animation';
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { InvisibleReCaptchaComponent } from 'ngx-captcha';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -47,13 +45,13 @@ export class ContactComponent implements OnInit {
     this.loading = true;
 
     this.commonService.sendEmail(this.contactForm.value).subscribe(
-      (response: EmailResponse) => {
+      () => {
         this.loading = false;
         this.setEmailForm();
         this.commonService.resetCaptcha();
         this.notificationsService.success('Email has been sent.');
       },
-      (error) => {
+      () => {
         this.notificationsService.error('Email has not been sent.');
       }
     );

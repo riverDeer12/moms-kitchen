@@ -1,6 +1,5 @@
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
-import { HomeComponent } from './pages/home/home.component';
-import { AdminGuard } from './shared/guards/admin.guard';
+import { AdminGuard } from './core/guards/admin.guard';
 import { Routes } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';

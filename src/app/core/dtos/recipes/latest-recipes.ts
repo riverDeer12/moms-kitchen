@@ -1,4 +1,4 @@
-import { Category } from './../categories/category';
+import { Category } from '../categories/category';
 import { Recipe } from './recipe';
 
 export class LatestRecipes {

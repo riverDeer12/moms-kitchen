@@ -1,10 +1,9 @@
-import { NotificationsService } from './../../../services/notifications/notifications.service';
-import { EditorConfig } from './../../../../settings/editor-settings';
-import { Category } from './../../../dtos/categories/category';
+import { NotificationsService } from '../../../../core/services/notifications/notifications.service';
+import { EditorConfig } from '../../../../settings/editor-settings';
+import { Category } from '../../../../core/dtos/categories/category';
 import { Router } from '@angular/router';
-import { CategoriesService } from './../../../services/categories/categories.service';
+import { CategoriesService } from '../../../../core/services/categories/categories.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { textChangeRangeIsUnchanged } from 'typescript';
 import {
   FormBuilder,
   FormControl,

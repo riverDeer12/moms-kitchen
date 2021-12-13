@@ -1,6 +1,6 @@
-import { NotificationsService } from './../../../services/notifications/notifications.service';
-import { EditorConfig } from './../../../../settings/editor-settings';
-import { ComplexityLevelsService } from './../../../services/complexity-levels/complexity-levels.service';
+import { NotificationsService } from '../../../../core/services/notifications/notifications.service';
+import { EditorConfig } from '../../../../settings/editor-settings';
+import { ComplexityLevelsService } from '../../../../core/services/complexity-levels/complexity-levels.service';
 import { Component, Input, OnInit } from '@angular/core';
 import {
   FormGroup,
@@ -9,7 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ComplexityLevel } from 'app/shared/dtos/complexity-levels/complexity-level';
+import { ComplexityLevel } from 'app/core/dtos/complexity-levels/complexity-level';
 
 @Component({
   selector: 'app-create-complexity-level-form',

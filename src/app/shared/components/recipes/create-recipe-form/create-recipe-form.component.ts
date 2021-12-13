@@ -1,8 +1,8 @@
-import { EditorConfig } from './../../../../settings/editor-settings';
-import { NotificationsService } from './../../../services/notifications/notifications.service';
+import { EditorConfig } from '../../../../settings/editor-settings';
+import { NotificationsService } from '../../../../core/services/notifications/notifications.service';
 import { Router } from '@angular/router';
-import { Recipe } from 'app/shared/dtos/recipes/recipe';
-import { RecipesService } from './../../../services/recipes/recipes.service';
+import { Recipe } from 'app/core/dtos/recipes/recipe';
+import { RecipesService } from '../../../../core/services/recipes/recipes.service';
 import { Component, Input, OnInit } from '@angular/core';
 import {
   FormGroup,
@@ -10,7 +10,6 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
-import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Component({
   selector: 'app-create-recipe-form',

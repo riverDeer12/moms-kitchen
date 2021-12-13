@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
   apiUrl: 'https://moms-kitchen-api.azurewebsites.net/api',
   captcha: {
     siteKey: '6LdpLm8cAAAAAJ-CDiN59voXgHaBeAYjDizs2v2a',

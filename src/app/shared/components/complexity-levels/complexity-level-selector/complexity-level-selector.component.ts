@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ComplexityLevelsService } from 'app/shared/services/complexity-levels/complexity-levels.service';
+import { ComplexityLevelsService } from 'app/core/services/complexity-levels/complexity-levels.service';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { FormGroup } from '@angular/forms';
-import { ComplexityLevel } from 'app/shared/dtos/complexity-levels/complexity-level';
+import { ComplexityLevel } from 'app/core/dtos/complexity-levels/complexity-level';
 
 @Component({
   selector: 'app-complexity-level-selector',

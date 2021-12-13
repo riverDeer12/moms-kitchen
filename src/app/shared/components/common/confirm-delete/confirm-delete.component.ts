@@ -1,13 +1,9 @@
-import { ComplexityLevel } from './../../../dtos/complexity-levels/complexity-level';
-import { Category } from './../../../dtos/categories/category';
-import { CategoriesService } from './../../../services/categories/categories.service';
-import { RecipesService } from './../../../services/recipes/recipes.service';
-import { ThrowStmt } from '@angular/compiler';
+import { CategoriesService } from '../../../../core/services/categories/categories.service';
+import { RecipesService } from '../../../../core/services/recipes/recipes.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { EntityType } from 'app/shared/constants/entity-type';
-import { ComplexityLevelsService } from 'app/shared/services/complexity-levels/complexity-levels.service';
-import { Recipe } from 'app/shared/dtos/recipes/recipe';
+import { EntityType } from 'app/core/constants/entity-type';
+import { ComplexityLevelsService } from 'app/core/services/complexity-levels/complexity-levels.service';
 import { Router } from '@angular/router';
 
 @Component({

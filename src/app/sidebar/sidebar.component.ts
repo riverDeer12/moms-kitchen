@@ -1,4 +1,4 @@
-import { AuthService } from './../shared/services/auth/auth.service';
+import { AuthService } from '../core/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -34,7 +34,7 @@ export const ROUTES: RouteInfo[] = [
 
 @Component({
   moduleId: module.id,
-  selector: 'sidebar-cmp',
+  selector: 'app-sidebar',
   templateUrl: 'sidebar.component.html',
 })
 export class SidebarComponent implements OnInit {

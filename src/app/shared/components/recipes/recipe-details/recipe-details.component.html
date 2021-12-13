@@ -1,11 +1,5 @@
-<div class="container" *ngIf="loadingData">
-  <span class="mt-5">
-    Loading recipe...
-  </span>
-</div>
-
-<div *ngIf="!loadingData" class="info">
-  <img class="img img-fluid img-recipe" src="assets/img/default_recipe_image.jpg">
+<div class="info">
+  <img class="img img-fluid img-recipe" src="assets/img/default_recipe_image.jpg"  [alt]="recipe.name">
   <h4 class="info-title">
     {{recipe.name}}
   </h4>

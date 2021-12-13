@@ -10,6 +10,7 @@ export class Recipe {
   complexityLevelId: string;
   categories: Category[];
   status: string;
+  updatedAt: Date;
 
   getStatus(): string {
     if (this.isDeleted) {

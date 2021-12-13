@@ -1,8 +1,8 @@
-import { NotificationsService } from './../../../shared/services/notifications/notifications.service';
+import { NotificationsService } from '../../../core/services/notifications/notifications.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from 'app/shared/dtos/recipes/recipe';
-import { RecipesService } from 'app/shared/services/recipes/recipes.service';
+import { Recipe } from 'app/core/dtos/recipes/recipe';
+import { RecipesService } from 'app/core/services/recipes/recipes.service';
 import { fadeInAnimation } from 'app/shared/animations/page.animation';
 
 @Component({
@@ -14,7 +14,7 @@ import { fadeInAnimation } from 'app/shared/animations/page.animation';
 export class RecipesComponent implements OnInit {
   loadingData: boolean;
   recipes: Recipe[];
-  navbarLabel = "Mom's Kitchen";
+  navbarLabel = 'Mom\'s Kitchen';
   filterForm: FormGroup;
 
   constructor(
@@ -63,7 +63,7 @@ export class RecipesComponent implements OnInit {
         this.recipes = response.map((x) => Object.assign(new Recipe(), x));
         this.loadingData = false;
       },
-      (response) => {
+      () => {
         this.notificationsService.error(
           'At least one search property needs to be populated.'
         );

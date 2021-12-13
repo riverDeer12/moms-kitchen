@@ -1,11 +1,11 @@
-import { NotificationsService } from './../../../services/notifications/notifications.service';
+import { NotificationsService } from '../../../../core/services/notifications/notifications.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Category } from './../../../dtos/categories/category';
-import { CategoriesService } from './../../../services/categories/categories.service';
+import { Category } from '../../../../core/dtos/categories/category';
+import { CategoriesService } from '../../../../core/services/categories/categories.service';
 import { Component, OnInit } from '@angular/core';
-import { CommonService } from 'app/shared/services/common/common.service';
+import { CommonService } from 'app/core/services/common/common.service';
 import { Router } from '@angular/router';
-import { EntityType } from 'app/shared/constants/entity-type';
+import { EntityType } from 'app/core/constants/entity-type';
 import { ConfirmDeleteComponent } from '../../common/confirm-delete/confirm-delete.component';
 import { Table } from 'primeng/table';
 import { fadeInAnimation } from 'app/shared/animations/page.animation';
@@ -48,7 +48,7 @@ export class CategoriesListComponent implements OnInit {
         this.categories = response.map(x => Object.assign(new Category(), x));
         this.loadingData = false;
       },
-      (error) => {
+      () => {
         this.notificationService.error('Error on getting categories');
       }
     );

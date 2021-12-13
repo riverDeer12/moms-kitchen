@@ -1,8 +1,7 @@
-import { NotificationsService } from './../../../shared/services/notifications/notifications.service';
-import { Router } from '@angular/router';
-import { CategoriesService } from './../../../shared/services/categories/categories.service';
+import { NotificationsService } from '../../../core/services/notifications/notifications.service';
+import { CategoriesService } from '../../../core/services/categories/categories.service';
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'app/shared/dtos/categories/category';
+import { Category } from 'app/core/dtos/categories/category';
 import { fadeInAnimation } from 'app/shared/animations/page.animation';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
@@ -16,13 +15,12 @@ export class CategoriesComponent implements OnInit {
   loadingData: boolean;
   categories: Category[];
   filterForm: FormGroup;
-  navbarLabel = "Mom's Kitchen";
+  navbarLabel = 'Mom\'s Kitchen';
 
   constructor(
     private categoriesService: CategoriesService,
     private notificationsService: NotificationsService,
-    private fb: FormBuilder,
-    private router: Router
+    private fb: FormBuilder
   ) {
     this.loadingData = true;
     this.setFilterForm();
@@ -59,7 +57,7 @@ export class CategoriesComponent implements OnInit {
         this.categories = response.map((x) => Object.assign(new Category(), x));
         this.loadingData = false;
       },
-      (response: any) => {
+      () => {
         this.notificationsService.error(
           'At least one search property needs to be populated.'
         );

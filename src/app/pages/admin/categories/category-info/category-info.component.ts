@@ -1,67 +1,67 @@
-import { NotificationsService } from './../../../../shared/services/notifications/notifications.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ConfirmDeleteComponent } from 'app/shared/components/common/confirm-delete/confirm-delete.component';
-import { CommonService } from 'app/shared/services/common/common.service';
-import { EntityType } from 'app/shared/constants/entity-type';
+import {NotificationsService} from '../../../../core/services/notifications/notifications.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ConfirmDeleteComponent} from 'app/shared/components/common/confirm-delete/confirm-delete.component';
+import {CommonService} from 'app/core/services/common/common.service';
+import {EntityType} from 'app/core/constants/entity-type';
+import {Category} from '../../../../core/dtos/categories/category';
 
 @Component({
-  selector: 'app-category-info',
-  templateUrl: './category-info.component.html',
-  styleUrls: ['./category-info.component.scss']
+    selector: 'app-category-info',
+    templateUrl: './category-info.component.html',
+    styleUrls: ['./category-info.component.scss']
 })
 export class CategoryInfoComponent implements OnInit {
-  id: string;
-  returnUrl = '/admin/categories';
-  loadingData: boolean;
+    returnUrl = '/admin/categories';
 
-  constructor(
-    private commonService: CommonService,
-    private notificationService: NotificationsService,
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private modalService: NgbModal
-  ) {
-    this.loadingData = true;
-    this.setPageSettings();
-  }
+    category: Category;
 
-  ngOnInit() {
-    this.getCategory();
-  }
+    constructor(
+        private commonService: CommonService,
+        private notificationService: NotificationsService,
+        private activatedRoute: ActivatedRoute,
+        private router: Router,
+        private modalService: NgbModal
+    ) {
+        this.setPageSettings();
+    }
 
-  getCategory(): void {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.loadingData = false;
-  }
+    ngOnInit() {
+        this.listenToResolver();
+    }
 
-  setPageSettings(): void {
-    this.commonService.setPageSettings(
-      'Category details',
-      'Here you can read more details about category'
-    );
-  }
+    setPageSettings(): void {
+        this.commonService.setPageSettings(
+            'Category details',
+            'Here you can read more details about category'
+        );
+    }
 
-  goBackToList(): void {
-    this.router.navigateByUrl(this.returnUrl);
-  }
+    /**
+     * Listen to resolver
+     * actions.
+     */
+    listenToResolver(): void {
+        this.activatedRoute.data.subscribe((response: any) => {
+            this.category = Object.assign(new Category(), response.category);
+        });
+    }
 
-  goToEditPage(): void {
-    this.router.navigateByUrl('/admin/categories/edit/' + this.id);
-  }
+    goToEditPage(): void {
+        this.router.navigateByUrl('/admin/categories/edit/' + this.category.id).then();
+    }
 
-  confirmDelete(): void {
-    const modalRef = this.modalService.open(ConfirmDeleteComponent);
-    modalRef.componentInstance.entityId = this.id;
-    modalRef.componentInstance.entityType = EntityType.CATEGORIES;
-    modalRef.componentInstance.returnUrl = '/categories';
+    confirmDelete(): void {
+        const modalRef = this.modalService.open(ConfirmDeleteComponent);
+        modalRef.componentInstance.entityId = this.category.id;
+        modalRef.componentInstance.entityType = EntityType.CATEGORIES;
+        modalRef.componentInstance.returnUrl = '/categories';
 
-    modalRef.result.then((data) => {
-      this.router.navigateByUrl('/admin/categories');
-    }, (reason) => {
-      this.notificationService.error('Modal error.');
-    });
-  }
-
+        modalRef.result.then(() => {
+            this.router.navigateByUrl('/admin/categories').then();
+        }, () => {
+            this.notificationService.error('Modal error.');
+        });
+    }
 }

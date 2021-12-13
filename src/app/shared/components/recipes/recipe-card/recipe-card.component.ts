@@ -1,5 +1,4 @@
-import { Router } from '@angular/router';
-import { Recipe } from './../../../dtos/recipes/recipe';
+import { Recipe } from '../../../../core/dtos/recipes/recipe';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -12,7 +11,7 @@ export class RecipeCardComponent implements OnInit {
 
   imageLoading: boolean;
 
-  constructor(private router: Router) {
+  constructor() {
     this.imageLoading = true;
   }
 

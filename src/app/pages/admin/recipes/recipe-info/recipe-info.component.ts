@@ -1,10 +1,11 @@
-import { NotificationsService } from './../../../../shared/services/notifications/notifications.service';
+import { NotificationsService } from '../../../../core/services/notifications/notifications.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmDeleteComponent } from 'app/shared/components/common/confirm-delete/confirm-delete.component';
-import { EntityType } from 'app/shared/constants/entity-type';
-import { CommonService } from 'app/shared/services/common/common.service';
+import { EntityType } from 'app/core/constants/entity-type';
+import { CommonService } from 'app/core/services/common/common.service';
+import {Recipe} from '../../../../core/dtos/recipes/recipe';
 
 @Component({
   selector: 'app-recipe-info',
@@ -12,9 +13,9 @@ import { CommonService } from 'app/shared/services/common/common.service';
   styleUrls: ['./recipe-info.component.scss']
 })
 export class RecipeInfoComponent implements OnInit {
-  id: string;
   returnUrl = '/admin/recipes';
-  loadingData: boolean;
+
+  recipe: Recipe;
 
   constructor(
     private commonService: CommonService,
@@ -23,17 +24,21 @@ export class RecipeInfoComponent implements OnInit {
     private router: Router,
     private modalService: NgbModal
   ) {
-    this.loadingData = true;
     this.setPageSettings();
   }
 
   ngOnInit() {
-    this.getRecipe();
+    this.listenToResolver();
   }
 
-  getRecipe(): void {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.loadingData = false;
+  /**
+   * Listen to resolver
+   * actions.
+   */
+  listenToResolver(): void {
+    this.activatedRoute.data.subscribe((response: any) => {
+      this.recipe = Object.assign(new Recipe(), response.recipe);
+    });
   }
 
   setPageSettings(): void {
@@ -43,23 +48,19 @@ export class RecipeInfoComponent implements OnInit {
     );
   }
 
-  goBackToList(): void {
-    this.router.navigateByUrl(this.returnUrl);
-  }
-
   goToEditPage(): void {
-    this.router.navigateByUrl('/admin/recipes/edit/' + this.id);
+    this.router.navigateByUrl('/admin/recipes/edit/' + this.recipe.id).then();
   }
 
   confirmDelete(): void {
     const modalRef = this.modalService.open(ConfirmDeleteComponent);
-    modalRef.componentInstance.entityId = this.id;
+    modalRef.componentInstance.entityId = this.recipe.id;
     modalRef.componentInstance.entityType = EntityType.RECIPES;
     modalRef.componentInstance.returnUrl = '/admin/recipes';
 
-    modalRef.result.then((data) => {
-      this.router.navigateByUrl('/admin/recipes');
-    }, (reason) => {
+    modalRef.result.then(() => {
+      this.router.navigateByUrl('/admin/recipes').then();
+    }, () => {
       this.notificationService.error('Modal error.');
     });
   }

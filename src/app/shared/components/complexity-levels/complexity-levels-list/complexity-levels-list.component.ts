@@ -1,12 +1,12 @@
-import { NotificationsService } from './../../../services/notifications/notifications.service';
+import { NotificationsService } from '../../../../core/services/notifications/notifications.service';
 import { Router } from '@angular/router';
-import { CommonService } from './../../../services/common/common.service';
-import { ComplexityLevelsService } from './../../../services/complexity-levels/complexity-levels.service';
+import { CommonService } from '../../../../core/services/common/common.service';
+import { ComplexityLevelsService } from '../../../../core/services/complexity-levels/complexity-levels.service';
 import { Component, OnInit } from '@angular/core';
-import { ComplexityLevel } from 'app/shared/dtos/complexity-levels/complexity-level';
+import { ComplexityLevel } from 'app/core/dtos/complexity-levels/complexity-level';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmDeleteComponent } from '../../common/confirm-delete/confirm-delete.component';
-import { EntityType } from 'app/shared/constants/entity-type';
+import { EntityType } from 'app/core/constants/entity-type';
 import { Table } from 'primeng/table';
 
 @Component({
@@ -48,7 +48,7 @@ export class ComplexityLevelsListComponent implements OnInit {
         this.complexityLevels = response.map(x => Object.assign(new ComplexityLevel(), x));
         this.loadingData = false;
       },
-      (error) => {
+      () => {
         this.notificationService.error('Error getting complexity levels.');
       }
     );
@@ -60,9 +60,9 @@ export class ComplexityLevelsListComponent implements OnInit {
     modalRef.componentInstance.entityType = EntityType.COMPLEXITY_LEVELS;
     modalRef.componentInstance.returnUrl = '/admin/complexity-levels';
 
-    modalRef.result.then((data) => {
+    modalRef.result.then(() => {
       this.getComplexityLevels();
-    }, (reason) => {
+    }, () => {
       this.notificationService.error('Not good.');
     });
   }

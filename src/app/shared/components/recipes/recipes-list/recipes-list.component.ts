@@ -1,12 +1,12 @@
-import { NotificationsService } from './../../../services/notifications/notifications.service';
+import { NotificationsService } from '../../../../core/services/notifications/notifications.service';
 import { Router } from '@angular/router';
-import { RecipesService } from './../../../services/recipes/recipes.service';
-import { CommonService } from 'app/shared/services/common/common.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Recipe } from 'app/shared/dtos/recipes/recipe';
+import { RecipesService } from '../../../../core/services/recipes/recipes.service';
+import { CommonService } from 'app/core/services/common/common.service';
+import { Component, OnInit } from '@angular/core';
+import { Recipe } from 'app/core/dtos/recipes/recipe';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmDeleteComponent } from '../../common/confirm-delete/confirm-delete.component';
-import { EntityType } from 'app/shared/constants/entity-type';
+import { EntityType } from 'app/core/constants/entity-type';
 import { Table } from 'primeng/table';
 
 @Component({
@@ -46,7 +46,7 @@ export class RecipesListComponent implements OnInit {
         this.recipes = response.map((x) => Object.assign(new Recipe(), x));
         this.loadingData = false;
       },
-      (error) => {
+      () => {
         this.notificationService.error('Error getting recipes.');
       }
     );

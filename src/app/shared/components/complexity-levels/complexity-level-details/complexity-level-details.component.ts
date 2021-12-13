@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ComplexityLevel } from 'app/shared/dtos/complexity-levels/complexity-level';
-import { ComplexityLevelsService } from 'app/shared/services/complexity-levels/complexity-levels.service';
+import { ComplexityLevel } from 'app/core/dtos/complexity-levels/complexity-level';
 
 @Component({
   selector: 'app-complexity-level-details',
@@ -10,26 +8,9 @@ import { ComplexityLevelsService } from 'app/shared/services/complexity-levels/c
 })
 export class ComplexityLevelDetailsComponent implements OnInit {
   @Input() id: string;
+  @Input() complexityLevel: ComplexityLevel;
 
-  complexityLevel: ComplexityLevel;
-  loadingData: boolean;
+  constructor() {}
 
-  constructor(
-    private service: ComplexityLevelsService
-  ) {
-    this.loadingData = true;
-  }
-
-  ngOnInit() {
-    this.getComplexityLevel();
-  }
-
-  getComplexityLevel() {
-    this.service
-      .getComplexityLevel(this.id)
-      .subscribe((response: ComplexityLevel) => {
-        this.complexityLevel = Object.assign(new ComplexityLevel(), response);
-        this.loadingData = false;
-      });
-  }
+  ngOnInit() {}
 }

@@ -3,13 +3,13 @@
     <nav aria-label="breadcrumb" role="navigation">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a [routerLink]="['/admin/categories']">List</a></li>
-        <li class="breadcrumb-item"><a [routerLink]="['/admin/categories/info' +  id]">Details</a></li>
+        <li class="breadcrumb-item"><a [routerLink]="['/admin/categories/info' +  category.id]">Details</a></li>
         <li class="breadcrumb-item active" aria-current="page">Edit</li>
       </ol>
     </nav>
     <div class="row">
       <div class="col-md-12">
-        <app-edit-category-form [id]="id" [returnUrl]="returnUrl"></app-edit-category-form>
+        <app-edit-category-form [category]="category"></app-edit-category-form>
       </div>
     </div>
   </div>

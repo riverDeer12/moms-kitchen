@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Category } from 'app/shared/dtos/categories/category';
-import { CategoryFilterRequest } from 'app/shared/dtos/categories/category-filter-request';
-import { PostCategoryRequest } from 'app/shared/dtos/categories/post-category-request';
-import { UpdateCategoryRequest } from 'app/shared/dtos/categories/update-category-request';
+import { Category } from 'app/core/dtos/categories/category';
+import { CategoryFilterRequest } from 'app/core/dtos/categories/category-filter-request';
+import { PostCategoryRequest } from 'app/core/dtos/categories/post-category-request';
+import { UpdateCategoryRequest } from 'app/core/dtos/categories/update-category-request';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 

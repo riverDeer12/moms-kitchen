@@ -1,6 +1,6 @@
-import { RecipesService } from './../../../services/recipes/recipes.service';
-import { CategoriesService } from './../../../services/categories/categories.service';
-import { Category } from './../../../dtos/categories/category';
+import { RecipesService } from '../../../../core/services/recipes/recipes.service';
+import { CategoriesService } from '../../../../core/services/categories/categories.service';
+import { Category } from '../../../../core/dtos/categories/category';
 import { Component, Input, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { FormGroup } from '@angular/forms';

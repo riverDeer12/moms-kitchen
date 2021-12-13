@@ -1,7 +1,7 @@
 import { fadeInAnimation } from 'app/shared/animations/page.animation';
-import { Component, Input, OnInit, HostBinding } from '@angular/core';
-import { Recipe } from 'app/shared/dtos/recipes/recipe';
-import { RecipesService } from 'app/shared/services/recipes/recipes.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Recipe } from 'app/core/dtos/recipes/recipe';
+import { RecipesService } from 'app/core/services/recipes/recipes.service';
 
 @Component({
   selector: 'app-recipe-public-details',

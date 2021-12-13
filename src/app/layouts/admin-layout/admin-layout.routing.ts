@@ -1,9 +1,9 @@
-import { UsersComponent } from './../../pages/admin/users/users.component';
-import { CategoryInfoComponent } from './../../pages/admin/categories/category-info/category-info.component';
-import { EditComplexityLevelComponent } from './../../pages/admin/complexity-levels/edit-complexity-level/edit-complexity-level.component';
-import { CreateComplexityLevelComponent } from './../../pages/admin/complexity-levels/create-complexity-level/create-complexity-level.component';
-import { ComplexityLevelsListComponent } from './../../shared/components/complexity-levels/complexity-levels-list/complexity-levels-list.component';
-import { ComplexityLevelsComponent } from './../../pages/admin/complexity-levels/complexity-levels.component';
+import { UsersComponent } from '../../pages/admin/users/users.component';
+import { CategoryInfoComponent } from '../../pages/admin/categories/category-info/category-info.component';
+import { EditComplexityLevelComponent } from '../../pages/admin/complexity-levels/edit-complexity-level/edit-complexity-level.component';
+import { CreateComplexityLevelComponent } from '../../pages/admin/complexity-levels/create-complexity-level/create-complexity-level.component';
+import { ComplexityLevelsListComponent } from '../../shared/components/complexity-levels/complexity-levels-list/complexity-levels-list.component';
+import { ComplexityLevelsComponent } from '../../pages/admin/complexity-levels/complexity-levels.component';
 import { Routes } from '@angular/router';
 import { DashboardComponent } from '../../pages/admin/dashboard/dashboard.component';
 import { RecipesComponent } from 'app/pages/admin/recipes/recipes.component';

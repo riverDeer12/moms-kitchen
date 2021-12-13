@@ -28,7 +28,7 @@ export class AdminInterceptor implements HttpInterceptor {
 
       return next.handle(clonedRequest).pipe(
         tap(
-          (success) => {},
+          () => {},
           (error) => {
             if (error.status === 401) {
               this.authService.logOut();

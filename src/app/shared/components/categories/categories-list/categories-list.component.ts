@@ -1,14 +1,15 @@
-import { NotificationsService } from '../../../../core/services/notifications/notifications.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Category } from '../../../../core/dtos/categories/category';
-import { CategoriesService } from '../../../../core/services/categories/categories.service';
+import { Category } from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/categories/category';
 import { Component, OnInit } from '@angular/core';
-import { CommonService } from 'app/core/services/common/common.service';
 import { Router } from '@angular/router';
 import { EntityType } from 'app/core/constants/entity-type';
 import { ConfirmDeleteComponent } from '../../common/confirm-delete/confirm-delete.component';
 import { Table } from 'primeng/table';
 import { fadeInAnimation } from 'app/shared/animations/page.animation';
+import {CategoriesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/categories/categories.service';
+import {NotificationsService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/notifications/notifications.service';
+import {CommonService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/common/common.service';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-categories-list',
@@ -43,7 +44,7 @@ export class CategoriesListComponent implements OnInit {
   }
 
   getCategories(): void {
-    this.categoriesService.getCategories().subscribe(
+    this.categoriesService.getCategories(environment.apiUrl).subscribe(
       (response: Category[]) => {
         this.categories = response.map(x => Object.assign(new Category(), x));
         this.loadingData = false;

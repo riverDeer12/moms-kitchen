@@ -1,7 +1,7 @@
-import {CommonService} from 'app/core/services/common/common.service';
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Recipe} from '../../../../core/dtos/recipes/recipe';
+import {Recipe} from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/recipes/recipe';
+import {CommonService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/common/common.service';
 
 @Component({
     selector: 'app-edit-recipe',

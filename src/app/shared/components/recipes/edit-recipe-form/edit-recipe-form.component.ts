@@ -1,7 +1,5 @@
-import {NotificationsService} from '../../../../core/services/notifications/notifications.service';
 import {EditorConfig} from '../../../../settings/editor-settings';
 import {Router} from '@angular/router';
-import {RecipesService} from '../../../../core/services/recipes/recipes.service';
 import {Component, Input, OnInit} from '@angular/core';
 import {
     FormGroup,
@@ -9,7 +7,10 @@ import {
     FormControl,
     Validators,
 } from '@angular/forms';
-import {Recipe} from 'app/core/dtos/recipes/recipe';
+import {RecipesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/recipes/recipes.service';
+import {NotificationsService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/notifications/notifications.service';
+import {environment} from '../../../../../environments/environment';
+import {Recipe} from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/recipes/recipe';
 
 @Component({
     selector: 'app-edit-recipe-form',
@@ -54,7 +55,7 @@ export class EditRecipeFormComponent implements OnInit {
             return;
         }
 
-        this.recipesService.updateRecipe(this.recipe.id, this.editForm.value).subscribe(
+        this.recipesService.updateRecipe(environment.apiUrl, this.recipe.id, this.editForm.value).subscribe(
             (response: Recipe) => {
                 this.response = response as Recipe;
                 this.router.navigateByUrl('/admin/recipes');

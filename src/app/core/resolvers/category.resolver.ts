@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
-import {Category} from '../dtos/categories/category';
-import {CategoriesService} from '../services/categories/categories.service';
+import {Category} from '../../../../projects/moms-kitchen-common/src/lib/dtos/categories/category';
 import {Observable} from 'rxjs';
+import {CategoriesService} from '../../../../projects/moms-kitchen-common/src/lib/services/categories/categories.service';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -22,6 +23,6 @@ export class CategoryResolver implements Resolve<Category> {
             return;
         }
 
-        return this.categoriesService.getCategory(routeId);
+        return this.categoriesService.getCategory(environment.apiUrl, routeId);
     }
 }

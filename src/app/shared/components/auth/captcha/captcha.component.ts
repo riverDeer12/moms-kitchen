@@ -1,4 +1,3 @@
-import { CommonService } from 'app/core/services/common/common.service';
 import { FormGroup } from '@angular/forms';
 import { environment } from 'environments/environment';
 import {
@@ -9,6 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ReCaptcha2Component } from 'ngx-captcha';
+import {CommonService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/common/common.service';
 
 @Component({
   selector: 'app-captcha',

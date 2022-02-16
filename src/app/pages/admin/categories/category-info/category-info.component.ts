@@ -1,11 +1,11 @@
-import {NotificationsService} from '../../../../core/services/notifications/notifications.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ConfirmDeleteComponent} from 'app/shared/components/common/confirm-delete/confirm-delete.component';
-import {CommonService} from 'app/core/services/common/common.service';
 import {EntityType} from 'app/core/constants/entity-type';
-import {Category} from '../../../../core/dtos/categories/category';
+import {Category} from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/categories/category';
+import {CommonService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/common/common.service';
+import {NotificationsService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/notifications/notifications.service';
 
 @Component({
     selector: 'app-category-info',

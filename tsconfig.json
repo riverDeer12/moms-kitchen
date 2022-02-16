@@ -18,6 +18,12 @@
       "es2016",
       "dom"
     ],
-    "module": "esnext"
+    "module": "esnext",
+    "paths": {
+      "moms-kitchen-common": [
+        "dist/moms-kitchen-common/moms-kitchen-common",
+        "dist/moms-kitchen-common"
+      ]
+    }
   }
 }

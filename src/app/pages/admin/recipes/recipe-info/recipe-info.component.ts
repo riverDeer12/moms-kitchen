@@ -1,11 +1,11 @@
-import { NotificationsService } from '../../../../core/services/notifications/notifications.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmDeleteComponent } from 'app/shared/components/common/confirm-delete/confirm-delete.component';
 import { EntityType } from 'app/core/constants/entity-type';
-import { CommonService } from 'app/core/services/common/common.service';
-import {Recipe} from '../../../../core/dtos/recipes/recipe';
+import {Recipe} from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/recipes/recipe';
+import {NotificationsService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/notifications/notifications.service';
+import {CommonService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/common/common.service';
 
 @Component({
   selector: 'app-recipe-info',

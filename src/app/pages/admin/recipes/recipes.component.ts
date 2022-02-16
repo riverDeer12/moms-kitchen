@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { fadeInAnimation } from 'app/shared/animations/page.animation';
-import { CommonService } from 'app/core/services/common/common.service';
+import {CommonService} from '../../../../../projects/moms-kitchen-common/src/lib/services/common/common.service';
 
 @Component({
   selector: 'app-recipes',

@@ -3,8 +3,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 import {ConfirmDeleteComponent} from 'app/shared/components/common/confirm-delete/confirm-delete.component';
 import {EntityType} from 'app/core/constants/entity-type';
-import {CommonService} from 'app/core/services/common/common.service';
-import {ComplexityLevel} from '../../../../core/dtos/complexity-levels/complexity-level';
+import {ComplexityLevel} from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/complexity-levels/complexity-level';
+import {CommonService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/common/common.service';
 
 @Component({
     selector: 'app-complexity-level-info',

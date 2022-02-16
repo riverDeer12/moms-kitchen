@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
-import {ComplexityLevelsService} from '../services/complexity-levels/complexity-levels.service';
-import {ComplexityLevel} from '../dtos/complexity-levels/complexity-level';
+import {ComplexityLevel} from '../../../../projects/moms-kitchen-common/src/lib/dtos/complexity-levels/complexity-level';
+import {ComplexityLevelsService} from '../../../../projects/moms-kitchen-common/src/lib/services/complexity-levels/complexity-levels.service';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -22,6 +23,6 @@ export class ComplexityLevelResolver implements Resolve<ComplexityLevel> {
             return;
         }
 
-        return this.complexityLevelsService.getComplexityLevel(routeId);
+        return this.complexityLevelsService.getComplexityLevel(environment.apiUrl, routeId);
     }
 }

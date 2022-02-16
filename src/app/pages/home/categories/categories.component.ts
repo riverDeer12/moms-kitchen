@@ -1,9 +1,10 @@
-import { NotificationsService } from '../../../core/services/notifications/notifications.service';
-import { CategoriesService } from '../../../core/services/categories/categories.service';
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'app/core/dtos/categories/category';
 import { fadeInAnimation } from 'app/shared/animations/page.animation';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import {NotificationsService} from '../../../../../projects/moms-kitchen-common/src/lib/services/notifications/notifications.service';
+import {CategoriesService} from '../../../../../projects/moms-kitchen-common/src/lib/services/categories/categories.service';
+import {environment} from '../../../../environments/environment';
+import {Category} from '../../../../../projects/moms-kitchen-common/src/lib/dtos/categories/category';
 
 @Component({
   selector: 'app-categories',
@@ -32,7 +33,7 @@ export class CategoriesComponent implements OnInit {
 
   getCategories(): void {
     this.categoriesService
-      .getActiveCategories()
+      .getActiveCategories(environment.apiUrl)
       .subscribe((response: Category[]) => {
         this.categories = response.map((x) => Object.assign(new Category(), x));
         this.loadingData = false;
@@ -52,7 +53,7 @@ export class CategoriesComponent implements OnInit {
       return;
     }
 
-    this.categoriesService.filterCategories(this.filterForm.value).subscribe(
+    this.categoriesService.filterCategories(environment.apiUrl, this.filterForm.value).subscribe(
       (response: Category[]) => {
         this.categories = response.map((x) => Object.assign(new Category(), x));
         this.loadingData = false;

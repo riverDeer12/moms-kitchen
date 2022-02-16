@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Recipe} from '../dtos/recipes/recipe';
+import {Recipe} from '../../../../projects/moms-kitchen-common/src/lib/dtos/recipes/recipe';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
-import {RecipesService} from '../services/recipes/recipes.service';
+import {RecipesService} from '../../../../projects/moms-kitchen-common/src/lib/services/recipes/recipes.service';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -22,6 +23,6 @@ export class RecipeResolver implements Resolve<Recipe> {
             return;
         }
 
-        return this.recipesService.getRecipe(routeId);
+        return this.recipesService.getRecipe(environment.apiUrl, routeId);
     }
 }

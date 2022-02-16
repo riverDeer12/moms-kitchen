@@ -1,9 +1,10 @@
-import { RecipesService } from '../../../../core/services/recipes/recipes.service';
-import { CategoriesService } from '../../../../core/services/categories/categories.service';
-import { Category } from '../../../../core/dtos/categories/category';
+import { Category } from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/categories/category';
 import { Component, Input, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { FormGroup } from '@angular/forms';
+import {CategoriesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/categories/categories.service';
+import {RecipesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/recipes/recipes.service';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-categories-selector',
@@ -32,7 +33,7 @@ export class CategoriesSelectorComponent implements OnInit {
 
   getActiveCategories(): void {
     this.categoriesService
-      .getActiveCategories()
+      .getActiveCategories(environment.apiUrl)
       .subscribe((response: Category[]) => {
         this.categories = response.map((x) => Object.assign(new Category(), x));
         this.getRecipeCategories();
@@ -46,7 +47,7 @@ export class CategoriesSelectorComponent implements OnInit {
     }
 
     this.recipesService
-      .getRecipeCategories(this.recipeId)
+      .getRecipeCategories(environment.apiUrl, this.recipeId)
       .subscribe((response: Category[]) => {
         const categoryIds = response.map((x) => x.id);
         this.parentForm.get('categoryIds').setValue(categoryIds);

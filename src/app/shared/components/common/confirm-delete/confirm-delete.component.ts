@@ -1,10 +1,11 @@
-import { CategoriesService } from '../../../../core/services/categories/categories.service';
-import { RecipesService } from '../../../../core/services/recipes/recipes.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { EntityType } from 'app/core/constants/entity-type';
-import { ComplexityLevelsService } from 'app/core/services/complexity-levels/complexity-levels.service';
 import { Router } from '@angular/router';
+import {ComplexityLevelsService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/complexity-levels/complexity-levels.service';
+import {CategoriesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/categories/categories.service';
+import {RecipesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/recipes/recipes.service';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-confirm-delete',
@@ -47,20 +48,20 @@ export class ConfirmDeleteComponent implements OnInit {
   }
 
   deleteRecipe(): void {
-    this.recipesService.deleteRecipe(this.entityId).subscribe(() => {
+    this.recipesService.deleteRecipe(environment.apiUrl, this.entityId).subscribe(() => {
       this.activeModal.close();
     });
   }
 
   deleteCategory(): void {
-    this.categoriesService.deleteCategory(this.entityId).subscribe(() => {
+    this.categoriesService.deleteCategory(environment.apiUrl, this.entityId).subscribe(() => {
       this.activeModal.close();
     });
   }
 
   deleteComplexityLevel(): void {
     this.complexityService
-      .deleteComplexityLevel(this.entityId)
+      .deleteComplexityLevel(environment.apiUrl, this.entityId)
       .subscribe(() => {
         this.activeModal.close();
       });

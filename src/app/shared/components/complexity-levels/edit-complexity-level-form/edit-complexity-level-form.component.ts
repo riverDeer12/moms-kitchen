@@ -1,6 +1,5 @@
-import {NotificationsService} from '../../../../core/services/notifications/notifications.service';
 import {EditorConfig} from '../../../../settings/editor-settings';
-import {ComplexityLevel} from '../../../../core/dtos/complexity-levels/complexity-level';
+import {ComplexityLevel} from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/complexity-levels/complexity-level';
 import {Component, Input, OnInit} from '@angular/core';
 import {
     FormGroup,
@@ -9,7 +8,9 @@ import {
     Validators,
 } from '@angular/forms';
 import {Router} from '@angular/router';
-import {ComplexityLevelsService} from 'app/core/services/complexity-levels/complexity-levels.service';
+import {ComplexityLevelsService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/complexity-levels/complexity-levels.service';
+import {NotificationsService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/notifications/notifications.service';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
     selector: 'app-edit-complexity-level-form',
@@ -60,7 +61,7 @@ export class EditComplexityLevelFormComponent implements OnInit {
         }
 
         this.complexityLevelsService
-            .updateComplexityLevel(this.complexityLevel.id, this.editForm.value)
+            .updateComplexityLevel(environment.apiUrl, this.complexityLevel.id, this.editForm.value)
             .subscribe(
                 (response: ComplexityLevel) => {
                     this.updateResponse = response as ComplexityLevel;

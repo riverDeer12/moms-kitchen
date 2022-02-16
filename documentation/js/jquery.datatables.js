@@ -9389,8 +9389,8 @@
 	DataTable.settings = [];
 
 	/**
-	 * Object models container, for the various models that DataTables has
-	 * available to it. These models define the objects that are used to hold
+	 * Object dtos container, for the various dtos that DataTables has
+	 * available to it. These dtos define the objects that are used to hold
 	 * the active state and configuration of the table.
 	 *  @namespace
 	 */

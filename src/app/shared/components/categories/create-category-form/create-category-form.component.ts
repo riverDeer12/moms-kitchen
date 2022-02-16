@@ -1,8 +1,6 @@
-import { NotificationsService } from '../../../../core/services/notifications/notifications.service';
 import { EditorConfig } from '../../../../settings/editor-settings';
-import { Category } from '../../../../core/dtos/categories/category';
+import { Category } from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/categories/category';
 import { Router } from '@angular/router';
-import { CategoriesService } from '../../../../core/services/categories/categories.service';
 import { Component, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -10,6 +8,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import {NotificationsService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/notifications/notifications.service';
+import {CategoriesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/categories/categories.service';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-create-category-form',
@@ -50,7 +51,7 @@ export class CreateCategoryFormComponent implements OnInit {
       this.notificationsService.error('Form is not valid!');
       return;
     }
-    this.categoriesService.createCategory(this.createForm.value).subscribe(
+    this.categoriesService.createCategory(environment.apiUrl, this.createForm.value).subscribe(
       (response: Category) => {
         this.creationResponse = response as Category;
         this.router.navigateByUrl(this.returnUrl);

@@ -1,7 +1,4 @@
-import {NotificationsService} from '../../../../core/services/notifications/notifications.service';
 import {EditorConfig} from '../../../../settings/editor-settings';
-import {CategoriesService} from 'app/core/services/categories/categories.service';
-import {Category} from 'app/core/dtos/categories/category';
 import {Component, Input, OnInit} from '@angular/core';
 import {
     FormGroup,
@@ -10,6 +7,10 @@ import {
     Validators,
 } from '@angular/forms';
 import {Router} from '@angular/router';
+import {CategoriesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/categories/categories.service';
+import {NotificationsService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/notifications/notifications.service';
+import {environment} from '../../../../../environments/environment';
+import {Category} from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/categories/category';
 
 @Component({
     selector: 'app-edit-category-form',
@@ -51,7 +52,7 @@ export class EditCategoryFormComponent implements OnInit {
             this.notificationsService.error('Form is not valid!');
             return;
         }
-        this.categoriesService.updateCategory(this.category.id, this.editForm.value).subscribe(
+        this.categoriesService.updateCategory(environment.apiUrl, this.category.id, this.editForm.value).subscribe(
             (response: Category) => {
                 this.updateResponse = response as Category;
                 this.router.navigateByUrl('/admin/categories').then();

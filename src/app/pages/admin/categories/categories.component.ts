@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { fadeInAnimation } from 'app/shared/animations/page.animation';
-import {CommonService} from '../../../../../projects/moms-kitchen-common/src/lib/services/common/common.service';
+import { CommonService } from 'moms-kitchen-common';
 
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css'],
-  animations: [fadeInAnimation]
+  animations: [fadeInAnimation],
 })
 export class CategoriesComponent implements OnInit {
   title: string;
@@ -19,10 +19,9 @@ export class CategoriesComponent implements OnInit {
   ngOnInit(): void {}
 
   getPageSettings(): void {
-    this.commonService.getPageSettings().subscribe(data => {
+    this.commonService.getPageSettings().subscribe((data) => {
       this.title = data.title;
       this.subtitle = data.subtitle;
     });
   }
-
 }

@@ -1,5 +1,4 @@
 import { EditorConfig } from '../../../../settings/editor-settings';
-import { Category } from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/categories/category';
 import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import {
@@ -8,9 +7,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import {NotificationsService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/notifications/notifications.service';
-import {CategoriesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/categories/categories.service';
-import {environment} from '../../../../../environments/environment';
+import { environment } from '../../../../../environments/environment';
+import { Category, CategoriesService } from 'moms-kitchen-common';
 
 @Component({
   selector: 'app-create-category-form',
@@ -28,7 +26,6 @@ export class CreateCategoryFormComponent implements OnInit {
 
   constructor(
     private categoriesService: CategoriesService,
-    private notificationsService: NotificationsService,
     private formBuilder: FormBuilder,
     private router: Router
   ) {
@@ -48,18 +45,16 @@ export class CreateCategoryFormComponent implements OnInit {
 
   submit(): void {
     if (!this.createForm.valid) {
-      this.notificationsService.error('Form is not valid!');
       return;
     }
-    this.categoriesService.createCategory(environment.apiUrl, this.createForm.value).subscribe(
-      (response: Category) => {
-        this.creationResponse = response as Category;
-        this.router.navigateByUrl(this.returnUrl);
-        this.notificationsService.success('Successfully created Category.');
-      },
-      (error: string) => {
-        this.notificationsService.error(error);
-      }
-    );
+    this.categoriesService
+      .createCategory(environment.apiUrl, this.createForm.value)
+      .subscribe(
+        (response: Category) => {
+          this.creationResponse = response as Category;
+          this.router.navigateByUrl(this.returnUrl);
+        },
+        (error: string) => {}
+      );
   }
 }

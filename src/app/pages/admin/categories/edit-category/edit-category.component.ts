@@ -1,7 +1,6 @@
 import {ActivatedRoute} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
-import {Category} from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/categories/category';
-import {CommonService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/common/common.service';
+import {CommonService, Category} from 'moms-kitchen-common/';
 
 @Component({
     selector: 'app-edit-category',

@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Recipe} from '../../../../projects/moms-kitchen-common/src/lib/dtos/recipes/recipe';
+import {Recipe, RecipesService} from 'moms-kitchen-common';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
-import {RecipesService} from '../../../../projects/moms-kitchen-common/src/lib/services/recipes/recipes.service';
 import {environment} from '../../../environments/environment';
 
 @Injectable({

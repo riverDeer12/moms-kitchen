@@ -1,10 +1,12 @@
-import { Category } from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/categories/category';
 import { Component, Input, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { FormGroup } from '@angular/forms';
-import {CategoriesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/categories/categories.service';
-import {RecipesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/recipes/recipes.service';
-import {environment} from '../../../../../environments/environment';
+import { environment } from '../../../../../environments/environment';
+import {
+  CategoriesService,
+  Category,
+  RecipesService,
+} from 'moms-kitchen-common';
 
 @Component({
   selector: 'app-categories-selector',

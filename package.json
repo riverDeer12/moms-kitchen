@@ -39,6 +39,7 @@
     "jquery": "3.5.1",
     "jwt-decode": "^3.1.2",
     "moment": "2.29.1",
+    "moms-kitchen-common": "0.0.5",
     "ng-multiselect-dropdown": "^0.3.4",
     "ng2-google-recaptcha": "^5.0.0",
     "ngx-captcha": "^9.0.1",

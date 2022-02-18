@@ -3,14 +3,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmDeleteComponent } from 'app/shared/components/common/confirm-delete/confirm-delete.component';
 import { EntityType } from 'app/core/constants/entity-type';
-import {Recipe} from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/recipes/recipe';
-import {NotificationsService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/notifications/notifications.service';
-import {CommonService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/common/common.service';
+import { CommonService, Recipe } from 'moms-kitchen-common';
 
 @Component({
   selector: 'app-recipe-info',
   templateUrl: './recipe-info.component.html',
-  styleUrls: ['./recipe-info.component.scss']
+  styleUrls: ['./recipe-info.component.scss'],
 })
 export class RecipeInfoComponent implements OnInit {
   returnUrl = '/admin/recipes';
@@ -19,7 +17,6 @@ export class RecipeInfoComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
-    private notificationService: NotificationsService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private modalService: NgbModal
@@ -58,11 +55,12 @@ export class RecipeInfoComponent implements OnInit {
     modalRef.componentInstance.entityType = EntityType.RECIPES;
     modalRef.componentInstance.returnUrl = '/admin/recipes';
 
-    modalRef.result.then(() => {
-      this.router.navigateByUrl('/admin/recipes').then();
-    }, () => {
-      this.notificationService.error('Modal error.');
-    });
+    modalRef.result.then(
+      () => {
+        this.router.navigateByUrl('/admin/recipes').then();
+      },
+      () => {
+      }
+    );
   }
-
 }

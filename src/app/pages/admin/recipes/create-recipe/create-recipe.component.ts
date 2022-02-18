@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import {CommonService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/common/common.service';
+import {CommonService} from 'moms-kitchen-common';
 
 @Component({
   selector: 'app-create-recipe',

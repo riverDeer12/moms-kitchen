@@ -4,11 +4,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ConfirmDeleteComponent} from '../../common/confirm-delete/confirm-delete.component';
 import {EntityType} from 'app/core/constants/entity-type';
 import {Table} from 'primeng/table';
-import {RecipesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/recipes/recipes.service';
-import {CommonService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/common/common.service';
-import {NotificationsService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/notifications/notifications.service';
 import {environment} from '../../../../../environments/environment';
-import {Recipe} from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/recipes/recipe';
+import {RecipesService, Recipe, CommonService} from 'moms-kitchen-common';
 
 @Component({
     selector: 'app-recipes-list',
@@ -21,7 +18,6 @@ export class RecipesListComponent implements OnInit {
 
     constructor(
         private commonService: CommonService,
-        private notificationService: NotificationsService,
         private recipesService: RecipesService,
         private router: Router,
         private modalService: NgbModal
@@ -48,7 +44,6 @@ export class RecipesListComponent implements OnInit {
                 this.loadingData = false;
             },
             () => {
-                this.notificationService.error('Error getting recipes.');
             }
         );
     }

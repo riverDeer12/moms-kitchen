@@ -8,7 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ReCaptcha2Component } from 'ngx-captcha';
-import {CommonService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/common/common.service';
+import { CommonService } from 'moms-kitchen-common';
 
 @Component({
   selector: 'app-captcha',
@@ -42,7 +42,6 @@ export class CaptchaComponent implements OnInit {
       }
     });
   }
-
 
   handleReset(): void {
     this.captchaSuccess = false;

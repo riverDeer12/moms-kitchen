@@ -7,10 +7,8 @@ import {
     FormControl,
     Validators,
 } from '@angular/forms';
-import {RecipesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/recipes/recipes.service';
-import {NotificationsService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/notifications/notifications.service';
+import {RecipesService, Recipe} from 'moms-kitchen-common';
 import {environment} from '../../../../../environments/environment';
-import {Recipe} from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/recipes/recipe';
 
 @Component({
     selector: 'app-edit-recipe-form',
@@ -26,7 +24,6 @@ export class EditRecipeFormComponent implements OnInit {
 
     constructor(
         private recipesService: RecipesService,
-        private notificationsService: NotificationsService,
         private fb: FormBuilder,
         private router: Router
     ) {
@@ -51,7 +48,6 @@ export class EditRecipeFormComponent implements OnInit {
 
     submit(): void {
         if (!this.editForm.valid) {
-            this.notificationsService.error('Form is not valid!');
             return;
         }
 
@@ -59,10 +55,8 @@ export class EditRecipeFormComponent implements OnInit {
             (response: Recipe) => {
                 this.response = response as Recipe;
                 this.router.navigateByUrl('/admin/recipes');
-                this.notificationsService.success('Successfully updated Recipe.');
             },
             (error: string) => {
-                this.notificationsService.error(error);
             }
         );
     }

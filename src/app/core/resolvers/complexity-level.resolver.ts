@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
-import {ComplexityLevel} from '../../../../projects/moms-kitchen-common/src/lib/dtos/complexity-levels/complexity-level';
-import {ComplexityLevelsService} from '../../../../projects/moms-kitchen-common/src/lib/services/complexity-levels/complexity-levels.service';
+import {ComplexityLevel, ComplexityLevelsService} from 'moms-kitchen-common';
 import {environment} from '../../../environments/environment';
 
 @Injectable({

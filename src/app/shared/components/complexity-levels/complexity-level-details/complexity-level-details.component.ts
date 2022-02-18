@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ComplexityLevel} from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/complexity-levels/complexity-level';
+import {ComplexityLevel} from 'moms-kitchen-common';
 
 @Component({
     selector: 'app-complexity-level-details',

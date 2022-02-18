@@ -1,10 +1,10 @@
-import { Recipe } from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/recipes/recipe';
 import { Component, Input, OnInit } from '@angular/core';
+import { Recipe } from 'moms-kitchen-common';
 
 @Component({
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.component.html',
-  styleUrls: ['./recipe-details.component.scss']
+  styleUrls: ['./recipe-details.component.scss'],
 })
 export class RecipeDetailsComponent implements OnInit {
   @Input() recipe: Recipe;
@@ -12,5 +12,4 @@ export class RecipeDetailsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-
 }

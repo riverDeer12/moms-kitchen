@@ -7,10 +7,8 @@ import {
     FormControl,
     Validators,
 } from '@angular/forms';
-import {NotificationsService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/notifications/notifications.service';
-import {RecipesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/recipes/recipes.service';
+import {RecipesService, Recipe} from 'moms-kitchen-common';
 import {environment} from '../../../../../environments/environment';
-import {Recipe} from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/recipes/recipe';
 
 @Component({
     selector: 'app-create-recipe-form',
@@ -29,7 +27,6 @@ export class CreateRecipeFormComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private recipesService: RecipesService,
-        private notificationsService: NotificationsService,
         private router: Router
     ) {
         this.loadingData = true;
@@ -52,7 +49,6 @@ export class CreateRecipeFormComponent implements OnInit {
 
     submit(): void {
         if (!this.createForm.valid) {
-            this.notificationsService.error('Form is not valid.');
             return;
         }
 
@@ -60,10 +56,8 @@ export class CreateRecipeFormComponent implements OnInit {
             (response: Recipe) => {
                 this.createdRecipe = response as Recipe;
                 this.router.navigateByUrl(this.returnUrl);
-                this.notificationsService.success('Successfully created Recipe.');
             },
             (error: string) => {
-                this.notificationsService.error(error);
             }
         );
     }

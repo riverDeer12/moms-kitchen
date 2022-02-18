@@ -1,4 +1,4 @@
-import { Recipe } from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/recipes/recipe';
+import { Recipe } from 'moms-kitchen-common';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

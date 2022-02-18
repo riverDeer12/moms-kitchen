@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
-import {Category} from '../../../../projects/moms-kitchen-common/src/lib/dtos/categories/category';
+import {Category, CategoriesService} from 'moms-kitchen-common';
 import {Observable} from 'rxjs';
-import {CategoriesService} from '../../../../projects/moms-kitchen-common/src/lib/services/categories/categories.service';
 import {environment} from '../../../environments/environment';
 
 @Injectable({

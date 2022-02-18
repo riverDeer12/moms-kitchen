@@ -1,21 +1,22 @@
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Category } from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/categories/category';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EntityType } from 'app/core/constants/entity-type';
 import { ConfirmDeleteComponent } from '../../common/confirm-delete/confirm-delete.component';
 import { Table } from 'primeng/table';
 import { fadeInAnimation } from 'app/shared/animations/page.animation';
-import {CategoriesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/categories/categories.service';
-import {NotificationsService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/notifications/notifications.service';
-import {CommonService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/common/common.service';
-import {environment} from '../../../../../environments/environment';
+import { environment } from '../../../../../environments/environment';
+import {
+  CommonService,
+  CategoriesService,
+  Category,
+} from 'moms-kitchen-common';
 
 @Component({
   selector: 'app-categories-list',
   templateUrl: './categories-list.component.html',
   styleUrls: ['./categories-list.component.scss'],
-  animations: [fadeInAnimation]
+  animations: [fadeInAnimation],
 })
 export class CategoriesListComponent implements OnInit {
   categories: Category[];
@@ -23,7 +24,6 @@ export class CategoriesListComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
-    private notificationService: NotificationsService,
     private categoriesService: CategoriesService,
     private router: Router,
     private modalService: NgbModal
@@ -46,12 +46,10 @@ export class CategoriesListComponent implements OnInit {
   getCategories(): void {
     this.categoriesService.getCategories(environment.apiUrl).subscribe(
       (response: Category[]) => {
-        this.categories = response.map(x => Object.assign(new Category(), x));
+        this.categories = response.map((x) => Object.assign(new Category(), x));
         this.loadingData = false;
       },
-      () => {
-        this.notificationService.error('Error on getting categories');
-      }
+      () => {}
     );
   }
 

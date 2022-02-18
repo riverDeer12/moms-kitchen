@@ -1,8 +1,7 @@
-import {Category} from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/categories/category';
 import {Component, Input, OnInit} from '@angular/core';
 import {fadeInAnimation} from 'app/shared/animations/page.animation';
-import {CategoriesService} from '../../../../../../projects/moms-kitchen-common/src/lib/services/categories/categories.service';
 import {environment} from '../../../../../environments/environment';
+import {Category, CategoriesService} from 'moms-kitchen-common';
 
 @Component({
     selector: 'app-category-public-details',

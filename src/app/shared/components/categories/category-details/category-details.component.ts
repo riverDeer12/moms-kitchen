@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {Category} from '../../../../../../projects/moms-kitchen-common/src/lib/dtos/categories/category';
+import {Category} from 'moms-kitchen-common';
 
 @Component({
   selector: 'app-category-details',

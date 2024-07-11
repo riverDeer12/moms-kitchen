@@ -1,17 +1,20 @@
 <div class="card">
+
+  <p-button label="Create new user" icon="pi pi-plus" (click)="openCreateForm()"/>
+
   <p-table [value]="users">
     <ng-template pTemplate="header">
       <tr>
-        <th>First name</th>
-        <th>Last name</th>
+        <th>Id</th>
         <th>Username</th>
+        <th>Email</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-user>
       <tr>
-        <td>{{ user.firstname }}</td>
-        <td>{{ user.lastname }}</td>
+        <td>{{ user.id }}</td>
         <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
       </tr>
     </ng-template>
   </p-table>

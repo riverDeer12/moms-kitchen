@@ -1,6 +1,6 @@
 <div class="card">
 
-  <p-button label="Create new user" icon="pi pi-plus" (click)="openCreateForm()"/>
+  <button pButton (click)="openCreateForm()">Create new user</button>
 
   <p-table [value]="users">
     <ng-template pTemplate="header">
@@ -8,6 +8,7 @@
         <th>Id</th>
         <th>Username</th>
         <th>Email</th>
+        <th></th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-user>
@@ -15,7 +16,12 @@
         <td>{{ user.id }}</td>
         <td>{{ user.username }}</td>
         <td>{{ user.email }}</td>
+        <td>
+          <button pButton (click)="openUpdateForm(user)">Update</button>
+        </td>
       </tr>
     </ng-template>
   </p-table>
 </div>
+
+<p-toast/>

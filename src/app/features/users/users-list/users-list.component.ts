@@ -9,6 +9,8 @@ import {DialogService} from "primeng/dynamicdialog";
 import {DialogFormComponent} from "../../shared/dialog-form/dialog-form.component";
 import {EntityType} from "../../shared/enums/entity-type";
 import {FormType} from "../../shared/enums/form-type";
+import {ToastModule} from "primeng/toast";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'users-list',
@@ -17,10 +19,12 @@ import {FormType} from "../../shared/enums/form-type";
     CommonModule,
     TableModule,
     ButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastModule
   ],
   providers: [
-    DialogService
+    DialogService,
+    MessageService
   ],
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.css'
@@ -40,12 +44,23 @@ export class UsersListComponent {
     });
   }
 
-  openCreateForm() {
+  openCreateForm(): void {
     this.dialogService.open(DialogFormComponent, {
       header: 'Create new user',
-      data : {
+      data: {
         entityType: EntityType.User,
         formType: FormType.Create
+      }
+    })
+  }
+
+  openUpdateForm(user: User): void {
+    this.dialogService.open(DialogFormComponent, {
+      header: `Update user: ${user.username}`,
+      data: {
+        entityType: EntityType.User,
+        formType: FormType.Update,
+        data: user
       }
     })
   }

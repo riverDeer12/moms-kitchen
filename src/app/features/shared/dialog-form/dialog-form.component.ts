@@ -19,7 +19,7 @@ export class DialogFormComponent {
     return EntityType;
   }
 
-  constructor(private dialogRef: DynamicDialogRef,
+  constructor(public dialogRef: DynamicDialogRef,
               public dialogConfig: DynamicDialogConfig) {
   }
 }

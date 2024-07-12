@@ -5,7 +5,10 @@ import {PublicMenuComponent} from "./public-menu/public-menu.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-    imports: [RouterOutlet, PublicMenuComponent],
+  imports: [
+    RouterOutlet,
+    PublicMenuComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -1,6 +1,35 @@
-<form [formGroup]="form" (submit)="submit()">
+<div class="p-fluid">
+  <form [formGroup]="form" (submit)="submit()">
+    <div class="p-field">
+      <label for="username">Username</label>
+      <input id="username" type="text" pInputText formControlName="username" />
+    </div>
 
+    <div class="p-field">
+      <label for="email">Email</label>
+      <input id="email" type="email" pInputText formControlName="email" />
+    </div>
 
+    <div class="p-field" *ngIf="type === formType.Create">
+      <label for="password">Password</label>
+      <p-password appendTo="body" id="password" formControlName="password">
+        <ng-template pTemplate="header">
+          <h6>Pick a password</h6>
+        </ng-template>
+        <ng-template pTemplate="footer">
+          <p-divider />
+          <p class="mt-2">Suggestions</p>
+          <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+            <li>At least one lowercase</li>
+            <li>At least one uppercase</li>
+            <li>At least one numeric</li>
+            <li>Minimum 8 characters</li>
+          </ul>
+        </ng-template>
+      </p-password>
+    </div>
 
+    <button pButton type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+</div>
 
-</form>

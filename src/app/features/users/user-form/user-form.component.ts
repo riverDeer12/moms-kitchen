@@ -7,6 +7,11 @@ import {ButtonModule} from "primeng/button";
 import {MessageService} from "primeng/api";
 import {UsersService} from "../services/users.service";
 import {DynamicDialogRef} from "primeng/dynamicdialog";
+import {InputTextModule} from "primeng/inputtext";
+import {PasswordModule} from "primeng/password";
+import {DividerModule} from "primeng/divider";
+import {MessagesModule} from "primeng/messages";
+import {ToastModule} from "primeng/toast";
 
 @Component({
   selector: 'user-form',
@@ -14,7 +19,12 @@ import {DynamicDialogRef} from "primeng/dynamicdialog";
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ButtonModule
+    ButtonModule,
+    InputTextModule,
+    PasswordModule,
+    DividerModule,
+    MessagesModule,
+    ToastModule
   ],
   providers: [
     MessageService
@@ -28,6 +38,10 @@ export class UserFormComponent {
   @Input() dialogRef!: DynamicDialogRef;
 
   form!: FormGroup;
+
+  public get formType(): typeof FormType{
+    return FormType;
+  }
 
   constructor(private formBuilder: FormBuilder,
               private userService: UsersService,

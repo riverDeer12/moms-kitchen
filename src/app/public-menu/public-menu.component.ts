@@ -37,13 +37,8 @@ export class PublicMenuComponent implements OnInit {
       },
       {
         label: 'Users',
-        icon: 'pi pi-star',
+        icon: 'pi pi-user',
         route: 'users'
-      },
-      {
-        label: 'Contact',
-        icon: 'pi pi-envelope',
-        badge: '3'
       }
     ];
   }

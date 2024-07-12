@@ -3,7 +3,7 @@
     <a [routerLink]="item.route"
        pRipple
        class="flex align-items-center p-menuitem-link">
-      <span [class]="item.icon"></span>
+      <i style="margin-right: 10px;" [class]="item.icon"></i>
       <span class="ml-2">{{ item.label }}</span>
       <span *ngIf="item.shortcut" class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">
         {{ item.shortcut }}</span>
